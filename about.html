@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>About Us | Dhanvarsh Supreme Solutions</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#00C48C",
+        secondary: "#1f2937",
+      },
+      borderRadius: {
+        none: "0px",
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "20px",
+        "2xl": "24px",
+        "3xl": "32px",
+        full: "9999px",
+        button: "8px",
+      },
+    },
+  },
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+
+/* Responsive Design - Mobile and Tablet Breakpoints */
+@media (max-width: 768px) {
+.container { padding-left: 1rem; padding-right: 1rem; max-width: 100%; }
+h1 { font-size: 2.5rem !important; }
+h2 { font-size: 2rem !important; }
+h3 { font-size: 1.5rem !important; }
+.text-4xl { font-size: 2rem !important; }
+.text-3xl { font-size: 1.75rem !important; }
+.text-2xl { font-size: 1.5rem !important; }
+.py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+.mt-20 { margin-top: 3rem !important; }
+.gap-12 { gap: 2rem !important; }
+.gap-16 { gap: 2rem !important; }
+.px-8 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+.py-8 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+}
+/* Small Screen Breakpoint */
+@media (max-width: 640px) {
+h1 { font-size: 2rem !important; }
+h2 { font-size: 1.75rem !important; }
+h3 { font-size: 1.25rem !important; }
+.text-4xl { font-size: 1.75rem !important; }
+.text-3xl { font-size: 1.5rem !important; }
+.text-2xl { font-size: 1.25rem !important; }
+.py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+.mt-20 { margin-top: 2rem !important; }
+}
+/* Animation Styles */
+/* Mobile Menu Animations - Controls slide-in/out and fade effects */
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+@keyframes slideInRight {
+from { transform: translateX(100%); }
+to { transform: translateX(0); }
+}
+@keyframes slideOutRight {
+from { transform: translateX(0); }
+to { transform: translateX(100%); }
+}
+.mobile-menu-open {
+animation: slideInRight 0.3s forwards;
+}
+.mobile-menu-close {
+animation: slideOutRight 0.3s forwards;
+}
+.fade-in {
+animation: fadeIn 0.3s forwards;
+}
+/* Mobile-specific Animations and Transitions */
+@media (max-width: 768px) {
+.mobile-fade-in {
+opacity: 0;
+animation: fadeIn 0.5s forwards;
+}
+.mobile-slide-in {
+opacity: 0;
+transform: translateY(20px);
+animation: mobileSlideIn 0.5s forwards;
+}
+@keyframes mobileSlideIn {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.staggered-item:nth-child(1) { animation-delay: 0.1s; }
+.staggered-item:nth-child(2) { animation-delay: 0.2s; }
+.staggered-item:nth-child(3) { animation-delay: 0.3s; }
+.staggered-item:nth-child(4) { animation-delay: 0.4s; }
+.staggered-item:nth-child(5) { animation-delay: 0.5s; }
+.staggered-item:nth-child(6) { animation-delay: 0.6s; }
+.staggered-item:nth-child(7) { animation-delay: 0.7s; }
+}
+/* Base Layout and Responsive Container Styles */
+html {
+scroll-behavior: smooth;
+}
+body {
+min-width: 320px;
+overflow-x: hidden;
+}
+img {
+max-width: 100%;
+height: auto;
+}
+.container {
+width: 100%;
+max-width: 1280px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* Slide Styles */
+.slide {
+transition: transform 0.8s ease-in-out;
+}
+.slide-content {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.slide.active .slide-content {
+opacity: 1;
+transform: translateY(0);
+}
+.slide-image {
+clip-path: inset(0 100% 0 0);
+transition: clip-path 1.2s ease;
+}
+.slide.active .slide-image {
+clip-path: inset(0 0 0 0);
+}
+.slide-indicator {
+transition: background-color 0.3s ease;
+}
+.about-paragraph {
+line-height: 1.8;
+}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+
+<!-- Header Section - Fixed navigation bar with logo and menu -->
+<header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 border-b">
+<!-- Main Navigation -->
+<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+<!-- Logo and Brand Name -->
+<div class="flex items-center gap-4">
+<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-14">
+<div class="flex flex-col items-center">
+<span class="font-['Montserrat'] text-primary font-bold text-2xl tracking-wide">DHANVARSH</span>
+<span class="font-['Poppins'] text-[#0A2647] text-sm font-medium tracking-wider">SUPREME SOLUTIONS</span>
+</div>
+</div>
+<!-- Desktop Navigation Menu - Hidden on mobile, visible on medium screens and up -->
+<div class="hidden md:flex flex-row items-center gap-8">
+<a href="Dhanvarsh Main website Landing.html" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up" style="animation-delay: 0.1s">Home</a>
+<a href="about.html" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">About Us</a>
+<div class="relative group">
+<a href="#" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">Services</a>
+<div class="absolute top-full left-0 mt-2 w-80 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Strategic Talent Acquisition (Temporary/permanent staffing)</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Background Verification</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Payroll Management</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">HR Compliance Implementation & Audit</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Turnkey Recruitment (Bulk Hiring)</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Interim Management (Lateral Hiring)</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">AI Agent Implementation</a>
+</div>
+</div>
+<div class="relative group">
+<a href="#" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">Tools</a>
+<div class="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block">
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Professional Resume Maker</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">PDF Editor</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">File Converter</a>
+</div>
+</div>
+<a href="#contact-section" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-primary/90 transition-all hover:shadow-lg hover:scale-105 whitespace-nowrap cursor-pointer">Contact Us</a>
+</div>
+<!-- Mobile Menu Toggle Button -->
+<button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</nav>
+<!-- Mobile Slide-out Menu - Full screen overlay navigation for mobile devices -->
+<div id="mobileMenu" class="fixed top-0 right-0 w-0 h-full bg-white shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center p-6 border-b">
+<div class="flex items-center gap-2">
+<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-10">
+<span class="font-['Montserrat'] text-primary font-bold text-xl">DHANVARSH</span>
+</div>
+<button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center">
+<i class="ri-close-line text-2xl"></i>
+</button>
+</div>
+<div class="p-6 overflow-y-auto max-h-[calc(100vh-80px)]">
+<div class="space-y-6">
+<a href="Dhanvarsh Main website Landing.html" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors">Home</a>
+<a href="about.html" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors">About Us</a>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-lg font-medium text-gray-800">Services</span>
+<button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
+<i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+</button>
+</div>
+<div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Strategic Talent Acquisition</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Background Verification</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Payroll Management</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">HR Compliance Implementation & Audit</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Turnkey Recruitment (Bulk Hiring)</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Interim Management (Lateral Hiring)</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">AI Agent Implementation</a>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-lg font-medium text-gray-800">Tools</span>
+<button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
+<i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+</button>
+</div>
+<div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Professional Resume Maker</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">PDF Editor</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">File Converter</a>
+</div>
+</div>
+<a href="#contact-section" class="bg-primary text-white px-6 py-3 rounded-button w-full hover:bg-primary/90 transition-all block text-center" id="mobileContactBtn">Contact Us</a>
+</div>
+</div>
+</div>
+<div id="menuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const dropdownToggles = document.querySelectorAll(".mobile-dropdown-toggle");
+  const mobileContactBtn = document.getElementById("mobileContactBtn");
+  // Open mobile menu
+  mobileMenuBtn.addEventListener("click", function () {
+    mobileMenu.style.width = "300px";
+    menuOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    mobileMenu.classList.add("mobile-menu-open");
+    mobileMenu.classList.remove("mobile-menu-close");
+  });
+  // Close mobile menu
+  function closeMenu() {
+    mobileMenu.classList.remove("mobile-menu-open");
+    mobileMenu.classList.add("mobile-menu-close");
+    setTimeout(() => {
+      mobileMenu.style.width = "0";
+      menuOverlay.classList.add("hidden");
+      document.body.style.overflow = "";
+    }, 300);
+  }
+  closeMenuBtn.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+  // Mobile contact button
+  if (mobileContactBtn) {
+    mobileContactBtn.addEventListener("click", function () {
+      closeMenu();
+      setTimeout(() => {
+        document
+          .getElementById("contact-section")
+          .scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    });
+  }
+  // Toggle dropdowns in mobile menu with animation
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", function () {
+      const icon = this.querySelector("i");
+      const content = this.parentElement.nextElementSibling;
+      if (content.classList.contains("hidden")) {
+        content.classList.remove("hidden");
+        content.style.maxHeight = "0";
+        icon.style.transform = "rotate(180deg)";
+        setTimeout(() => {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }, 10);
+      } else {
+        content.style.maxHeight = "0";
+        icon.style.transform = "rotate(0)";
+        setTimeout(() => {
+          content.classList.add("hidden");
+        }, 300);
+      }
+    });
+  });
+});
+</script>
+</header>
+<div class="relative w-full h-[80vh] overflow-hidden mt-24">
+<!-- Slide 1: Content Left, Image Right -->
+<div class="slide absolute inset-0 flex flex-col md:flex-row active" data-index="0">
+<div class="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 bg-white">
+<div class="slide-content max-w-xl">
+<h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">About Us</h1>
+<p class="about-paragraph text-gray-700 text-base mb-3">
+<span class="font-bold font-sans text-primary text-2xl">At Dhanvarsh Supreme Solutions</span>, We empower businesses with innovative HR strategies and advanced AI integrations, driving digital transformation and streamlining operations. By leveraging cutting-edge technology and tailored talent solutions, we help organizations thrive in today's competitive landscape.
+</p>
+
+<p class="about-paragraph text-gray-700 text-base mb-3">
+We create strategic partnerships aligning technical requirements with company culture, earning trust from established enterprises and high-growth companies alike. What sets us apart is our free HR support for candidates throughout their career journey until successful placement.
+</p>
+
+<p class="about-paragraph text-gray-700 text-base mb-3">
+Our end-to-end HR solutions foster productive workplaces while complementing our technology services for truly holistic business solutions.
+</p>
+
+<p class="about-paragraph text-gray-700 text-base mb-3">
+What began as a specialized recruitment service has evolved into a comprehensive technology solutions provider. Today, we leverage advanced AI technologies to optimize business processes, implement custom IT solutions, and provide strategic consulting that drives measurable results. Our AI integration services help organizations harness machine learning, automation, and analytics to streamline operations and enhance decision-making.
+</p>
+<div class="flex items-center space-x-3 mt-4">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+<i class="ri-user-line ri-lg"></i>
+</div>
+<div>
+<p class="font-semibold text-gray-900">Saurabh Thakur</p>
+<p class="text-gray-600 text-sm">Founder & CEO</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 h-full bg-gray-100 relative overflow-hidden">
+<div class="slide-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20modern%20office%20environment%20with%20diverse%20team%20of%20recruitment%20professionals%20collaborating%2C%20bright%20airy%20workspace%20with%20glass%20walls%2C%20people%20discussing%20at%20a%20meeting%20table%2C%20tech-forward%20atmosphere%20with%20screens%20showing%20data%2C%20plants%20and%20modern%20furniture%2C%20business%20casual%20attire%2C%20natural%20lighting&width=800&height=1000&seq=1&orientation=portrait');"></div>
+<div class="absolute inset-0 bg-primary bg-opacity-20"></div>
+</div>
+</div>
+<!-- Slide 2: Image Left, Content Right -->
+<div class="slide absolute inset-0 flex flex-col md:flex-row" data-index="1">
+<div class="w-full md:w-1/2 h-full bg-gray-100 relative overflow-hidden">
+<div class="slide-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20recruitment%20team%20in%20action%2C%20diverse%20group%20of%20consultants%20with%20headsets%20at%20modern%20workstations%2C%20digital%20screens%20with%20candidate%20profiles%2C%20clean%20contemporary%20office%20space%20with%20brand%20colors%20turquoise%20green%20accents%2C%20glass%20meeting%20rooms%20in%20background%2C%20professional%20business%20setting&width=800&height=1000&seq=2&orientation=portrait');"></div>
+<div class="absolute inset-0 bg-primary bg-opacity-20"></div>
+</div>
+<div class="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 bg-white">
+<div class="slide-content max-w-xl">
+<h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">Our Approach</h1>
+<p class="about-paragraph text-gray-700 text-base mb-6">
+ <span class="font-bold font-sans text-primary text-2xl">At Dhanvarsh,
+
+ <p class="about-paragraph text-gray-700 text-base mb-3">
+    We don’t just recruit - we illuminate potential. By blending data-driven precision with human intuition, we craft connections that elevate careers and transform organizations. Every match is a spark that lights the way to lasting success.</span>
+ </p>
+<p class="about-paragraph text-gray-700 text-base mb-3">
+    Blending data - driven precision with heartfelt human insight, we harmonize talent and ambition. Our experts delve beyond skills, embracing cultural fit, growth visions, and aspirations to craft connections that thrive.
+    
+</p>
+<p class="about-paragraph text-gray-700 text-base mb-3">
+    Specialized recruiters, rooted in key industries, pair cutting - edge AI with expansive networks to uncover hidden potential — where innovation meets intuition. This synergy of technology and trust fuels our 94% placement success and 92% retention rate, a testament to matches built to last.
+
+</p>
+<p class="about-paragraph text-gray-700 text-base mb-3">
+    We don’t just fill roles; we ignite transformations. By aligning purpose with possibility, we shape careers that flourish and organizations that soar. Let’s build tomorrow, one perfect match at a time. ✨
+</p>
+</p>
+<div class="flex space-x-4 mt-6">
+<div class="w-12 h-12 rounded-lg shadow-md flex items-center justify-center bg-gray-50">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-search-line ri-2x"></i>
+</div>
+</div>
+<div class="w-12 h-12 rounded-lg shadow-md flex items-center justify-center bg-gray-50">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-user-search-line ri-2x"></i>
+</div>
+</div>
+<div class="w-12 h-12 rounded-lg shadow-md flex items-center justify-center bg-gray-50">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-team-line ri-2x"></i>
+</div>
+</div>
+<div class="w-12 h-12 rounded-lg shadow-md flex items-center justify-center bg-gray-50">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-shake-hands-line ri-2x"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide 3: Content Left, Image Right -->
+<div class="slide absolute inset-0 flex flex-col md:flex-row" data-index="2">
+<div class="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 bg-white">
+<div class="slide-content max-w-xl">
+<h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900">Our Values</h1>
+<div class="space-y-6 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4 mt-1 flex-shrink-0">
+<i class="ri-shield-check-line ri-lg"></i>
+</div>
+<div>
+<h3 class="font-semibold text-xl text-gray-900 mb-2">Integrity</h3>
+<p class="text-gray-700">We operate with complete transparency and honesty in every interaction, building trust that forms the foundation of lasting relationships.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4 mt-1 flex-shrink-0">
+<i class="ri-lightbulb-line ri-lg"></i>
+</div>
+<div>
+<h3 class="font-semibold text-xl text-gray-900 mb-2">Innovation</h3>
+<p class="text-gray-700">We continuously evolve our methodologies and technologies to stay ahead of industry trends and deliver exceptional results.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4 mt-1 flex-shrink-0">
+<i class="ri-heart-line ri-lg"></i>
+</div>
+<div>
+<h3 class="font-semibold text-xl text-gray-900 mb-2">Human Connection</h3>
+<p class="text-gray-700">We believe in the power of genuine human relationships to create meaningful matches that transform careers and organizations.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 h-full bg-gray-100 relative overflow-hidden">
+<div class="slide-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20recruitment%20office%20with%20diverse%20team%20members%20collaborating%2C%20glass%20meeting%20room%20with%20people%20discussing%2C%20digital%20screens%20showing%20recruitment%20metrics%2C%20sleek%20contemporary%20furniture%20with%20turquoise%20green%20accents%2C%20bright%20airy%20space%20with%20plants%2C%20professional%20yet%20creative%20atmosphere&width=800&height=1000&seq=3&orientation=portrait');"></div>
+<div class="absolute inset-0 bg-primary bg-opacity-20"></div>
+</div>
+</div>
+<!-- Slide Navigation -->
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+<button class="slide-indicator w-3 h-3 rounded-full bg-primary" data-index="0"></button>
+<button class="slide-indicator w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+<button class="slide-indicator w-3 h-3 rounded-full bg-gray-300" data-index="2"></button>
+</div>
+<!-- Slide Controls -->
+<button class="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 z-10 hover:bg-gray-50 transition-colors" id="prev-slide">
+<i class="ri-arrow-left-s-line ri-lg"></i>
+</button>
+<button class="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 z-10 hover:bg-gray-50 transition-colors" id="next-slide">
+<i class="ri-arrow-right-s-line ri-lg"></i>
+</button>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-gray-900 text-white py-16 mt-20">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-4 space-y-6">
+<div class="flex items-center gap-2">
+<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-12">
+<div class="flex flex-col">
+<span class="text-primary font-semibold text-2xl">Dhanvarsh</span>
+<span class="text-gray-400 text-sm -mt-1">Supreme Solutions</span>
+</div>
+</div>
+<p class="text-gray-400">Providing premium HR and recruitment solutions for businesses across India. We connect top talent with leading organizations to drive growth and success.</p>
+<div class="flex gap-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group hover:-translate-y-1 transition-all duration-300">
+<i class="ri-facebook-fill text-gray-400 group-hover:text-primary transition-colors"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group hover:-translate-y-1 transition-all duration-300">
+<i class="ri-twitter-fill text-gray-400 group-hover:text-primary transition-colors"></i>
+</a>
+<a href="https://www.instagram.com/dhanvarshsupremesolutions/?hl=en" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group hover:-translate-y-1 transition-all duration-300">
+<i class="ri-instagram-fill text-gray-400 group-hover:text-primary transition-colors"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group hover:-translate-y-1 transition-all duration-300">
+<i class="ri-linkedin-fill text-gray-400 group-hover:text-primary transition-colors"></i>
+</a>
+</div>
+</div>
+<div class="col-span-2">
+<h3 class="text-lg font-semibold mb-6 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-primary">Quick Links</h3>
+<ul class="space-y-4">
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Services</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Tools</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Our Clientele</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Contact</a></li>
+</ul>
+</div>
+<div class="col-span-3">
+<h3 class="text-lg font-semibold mb-6 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-primary">Services</h3>
+<ul class="space-y-4">
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Strategic Talent Acquisition</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Background Verification</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Payroll Management</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">HR Compliance Implementation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Turnkey Recruitment</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Interim Management</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">AI Agent Implementation</a></li>
+</ul>
+</div>
+<div class="col-span-3">
+<h3 class="text-lg font-semibold mb-6 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-primary">Contact Us</h3>
+<ul class="space-y-4">
+<li class="flex gap-3 group">
+<i class="ri-map-pin-line text-primary mt-1"></i>
+<span class="text-gray-400 group-hover:text-primary transition-colors">F-31, 1st Floor,Haware Centurion Premises, Opp Bharat Petrol Pump,  Near Seawood Darave Railway Station Sector 19A, Nerul East, Navi Mumbai - 400706</span>
+</li>
+<li class="flex gap-3 group">
+<i class="ri-phone-line text-primary mt-1"></i>
+<a href="tel:+919152962655" class="text-gray-400 group-hover:text-primary transition-colors">+91 9152962655</a>
+</li>
+<li class="flex gap-3 group">
+<i class="ri-mail-line text-primary mt-1"></i>
+<a href="mailto:Business@dhanvarshsupremesolutions.com" class="text-gray-400 group-hover:text-primary transition-colors break-all">Business@dhanvarshsupremesolutions.com</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 text-center mt-12">
+<p class="text-gray-400">&copy; 2025 Dhanvarsh Supreme Solutions. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const slides = document.querySelectorAll('.slide');
+const indicators = document.querySelectorAll('.slide-indicator');
+const prevBtn = document.getElementById('prev-slide');
+const nextBtn = document.getElementById('next-slide');
+let currentSlide = 0;
+let autoSlideInterval;
+function showSlide(index) {
+slides.forEach(slide => {
+slide.classList.remove('active');
+slide.style.transform = 'translateX(100%)';
+});
+indicators.forEach(indicator => {
+indicator.classList.remove('bg-primary');
+indicator.classList.add('bg-gray-300');
+});
+slides[index].classList.add('active');
+slides[index].style.transform = 'translateX(0)';
+indicators[index].classList.remove('bg-gray-300');
+indicators[index].classList.add('bg-primary');
+currentSlide = index;
+}
+function nextSlide() {
+let nextIndex = currentSlide + 1;
+if (nextIndex >= slides.length) {
+nextIndex = 0;
+}
+showSlide(nextIndex);
+}
+function prevSlide() {
+let prevIndex = currentSlide - 1;
+if (prevIndex < 0) {
+prevIndex = slides.length - 1;
+}
+showSlide(prevIndex);
+}
+function startAutoSlide() {
+autoSlideInterval = setInterval(nextSlide, 8000);
+}
+function resetAutoSlide() {
+clearInterval(autoSlideInterval);
+startAutoSlide();
+}
+nextBtn.addEventListener('click', () => {
+nextSlide();
+resetAutoSlide();
+});
+prevBtn.addEventListener('click', () => {
+prevSlide();
+resetAutoSlide();
+});
+indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+showSlide(index);
+resetAutoSlide();
+});
+});
+// Initialize
+showSlide(0);
+startAutoSlide();
+// Handle visibility change
+document.addEventListener('visibilitychange', () => {
+if (document.hidden) {
+clearInterval(autoSlideInterval);
+} else {
+startAutoSlide();
+}
+});
+});
+</script>
+</body>
+</html>
