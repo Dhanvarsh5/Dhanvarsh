@@ -10,6 +10,134 @@
 <!-- TailwindCSS Configuration -->
 <script src="https://cdn.tailwindcss.com">
 </script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+
+/* Responsive Design - Mobile and Tablet Breakpoints */
+@media (max-width: 768px) {
+.container { padding-left: 1rem; padding-right: 1rem; max-width: 100%; }
+h1 { font-size: 2.5rem !important; }
+h2 { font-size: 2rem !important; }
+h3 { font-size: 1.5rem !important; }
+.text-4xl { font-size: 2rem !important; }
+.text-3xl { font-size: 1.75rem !important; }
+.text-2xl { font-size: 1.5rem !important; }
+.py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+.mt-20 { margin-top: 3rem !important; }
+.gap-12 { gap: 2rem !important; }
+.gap-16 { gap: 2rem !important; }
+.px-8 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+.py-8 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+}
+/* Small Screen Breakpoint */
+@media (max-width: 640px) {
+h1 { font-size: 2rem !important; }
+h2 { font-size: 1.75rem !important; }
+h3 { font-size: 1.25rem !important; }
+.text-4xl { font-size: 1.75rem !important; }
+.text-3xl { font-size: 1.5rem !important; }
+.text-2xl { font-size: 1.25rem !important; }
+.py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+.mt-20 { margin-top: 2rem !important; }
+}
+/* Animation Styles */
+/* Mobile Menu Animations - Controls slide-in/out and fade effects */
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+@keyframes slideInRight {
+from { transform: translateX(100%); }
+to { transform: translateX(0); }
+}
+@keyframes slideOutRight {
+from { transform: translateX(0); }
+to { transform: translateX(100%); }
+}
+.mobile-menu-open {
+animation: slideInRight 0.3s forwards;
+}
+.mobile-menu-close {
+animation: slideOutRight 0.3s forwards;
+}
+.fade-in {
+animation: fadeIn 0.3s forwards;
+}
+/* Mobile-specific Animations and Transitions */
+@media (max-width: 768px) {
+.mobile-fade-in {
+opacity: 0;
+animation: fadeIn 0.5s forwards;
+}
+.mobile-slide-in {
+opacity: 0;
+transform: translateY(20px);
+animation: mobileSlideIn 0.5s forwards;
+}
+@keyframes mobileSlideIn {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.staggered-item:nth-child(1) { animation-delay: 0.1s; }
+.staggered-item:nth-child(2) { animation-delay: 0.2s; }
+.staggered-item:nth-child(3) { animation-delay: 0.3s; }
+.staggered-item:nth-child(4) { animation-delay: 0.4s; }
+.staggered-item:nth-child(5) { animation-delay: 0.5s; }
+.staggered-item:nth-child(6) { animation-delay: 0.6s; }
+.staggered-item:nth-child(7) { animation-delay: 0.7s; }
+}
+/* Base Layout and Responsive Container Styles */
+html {
+scroll-behavior: smooth;
+}
+body {
+min-width: 320px;
+overflow-x: hidden;
+}
+img {
+max-width: 100%;
+height: auto;
+}
+.container {
+width: 100%;
+max-width: 1280px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* Slide Styles */
+.slide {
+transition: transform 0.8s ease-in-out;
+}
+.slide-content {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.slide.active .slide-content {
+opacity: 1;
+transform: translateY(0);
+}
+.slide-image {
+clip-path: inset(0 100% 0 0);
+transition: clip-path 1.2s ease;
+}
+.slide.active .slide-image {
+clip-path: inset(0 0 0 0);
+}
+.slide-indicator {
+transition: background-color 0.3s ease;
+}
+.about-paragraph {
+line-height: 1.8;
+}
+</style>
 <!-- Custom Tailwind Theme Configuration -->
 <script>
 tailwind.config = {
