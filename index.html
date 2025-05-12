@@ -59,8 +59,14 @@ h3 { font-size: 1.5rem !important; }
 .mt-20 { margin-top: 3rem !important; }
 .gap-12 { gap: 2rem !important; }
 .gap-16 { gap: 2rem !important; }
-.px-8 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-.py-8 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .mobile-center-logo {
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100%;
+  }
+  .mobile-center-logo .flex-col, .mobile-center-logo .flex.flex-col {
+    align-items: center !important;
+  }
 }
 /* Small Screen Breakpoint */
 @media (max-width: 640px) {
@@ -88,42 +94,32 @@ from { transform: translateX(0); }
 to { transform: translateX(100%); }
 }
 .mobile-menu-open {
-animation: slideInRight 0.3s forwards;
+  animation: slideInRight 0.55s cubic-bezier(.77,0,.18,1) forwards;
 }
 .mobile-menu-close {
-animation: slideOutRight 0.3s forwards;
+  animation: slideOutRight 0.45s cubic-bezier(.77,0,.18,1) forwards;
 }
 .fade-in {
 animation: fadeIn 0.3s forwards;
 }
 /* Mobile-specific Animations and Transitions */
 @media (max-width: 768px) {
-.mobile-fade-in {
-opacity: 0;
-animation: fadeIn 0.5s forwards;
+.fade-in-up-mobile {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(.4,2,.6,1), transform 0.6s cubic-bezier(.4,2,.6,1);
 }
-.mobile-slide-in {
-opacity: 0;
-transform: translateY(20px);
-animation: mobileSlideIn 0.5s forwards;
+.fade-in-up-mobile.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-@keyframes mobileSlideIn {
-from {
-opacity: 0;
-transform: translateY(20px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-.staggered-item:nth-child(1) { animation-delay: 0.1s; }
-.staggered-item:nth-child(2) { animation-delay: 0.2s; }
-.staggered-item:nth-child(3) { animation-delay: 0.3s; }
-.staggered-item:nth-child(4) { animation-delay: 0.4s; }
-.staggered-item:nth-child(5) { animation-delay: 0.5s; }
-.staggered-item:nth-child(6) { animation-delay: 0.6s; }
-.staggered-item:nth-child(7) { animation-delay: 0.7s; }
+.staggered-item:nth-child(1) { transition-delay: 0.1s; }
+.staggered-item:nth-child(2) { transition-delay: 0.2s; }
+.staggered-item:nth-child(3) { transition-delay: 0.3s; }
+.staggered-item:nth-child(4) { transition-delay: 0.4s; }
+.staggered-item:nth-child(5) { transition-delay: 0.5s; }
+.staggered-item:nth-child(6) { transition-delay: 0.6s; }
+.staggered-item:nth-child(7) { transition-delay: 0.7s; }
 }
 /* Base Layout and Responsive Container Styles */
 html {
@@ -257,7 +253,7 @@ height: 16px;
 <!-- Main Navigation -->
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
 <!-- Logo and Brand Name -->
-<a href="https://dhanvarshsupremesolutions.com" class="flex items-center gap-4 group" style="text-decoration: none;">
+<a href="https://dhanvarshsupremesolutions.com" class="flex items-center gap-4 group mobile-center-logo" style="text-decoration: none;">
   <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-14 transition-transform group-hover:scale-105">
   <div class="flex flex-col items-center">
     <span class="font-['Montserrat'] text-primary font-bold text-2xl tracking-wide">DHANVARSH</span>
@@ -473,54 +469,131 @@ height: 16px;
 </style>
 </div>
 <!-- Mobile Menu Toggle Button -->
-<button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center">
-<i class="ri-menu-line text-2xl"></i>
+<button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
+  <span class="mobile-hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
 </button>
+<style>
+@media (max-width: 768px) {
+  .mobile-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 51;
+  }
+  .mobile-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2.2px;
+    margin: 2px 0;
+    background: #222;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(.4,2,.6,1);
+  }
+  .mobile-hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .mobile-hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+</style>
 </nav>
 <!-- Mobile Slide-out Menu - Full screen overlay navigation for mobile devices -->
-<div id="mobileMenu" class="fixed top-0 right-0 w-0 h-full bg-white shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-in-out">
-<div class="flex justify-between items-center p-6 border-b">
-<a href="https://dhanvarshsupremesolutions.com" class="flex items-center gap-2 group" style="text-decoration: none;">
-  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-10 transition-transform group-hover:scale-105">
-  <span class="font-['Montserrat'] text-primary font-bold text-xl">DHANVARSH</span>
-</a>
-<button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center">
-<i class="ri-close-line text-2xl"></i>
-</button>
+<div id="mobileMenu" class="fixed top-0 right-0 w-0 h-screen bg-white shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-in-out" style="max-width: 100vw; height: 100vh;">
+<div class="mobile-menu-header flex justify-between items-center p-6 border-b">
+  <div class="mobile-menu-logo-wrapper w-full flex justify-center items-center">
+    <a href="https://dhanvarshsupremesolutions.com" class="mobile-menu-logo-link" style="text-decoration: none;">
+      <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="mobile-menu-logo h-20 mx-auto">
+    </a>
+  </div>
+  <!-- Removed closeMenuBtn for single toggle button UX -->
 </div>
-<div class="p-6 overflow-y-auto max-h-[calc(100vh-80px)]">
-<div class="space-y-6">
-<a href="#" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors">Home</a>
-<a href="#about-section" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors">About Us</a>
+<style>
+@media (max-width: 768px) {
+  .mobile-menu-header {
+    justify-content: center !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .mobile-menu-logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile-menu-logo {
+    height: 80px !important;
+    max-height: 100px;
+    width: auto;
+    display: block;
+  }
+  .mobile-menu-logo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .mobile-menu-header span {
+    display: none !important;
+  }
+}
+</style>
+<div class="p-6 flex-1 overflow-y-auto">
+<div class="space-y-6 mobile-fade-parent" style="display: flex; flex-direction: column;">
+<a href="https://dhanvarshsupremesolutions.com" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors fade-in-up-mobile">Home</a>
+<a href="about.html" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors fade-in-up-mobile">About Us</a>
+<div class="space-y-2">
+  <div class="flex items-center justify-between">
+    <span class="text-lg font-medium text-gray-800 fade-in-up-mobile">Services</span>
+    <button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
+      <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+    </button>
+  </div>
+  <div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
+    <!-- 1. Talent Acquisition & Recruitment Services (with nested dropdown) -->
+    <div class="space-y-2">
+      <div>
+  <a href="https://dhanvarshsupremesolutions.com/strategic-talent-acquisition" class="block text-gray-700 hover:text-primary transition-colors">Talent Acquisition & Recruitment Services</a>
+</div>
+      <div class="mobile-subdropdown-content hidden pl-4 space-y-2 pt-2">
+        <a href="https://dhanvarshsupremesolutions.com/strategic-talent-acquisition" class="block text-gray-700 hover:text-primary transition-colors">Strategic Talent Acquisition</a>
+        <a href="https://dhanvarshsupremesolutions.com/turnkey-recruitment" class="block text-gray-700 hover:text-primary transition-colors">Turnkey Recruitment (Bulk Hiring)</a>
+        <a href="https://dhanvarshsupremesolutions.com/interim-management" class="block text-gray-700 hover:text-primary transition-colors">Interim Management (Lateral Hiring)</a>
+        <a href="https://dhanvarshsupremesolutions.com/background-verification" class="block text-gray-700 hover:text-primary transition-colors">Background Verification</a>
+        <a href="https://dhanvarshsupremesolutions.com/payroll-management" class="block text-gray-700 hover:text-primary transition-colors">Payroll Management</a>
+        <a href="https://dhanvarshsupremesolutions.com/ai-agent-implementation" class="block text-gray-700 hover:text-primary transition-colors">AI Agent Implementation</a>
+      </div>
+    </div>
+    <!-- 2. Web & App Development -->
+    <a href="https://dhanvarshsupremesolutions.com/digital-solutions" class="block text-gray-700 hover:text-primary transition-colors">Web & App Development</a>
+    <!-- 3. Investment & Fund Management -->
+    <a href="https://dhanvarshsupremesolutions.com/investment-services" class="block text-gray-700 hover:text-primary transition-colors">Investment & Fund Management</a>
+  </div>
+</div>
 <div class="space-y-2">
 <div class="flex items-center justify-between">
-<span class="text-lg font-medium text-gray-800">Services</span>
+<span class="text-lg font-medium text-gray-800 fade-in-up-mobile">Tools</span>
 <button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
 <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
 </button>
 </div>
 <div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Strategic Talent Acquisition</a>
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Turnkey Recruitment (Bulk Hiring)</a>
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Interim Management (Lateral Hiring)</a>
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Background Verification</a>
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Payroll Management</a>
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">AI Agent Implementation</a>
+<a href="https://dhanvarshsupremesolutions.com/free-resume-maker" class="block text-gray-700 hover:text-primary transition-colors">Professional Resume Maker</a>
+<a href="https://dhanvarshsupremesolutions.com/free-pdf-editor" class="block text-gray-700 hover:text-primary transition-colors">PDF Editor</a>
 </div>
 </div>
-<div class="space-y-2">
-<div class="flex items-center justify-between">
-<span class="text-lg font-medium text-gray-800">Tools</span>
-<button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
-<i class="ri-arrow-down-s-line transition-transform duration-300"></i>
-</button>
-</div>
-<div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Professional Resume Maker</a>
-<a href="#" class="block text-gray-700 hover:text-primary transition-colors">PDF Editor</a>
-</div>
-</div>
-<a href="#contact-section" class="bg-primary text-white px-6 py-3 rounded-button w-full hover:bg-primary/90 transition-all block text-center" id="mobileContactBtn">Contact Us</a>
+<a href="https://dhanvarshsupremesolutions.com/contact" class="live-animated-contact bg-primary text-white px-6 py-2 rounded-button transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 fade-in-up-mobile block text-center w-full" id="mobileContactBtn"><span class="relative z-20">Contact Us</span></a>
 </div>
 </div>
 </div>
@@ -528,19 +601,44 @@ height: 16px;
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-  const closeMenuBtn = document.getElementById("closeMenuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const menuOverlay = document.getElementById("menuOverlay");
   const dropdownToggles = document.querySelectorAll(".mobile-dropdown-toggle");
   const mobileContactBtn = document.getElementById("mobileContactBtn");
   // Open mobile menu
   mobileMenuBtn.addEventListener("click", function () {
-    mobileMenu.style.width = "300px";
-    menuOverlay.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-    mobileMenu.classList.add("mobile-menu-open");
-    mobileMenu.classList.remove("mobile-menu-close");
-  });
+    const isOpen = mobileMenu.classList.contains("mobile-menu-open");
+    const fadeLinks = mobileMenu.querySelectorAll('.fade-in-up-mobile, .text-lg.font-medium.text-gray-800.fade-in-up-mobile');
+    if (!isOpen) {
+      mobileMenu.style.width = "100vw";
+      menuOverlay.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      mobileMenu.classList.add("mobile-menu-open");
+      mobileMenu.classList.remove("mobile-menu-close");
+      document.querySelector('.mobile-hamburger').classList.add('active');
+      // Animate links in after menu is fully open
+      setTimeout(() => {
+        fadeLinks.forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, 90 * i);
+        });
+      }, 300);
+    } else {
+      mobileMenu.classList.remove("mobile-menu-open");
+      mobileMenu.classList.add("mobile-menu-close");
+      // Animate links out
+      fadeLinks.forEach((el) => {
+        el.classList.remove('visible');
+      });
+      setTimeout(() => {
+        mobileMenu.style.width = "0";
+        menuOverlay.classList.add("hidden");
+        document.body.style.overflow = "";
+      }, 300);
+      document.querySelector('.mobile-hamburger').classList.remove('active');
+    }
+});
   // Close mobile menu
   function closeMenu() {
     mobileMenu.classList.remove("mobile-menu-open");
@@ -551,8 +649,16 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.overflow = "";
     }, 300);
   }
-  closeMenuBtn.addEventListener("click", closeMenu);
-  menuOverlay.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", function() {
+    mobileMenu.classList.remove("mobile-menu-open");
+    mobileMenu.classList.add("mobile-menu-close");
+    setTimeout(() => {
+      mobileMenu.style.width = "0";
+      menuOverlay.classList.add("hidden");
+      document.body.style.overflow = "";
+    }, 300);
+    document.querySelector('.mobile-hamburger').classList.remove('active');
+  });
   // Mobile contact button
   if (mobileContactBtn) {
     mobileContactBtn.addEventListener("click", function () {
@@ -615,9 +721,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 </header>
-///////////////////////////////////////////////////////////////////////
+<!-- /////////////////////////////////////////////////////////////////////// -->
 <!-- End of Header Section -->
-///////////////////////////////////////////////////////////////////////
+<!-- /////////////////////////////////////////////////////////////////////// -->
 <!-- Main Content Area -->
 <main class="pt-20">
 <!-- Hero Section - Main landing area with animated text and image slider -->
