@@ -1,11 +1,107 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- Document Head - Contains meta tags, title, styles and scripts -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Dhanvarsh Supreme Solutions - Premier HR Solutions</title>
+<title>Dhanvarsh Supreme Solutions - Premier Solutions</title>
+
+<style>
+  .brutalist-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 180px;
+    height: 60px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border: 3px solid #fff;
+    outline: 3px solid #000;
+    box-shadow: 6px 6px 0 #10B981;
+    transition: all 0.1s ease-out;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brutalist-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+    z-index: 1;
+    transition: none;
+    opacity: 0;
+  }
+
+  @keyframes slide {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  .brutalist-button:hover::before {
+    opacity: 1;
+    animation: slide 2s infinite;
+  }
+
+  .brutalist-button:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #000;
+    background-color: #000;
+    color: #fff;
+  }
+
+  .brutalist-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0 #10B981;
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+  }
+
+  .button-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    transition: transform 0.2s ease-out;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .brutalist-button:hover .button-text {
+    transform: skew(-5deg);
+  }
+
+  .brutalist-button:active .button-text {
+    transform: skew(5deg);
+  }
+
+  .button-text span:first-child {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .button-text span:last-child {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+</style>
 
 <!-- TailwindCSS Configuration -->
 <script src="https://cdn.tailwindcss.com">
@@ -215,10 +311,10 @@ animation: slideInRight 0.5s ease-out forwards;
 /* Image Slider Animations */
 @keyframes slideUp {
 from { transform: translateY(0); }
-to { transform: translateY(calc(-50% - 16px)); }
+to { transform: translateY(-50%); }
 }
 @keyframes slideDown {
-from { transform: translateY(calc(-50% - 16px)); }
+from { transform: translateY(-50%); }
 to { transform: translateY(0); }
 }
 .slide-up {
@@ -724,47 +820,65 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- /////////////////////////////////////////////////////////////////////// -->
 <!-- End of Header Section -->
 <!-- /////////////////////////////////////////////////////////////////////// -->
+
 <!-- Main Content Area -->
 <main class="pt-20">
 <!-- Hero Section - Main landing area with animated text and image slider -->
-<section class="container mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[80vh] items-center">
+<section class="relative overflow-hidden">
+  <!-- Dot Pattern Background -->
+  <div id="dotPattern" class="absolute inset-0 pointer-events-none opacity-70" style="background-image: radial-gradient(circle, rgb(212 212 212) 1px, transparent 1px); background-size: 16px 16px;"></div>
+  <div class="container mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[80vh] items-center relative z-20">
 <!-- Hero Left Column - Text Content -->
-<div class="flex flex-col justify-center reveal">
+<div class="flex flex-col reveal self-start -mt-2 md:-mt-4">
 <!-- Tag Line with Animation -->
-<span class="border-2 border-primary/30 bg-primary/10 text-primary px-4 py-1 rounded-full text-sm inline-block w-fit scale-in" style="animation-delay: 0.3s">Premier HR Solutions</span>
-<h1 class="text-6xl font-bold mt-6 text-emerald-500 reveal reveal-delay-1">DHANVARSH</h1>
-<h2 class="text-3xl text-[#000080] mt-2 reveal reveal-delay-2">SUPREME SOLUTIONS</h2>
+<span class="border-2 border-primary/30 bg-primary/10 text-primary px-4 py-1 rounded-full text-sm inline-block w-fit scale-in" style="animation-delay: 0.6s">Dhanvarsh Supreme Solutions</span>
+<h1 class="text-6xl md:text-7xl font-extrabold mt-6 text-emerald-600 reveal reveal-delay-1 leading-tight">
+  Empowering Your Business Growth
+</h1>
+<h2 class="text-3xl md:text-4xl text-[#0A2647] mt-4 reveal reveal-delay-2 tracking-wide">
+ By offering expert solutions in
+</h2>
 <h3 class="text-4xl font-semibold text-gray-800 mt-8 typewriter font-['Poppins'] reveal reveal-delay-3" id="typingText"></h3>
 <!-- Typewriter Effect Styles -->
 <style>
 @keyframes blink {
-0%, 100% { border-right-color: transparent; }
-50% { border-right-color: #00C48C; }
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 .typewriter {
-overflow: hidden;
-border-right: 2px solid #00C48C;
-white-space: nowrap;
-animation: blink 0.75s step-end infinite;
-min-height: 60px;
-line-height: 1.2;
-letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
 }
-.typewriter.typing {
-animation: blink 0.75s step-end infinite;
+.typewriter-text {
+  display: inline-block;
+  position: relative;
+  padding-right: 2px;
 }
-.typewriter.deleting {
-animation: blink 0.75s step-end infinite;
+.typewriter-text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 1.2em;
+  background-color: #00C48C;
+  animation: blink 0.75s step-end infinite;
+  display: inline-block;
 }
 </style>
 <!-- Typewriter Animation Script -->
 <script>
 const phrases = [
-  "Transforming HR Processes",
-  "Connecting Top Talent",
-  "Building Better Workplaces",
-  "Inspiring Growth!!",
-  "Shaping Future, Delivering Impact",
+  "Strategic Talent Acquisition",
+  "End-to-End Recruitment Solutions",
+  "Sourcing High-Performing Talent",
+  "Crafting Websites & Apps That Excel",
+  "UI/UX Design Excellence",
+  "Personalized Web & App Development",
+  "Strategic Investment Planning",
+  "Maximizing Investment Returns",
+  "Future-Focused Portfolio Management"
 ];
 class TypeWriter {
   constructor(element, phrases) {
@@ -773,27 +887,38 @@ class TypeWriter {
     this.currentPhrase = 0;
     this.text = "";
     this.isDeleting = false;
+    // Wrap the text in a span for the cursor
+    this.element.innerHTML = '<span class="typewriter-text"></span>';
+    this.textElement = this.element.querySelector('.typewriter-text');
     this.tick();
   }
   tick() {
     const phrase = this.phrases[this.currentPhrase];
-    const typingSpeed = this.isDeleting ? 50 : 100;
-    const pauseTime = this.isDeleting ? 50 : this.text.length === 0 ? 500 : 100;
+    const typingSpeed = this.isDeleting ? 30 : 60; // Slightly faster typing speed
+    const pauseTime = this.isDeleting ? 30 : this.text.length === 0 ? 500 : 100;
+    
     if (this.isDeleting) {
       this.text = phrase.substring(0, this.text.length - 1);
     } else {
       this.text = phrase.substring(0, this.text.length + 1);
     }
-    this.element.textContent = this.text;
+    
+    this.textElement.textContent = this.text;
+    
     if (!this.isDeleting && this.text === phrase) {
-      this.isDeleting = true;
-      setTimeout(() => this.tick(), 2000);
+      // Pause at the end of typing before starting to delete
+      setTimeout(() => {
+        this.isDeleting = true;
+        this.tick();
+      }, 2000);
     } else if (this.isDeleting && this.text === "") {
+      // Move to next phrase after deleting
       this.isDeleting = false;
-      this.currentPhrase = (this.currentPhrase + 1) % this.phrases.length;
+this.currentPhrase = (this.currentPhrase + 1) % this.phrases.length;
       setTimeout(() => this.tick(), 500);
     } else {
-      setTimeout(() => this.tick(), typingSpeed);
+      // Continue typing or deleting
+      setTimeout(() => this.tick(), this.isDeleting ? typingSpeed : typingSpeed);
     }
   }
 }
@@ -803,24 +928,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <p class="text-gray-600 mt-6 text-lg leading-relaxed reveal reveal-delay-4">
-Elevate your business with our comprehensive HR and recruitment solutions. We connect employers with top talent and help job seekers find their perfect career opportunities.
+  Launching ideas with innovative solutions that drive real results.<br>
+  Partner with us to transform your vision into reality.
 </p>
-<div class="relative reveal reveal-delay-5">
-<button id="getStartedBtn" class="bg-primary text-white px-8 py-3 rounded-button mt-8 text-lg hover:bg-primary/90 transition-all duration-300 w-fit hover:shadow-lg hover:scale-105 active:scale-95">
-Get Started <i class="ri-arrow-right-line ml-2"></i>
+<div class="relative reveal-delay-5 mt-10">
+<button id="getStartedBtn" class="brutalist-button">
+  <div class="button-text">
+    <span>Get Started</span>
+  </div>
 </button>
 <div id="optionsMenu" class="hidden absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-10">
-<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">As Employer</a>
-<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">As Job Seeker</a>
+  <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">As Employer</a>
+  <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">As Job Seeker</a>
 </div>
 </div>
 </div>
 <!-- Hero Right Column - Image Slider -->
-<div class="relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-50/50 h-full">
+<div class="relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-50/50 h-[750px] -mt-20 pt-2 z-10">
 <!-- Two Column Image Grid with Sliding Animation -->
 <div class="grid grid-cols-2 gap-4 h-full">
 <div class="slider-container">
-<div class="slider-track slide-up">
+<div class="slider-track slide-up mt-32">
 <img src="https://public.readdy.ai/ai/img_res/1156ab6f1e49b8bece3cfd3f22ff21a2.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
 <img src="https://public.readdy.ai/ai/img_res/878ed40677031c9c30b7f866bc7440e5.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
 <img src="https://public.readdy.ai/ai/img_res/aff249a4cfbed48deaa470031eb1dd15.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
@@ -829,7 +957,7 @@ Get Started <i class="ri-arrow-right-line ml-2"></i>
 </div>
 </div>
 <div class="slider-container">
-<div class="slider-track slide-down">
+<div class="slider-track slide-down mt-32">
 <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
 <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
 <img src="https://public.readdy.ai/ai/img_res/286584fe8ff7309a398c839f4b09ebad.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
@@ -839,7 +967,58 @@ Get Started <i class="ri-arrow-right-line ml-2"></i>
 </div>
 </div>
 </div>
+  </div>
 </section>
+
+<!-- Dot Pattern Animation Script -->
+<script>
+// Dot pattern animation
+function initDotPattern() {
+  const dotPattern = document.getElementById('dotPattern');
+  const heroSection = dotPattern.closest('section');
+  
+  if (!dotPattern || !heroSection) return;
+
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    dotPattern.style.webkitMaskImage = `
+      radial-gradient(
+        200px circle at ${x}px ${y}px,
+        black 0%,
+        transparent 100%
+      )
+    `;
+    dotPattern.style.maskImage = `
+      radial-gradient(
+        200px circle at ${x}px ${y}px,
+        black 0%,
+        transparent 100%
+      )
+    `;
+  });
+
+  // Reset mask when mouse leaves
+  heroSection.addEventListener('mouseleave', () => {
+    dotPattern.style.webkitMaskImage = 'none';
+    dotPattern.style.maskImage = 'none';
+  });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initDotPattern();
+  
+  // Your existing DOMContentLoaded code
+  const element = document.getElementById("typingText");
+  if (element) {
+    new TypeWriter(element, phrases);
+  }
+});
+</script>
+
 <script>
 document.getElementById("getStartedBtn").addEventListener("click", function () {
   const menu = document.getElementById("optionsMenu");
@@ -853,43 +1032,264 @@ document.addEventListener("click", function (event) {
   }
 });
 </script>
-<section class="bg-white py-20">
-<div class="container mx-auto px-6">
-<div class="text-center">
-<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Leading Business Solutions Provider in India</h2>
-<p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">For over a decade, we've been helping businesses transform challenges into opportunities through innovative solutions and strategic planning.</p>
-</div>
-<div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-<div>
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/a93236a02070812ebf7b7266427fae5a.png" alt="About Us" class="rounded-lg shadow-xl">
-</div>
-<div>
-<h3 class="text-3xl font-bold text-gray-900">Our Mission & Vision</h3>
-<p class="mt-6 text-gray-600 leading-relaxed">At Dhanvarsh Supreme Solutions, we're committed to delivering innovative business solutions that help our clients achieve sustainable growth and competitive advantage in today's dynamic market environment.</p>
-<div class="mt-12 space-y-8">
-<div class="flex gap-4 items-start">
-<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-<i class="ri-lightbulb-line text-primary text-2xl"></i>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Innovation at Core</h4>
-<p class="mt-2 text-gray-600">We believe in innovative approaches to solving complex business challenges, staying ahead of industry trends.</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-<i class="ri-user-heart-line text-primary text-2xl"></i>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Client-Centric Approach</h4>
-<p class="mt-2 text-gray-600">Our clients' success is our success. We work closely with each client to understand their unique needs and challenges.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<section class="relative overflow-hidden py-20 pt-10 mt-[-80px]">
+  <!-- Animated background with geometric shapes -->
+  <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-primary/90 opacity-95 z-0"></div>
+  
+  <!-- Floating geometric shapes -->
+  <div class="absolute inset-0 overflow-hidden z-0">
+    <div class="absolute top-[10%] left-[5%] w-40 h-40 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-[50%] left-[80%] w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute top-[80%] left-[30%] w-40 h-40 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-[20%] left-[70%] w-32 h-32 border-2 border-primary/20 rounded-lg rotate-12 animate-float"></div>
+    <div class="absolute top-[60%] left-[15%] w-24 h-24 border-2 border-emerald-400/20 rounded-lg -rotate-12 animate-float" style="animation-delay: 1.5s;"></div>
+    <div class="absolute top-[30%] left-[40%] w-16 h-16 border-2 border-teal-400/20 rounded-full animate-float" style="animation-delay: 0.8s;"></div>
+  </div>
+  
+  <div class="container mx-auto px-6 pt-[20px] relative z-10">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+        <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
+          <span class="relative flex h-3 w-3 mr-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+          <span class="text-sm font-medium text-white">
+            Elevating Buisness Potential
+          </span>
+        </div>
+      </div>
+             <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">Leading Business Solutions <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Provider in India</span></h2>
+       <div class="w-24 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-6 rounded-full"></div>
+      <p class="mt-6 text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">For over a decade, we've been helping businesses transform challenges into opportunities through innovative solutions and strategic planning.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mt-8">
+      <!-- Left column with image -->
+      <div class="md:col-span-5 relative">
+                 <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-emerald-500/20 rounded-xl transform rotate-3 scale-105 -z-10"></div>
+        <div class="relative overflow-hidden rounded-xl shadow-2xl border border-white/10 transform hover:-rotate-2 transition-transform duration-500">
+          <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/a93236a02070812ebf7b7266427fae5a.png" alt="About Us" class="w-full h-auto rounded-xl">
+                      <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 to-transparent flex items-end">
+            <div class="p-6">
+              <span class="px-3 py-1 bg-primary/90 text-white text-xs rounded-full">Our Vision</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute -bottom-6 -right-6 w-12 h-12 bg-primary/30 rounded-full blur-xl"></div>
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-emerald-500/20 rounded-full blur-xl"></div>
+      </div>
+      
+      <!-- Right column with text content -->
+      <div class="md:col-span-7 bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-xl border border-white/10 shadow-xl">
+                 <h3 class="text-3xl font-bold text-white mb-6 flex items-center">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Our Mission & Vision</span>
+          <div class="ml-4 h-px flex-grow bg-gradient-to-r from-primary/50 to-transparent"></div>
+        </h3>
+        
+        <p class="text-white/90 leading-relaxed text-lg">At Dhanvarsh Supreme Solutions, we're committed to delivering innovative business solutions that help our clients achieve sustainable growth and competitive advantage in today's dynamic market environment.</p>
+        
+        <div class="mt-10 space-y-6">
+          <div class="flex gap-6 items-start group">
+            <div class="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/10 shadow-lg group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+              <i class="ri-lightbulb-line text-primary text-2xl"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-white group-hover:text-primary transition-colors">Innovation at Core</h4>
+              <p class="mt-2 text-white/80">We believe in innovative approaches to solving complex business challenges, staying ahead of industry trends.</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-6 items-start group">
+            <div class="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/10 shadow-lg group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+              <i class="ri-user-heart-line text-primary text-2xl"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-white group-hover:text-primary transition-colors">Client-Centric Approach</h4>
+              <p class="mt-2 text-white/80">Our clients' success is our success. We work closely with each client to understand their unique needs and challenges.</p>
+            </div>
+          </div>
+          
+          <div class="mt-10 flex">
+            <div class="relative group/btn">
+              <!-- 3D effect container -->
+              <div class="absolute inset-0 rounded-full transform group-hover/btn:translate-y-[2px] transition-transform duration-300"></div>
+              
+              <!-- Button with realistic shadow -->
+              <a href="https://dhanvarshsupremesolutions.com/about" class="relative inline-flex items-center px-8 py-3.5 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full font-medium overflow-hidden z-10 shadow-[0_4px_14px_0_rgba(0,196,140,0.4)] group-hover/btn:shadow-[0_6px_20px_rgba(0,196,140,0.6)] group-hover/btn:translate-y-[-2px] transition-all duration-300">
+                                 <span class="relative z-20 flex items-center">
+                   <!-- Animated icon with pulse effect -->
+                   <span class="mr-3 relative">
+                     <i class="ri-compass-3-line text-lg"></i>
+                     <span class="absolute inset-0 rounded-full border-2 border-white/30 animate-ripple"></span>
+                   </span>
+                   
+                   <span class="relative">
+                     <span class="animate-text-gradient bg-gradient-to-r from-white via-blue-200 to-white bg-[length:200%_auto] bg-clip-text text-transparent">Learn More About Us</span>
+                   </span>
+                  
+                  <!-- Animated arrow -->
+                  <span class="ml-2 relative transition-all duration-300 group-hover/btn:translate-x-1">
+                    <i class="ri-arrow-right-line transition-transform duration-300 group-hover/btn:translate-x-1"></i>
+                    <span class="absolute top-0 right-0 h-full w-6 bg-gradient-to-l from-primary/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity"></span>
+                  </span>
+                </span>
+                
+                <!-- Shine effect on hover -->
+                <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+              </a>
+              
+              <!-- Particle effect on hover -->
+              <div class="absolute inset-0 pointer-events-none">
+                <div class="btn-particles"></div>
+              </div>
+            </div>
+          </div>
+          
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const btnGroup = document.querySelector('.group/btn');
+              const particlesContainer = document.querySelector('.btn-particles');
+              
+              btnGroup.addEventListener('mouseenter', function() {
+                // Create particles on hover
+                for (let i = 0; i < 10; i++) {
+                  setTimeout(() => {
+                    if (particlesContainer) {
+                      const particle = document.createElement('span');
+                      particle.className = 'absolute h-1 w-1 rounded-full bg-white/80';
+                      
+                      // Random position around button
+                      const x = Math.random() * 100 - 50;
+                      const y = Math.random() * 60 - 30;
+                      
+                      particle.style.left = `calc(50% + ${x}px)`;
+                      particle.style.top = `calc(50% + ${y}px)`;
+                      particle.style.opacity = '0';
+                      particle.style.transform = 'scale(0)';
+                      
+                      particlesContainer.appendChild(particle);
+                      
+                      // Animate particles
+                      setTimeout(() => {
+                        particle.style.transition = 'all 1s ease-out';
+                        particle.style.opacity = '0.8';
+                        particle.style.transform = `scale(1) translate(${x > 0 ? x : -x}px, ${y > 0 ? -y*2 : y*2}px)`;
+                      }, 10);
+                      
+                      // Remove particles
+                      setTimeout(() => {
+                        particle.style.opacity = '0';
+                        setTimeout(() => {
+                          if (particlesContainer.contains(particle)) {
+                            particlesContainer.removeChild(particle);
+                          }
+                        }, 1000);
+                      }, 700);
+                    }
+                  }, i * 100);
+                }
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Additional decorative elements -->
+  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 to-transparent z-10"></div>
+  
+  <!-- Enhanced particle effect -->
+  <div class="absolute inset-0 z-0 opacity-50">
+    <div class="particles-container"></div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.querySelector('.particles-container');
+      // Create more particles (100 instead of 60)
+      for (let i = 0; i < 100; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        // Vary the size more
+        const size = Math.random() * 6 + 1;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Vary opacity
+        particle.style.opacity = Math.random() * 0.6;
+        
+        // Faster animation for upward movement with more variation
+        particle.style.animationDuration = Math.random() * 18 + 6 + 's';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        
+        container.appendChild(particle);
+      }
+    });
+  </script>
 </section>
+
+<style>
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.2; }
+  50% { opacity: 0.6; transform: translateY(-75px) translateX(5px); }
+  90% { opacity: 0.2; }
+  100% { transform: translateY(-200px) translateX(10px); opacity: 0; }
+}
+
+/* Removed pulse-slow animation as it's no longer needed */
+
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 0.3; }
+  100% { transform: scale(0.8); opacity: 0.8; }
+}
+
+@keyframes text-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Removed animate-pulse-slow as it's no longer needed */
+
+.animate-ripple {
+  animation: ripple 2s ease-in-out infinite;
+}
+
+.animate-text-gradient {
+  animation: text-gradient 4s linear infinite;
+}
+</style>
 <section class="bg-gray-50 py-20">
 <div class="container mx-auto px-6">
 <div class="text-center">
@@ -994,7 +1394,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-4">PDF Editor</h3>
 <p class="text-gray-600 mb-6">Edit, annotate, and organize your PDF files with our comprehensive tool. Free to use!</p>
-<a href="/pdf-editor" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+<a href="https://dhanvarshsupremesolutions.com/pdf-editor" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
@@ -1004,7 +1404,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-4">File Converter</h3>
 <p class="text-gray-600 mb-6">Convert between different file formats quickly and easily. Completely free!</p>
-<a href="/file-converter" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+<a href="https://dhanvarshsupremesolutions.com/file-converter" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
