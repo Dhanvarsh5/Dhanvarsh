@@ -1,15 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<!-- Document Head - Contains meta tags, title, styles and scripts -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Dhanvarsh Supreme Solutions - Premier HR Solutions</title>
-
-<!-- TailwindCSS Configuration -->
-<script src="https://cdn.tailwindcss.com">
+<title>About Us | Dhanvarsh Supreme Solutions</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#00C48C",
+        secondary: "#1f2937",
+      },
+      borderRadius: {
+        none: "0px",
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "20px",
+        "2xl": "24px",
+        "3xl": "32px",
+        full: "9999px",
+        button: "8px",
+      },
+    },
+  },
+};
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 
@@ -118,11 +141,12 @@ transition: transform 0.8s ease-in-out;
 .slide-content {
 opacity: 0;
 transform: translateY(20px);
-transition: opacity 0.8s ease, transform 0.8s ease;
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .slide.active .slide-content {
 opacity: 1;
 transform: translateY(0);
+transition-delay: 0.2s;
 }
 .slide-image {
 clip-path: inset(0 100% 0 0);
@@ -137,243 +161,18 @@ transition: background-color 0.3s ease;
 .about-paragraph {
 line-height: 1.8;
 }
-</style>
-<!-- Custom Tailwind Theme Configuration -->
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#00C48C",
-        secondary: "#1f2937",
-      },
-      borderRadius: {
-        none: "0px",
-        sm: "4px",
-        DEFAULT: "8px",
-        md: "12px",
-        lg: "16px",
-        xl: "20px",
-        "2xl": "24px",
-        "3xl": "32px",
-        full: "9999px",
-        button: "8px",
-      },
-    },
-  },
-};
-</script>
 
-<!-- Font and Icon Dependencies -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+/* Service Card Styles */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-<!-- Custom Styles - Includes responsive design, animations and component styles -->
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-
-/* Responsive Design - Mobile and Tablet Breakpoints */
-@media (max-width: 768px) {
-.container { padding-left: 1rem; padding-right: 1rem; max-width: 100%; }
-h1 { font-size: 2.5rem !important; }
-h2 { font-size: 2rem !important; }
-h3 { font-size: 1.5rem !important; }
-.text-4xl { font-size: 2rem !important; }
-.text-3xl { font-size: 1.75rem !important; }
-.text-2xl { font-size: 1.5rem !important; }
-.py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
-.mt-20 { margin-top: 3rem !important; }
-.gap-12 { gap: 2rem !important; }
-.gap-16 { gap: 2rem !important; }
-  .mobile-center-logo {
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100%;
-  }
-  .mobile-center-logo .flex-col, .mobile-center-logo .flex.flex-col {
-    align-items: center !important;
-  }
-}
-/* Small Screen Breakpoint */
-@media (max-width: 640px) {
-h1 { font-size: 2rem !important; }
-h2 { font-size: 1.75rem !important; }
-h3 { font-size: 1.25rem !important; }
-.text-4xl { font-size: 1.75rem !important; }
-.text-3xl { font-size: 1.5rem !important; }
-.text-2xl { font-size: 1.25rem !important; }
-.py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
-.mt-20 { margin-top: 2rem !important; }
-}
-/* Animation Styles */
-/* Mobile Menu Animations - Controls slide-in/out and fade effects */
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@keyframes slideInRight {
-from { transform: translateX(100%); }
-to { transform: translateX(0); }
-}
-@keyframes slideOutRight {
-from { transform: translateX(0); }
-to { transform: translateX(100%); }
-}
-.mobile-menu-open {
-  animation: slideInRight 0.55s cubic-bezier(.77,0,.18,1) forwards;
-}
-.mobile-menu-close {
-  animation: slideOutRight 0.45s cubic-bezier(.77,0,.18,1) forwards;
-}
-.fade-in {
-animation: fadeIn 0.3s forwards;
-}
-/* Mobile-specific Animations and Transitions */
-@media (max-width: 768px) {
-.fade-in-up-mobile {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(.4,2,.6,1), transform 0.6s cubic-bezier(.4,2,.6,1);
-}
-.fade-in-up-mobile.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.staggered-item:nth-child(1) { transition-delay: 0.1s; }
-.staggered-item:nth-child(2) { transition-delay: 0.2s; }
-.staggered-item:nth-child(3) { transition-delay: 0.3s; }
-.staggered-item:nth-child(4) { transition-delay: 0.4s; }
-.staggered-item:nth-child(5) { transition-delay: 0.5s; }
-.staggered-item:nth-child(6) { transition-delay: 0.6s; }
-.staggered-item:nth-child(7) { transition-delay: 0.7s; }
-}
-/* Base Layout and Responsive Container Styles */
-html {
-scroll-behavior: smooth;
-}
-body {
-min-width: 320px;
-overflow-x: hidden;
-}
-img {
-max-width: 100%;
-height: auto;
-}
-.container {
-width: 100%;
-max-width: 1280px;
-margin-left: auto;
-margin-right: auto;
-}
-@media (max-width: 640px) {
-.slider-container {
-height: 200px !important;
-}
-.client-slider {
-flex-wrap: wrap;
-justify-content: center;
-}
-.client-slider > div {
-width: 45% !important;
-}
-.grid-cols-1 {
-grid-template-columns: 1fr;
-}
-.grid-cols-2 {
-grid-template-columns: 1fr;
-}
-.grid-cols-3 {
-grid-template-columns: 1fr;
-}
-.col-span-3 {
-grid-column: span 1;
-}
-}
-/* Element Animations */
-/* Floating Animation */
-@keyframes float {
-0% { transform: translateY(0px); }
-50% { transform: translateY(-10px); }
-100% { transform: translateY(0px); }
-}
-.float-animation {
-animation: float 3s ease-in-out infinite;
-}
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(20px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-.fade-in-up {
-animation: fadeInUp 0.6s ease-out forwards;
-}
-@keyframes scaleIn {
-from {
-opacity: 0;
-transform: scale(0.9);
-}
-to {
-opacity: 1;
-transform: scale(1);
-}
-}
-.scale-in {
-animation: scaleIn 0.4s ease-out forwards;
-}
-@keyframes slideInRight {
-from {
-opacity: 0;
-transform: translateX(30px);
-}
-to {
-opacity: 1;
-transform: translateX(0);
-}
-}
-.slide-in-right {
-animation: slideInRight 0.5s ease-out forwards;
-}
-/* Image Slider Animations */
-@keyframes slideUp {
-from { transform: translateY(0); }
-to { transform: translateY(calc(-50% - 16px)); }
-}
-@keyframes slideDown {
-from { transform: translateY(calc(-50% - 16px)); }
-to { transform: translateY(0); }
-}
-.slide-up {
-animation: slideUp 20s linear infinite;
-}
-.slide-down {
-animation: slideDown 20s linear infinite;
-}
-.slider-container {
-position: relative;
-overflow: hidden;
-height: 100%;
-}
-.slider-track {
-position: absolute;
-width: 100%;
-display: flex;
-flex-direction: column;
-}
-.slider-track::after {
-content: "";
-display: block;
-height: 16px;
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>
 </head>
-<!-- Main Content Start -->
 <body class="bg-white min-h-screen">
 
 <!-- Header Section - Fixed navigation bar with logo and menu -->
@@ -381,347 +180,90 @@ height: 16px;
 <!-- Main Navigation -->
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
 <!-- Logo and Brand Name -->
-<a href="https://dhanvarshsupremesolutions.com" class="flex items-center gap-4 group mobile-center-logo" style="text-decoration: none;">
-  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-14 transition-transform group-hover:scale-105">
-  <div class="flex flex-col items-center">
-    <span class="font-['Montserrat'] text-primary font-bold text-2xl tracking-wide">DHANVARSH</span>
-    <span class="font-['Poppins'] text-[#0A2647] text-sm font-medium tracking-wider">SUPREME SOLUTIONS</span>
-  </div>
-</a>
+<div class="flex items-center gap-4">
+<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-14">
+<div class="flex flex-col items-center">
+<span class="font-['Montserrat'] text-primary font-bold text-2xl tracking-wide">DHANVARSH</span>
+<span class="font-['Poppins'] text-[#0A2647] text-sm font-medium tracking-wider">SUPREME SOLUTIONS</span>
+</div>
+</div>
 <!-- Desktop Navigation Menu - Hidden on mobile, visible on medium screens and up -->
 <div class="hidden md:flex flex-row items-center gap-8">
-<a href="https://dhanvarshsupremesolutions.com" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up">Home</a>
-<a href="https://dhanvarshsupremesolutions.com/about" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up">About Us</a>
-<div class="relative group fade-in-up">
-<a href="https://dhanvarshsupremesolutions.com/Services" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">Services</a>
-<div class="absolute top-full left-[-40px] mt-1 w-80 min-h-[180px] bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50 services-dropdown" style="pointer-events: auto;">
-<div class="relative group talent-hover-parent">
-  <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary flex items-center gap-3 service-link talent-link">
-    <i class="ri-briefcase-4-line service-icon service-emoji"></i>
-    Talent Acquisition & Recruitment Services
-  </a>
-  <!-- Left-side Service Details List -->
-  <div class="absolute top-0 right-full mr-4 w-80 bg-white shadow-2xl rounded-lg py-4 px-6 z-50 talent-services-list pointer-events-auto transition-all duration-500 ease-in-out opacity-0 invisible" style="min-height: 320px;">
-    <h4 class="font-semibold text-primary mb-4 text-lg">Our Offerings</h4>
-    <ul class="space-y-4">
-  <li class="fade-in-left group/item">
-    <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="flex items-start gap-3 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary service-detail-link">
-      <i class="ri-briefcase-4-line service-icon service-emoji"></i>
-      <span>
-        <span class="font-bold text-gray-900 group-hover/item:text-primary">Strategic Talent Acquisition</span>
-        <p class="text-gray-500 text-sm mt-1">Temporary and permanent staffing solutions aligned with your organizational goals.</p>
-      </span>
-    </a>
-  </li>
-  <li class="fade-in-left group/item">
-    <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="flex items-start gap-3 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary service-detail-link">
-      <i class="ri-team-line service-icon service-emoji"></i>
-      <span>
-        <span class="font-bold text-gray-900 group-hover/item:text-primary">Turnkey Recruitment (Bulk Hiring)</span>
-        <p class="text-gray-500 text-sm mt-1">High-volume hiring with speed, accuracy, and minimal operational load on your team.</p>
-      </span>
-    </a>
-  </li>
-  <li class="fade-in-left group/item">
-    <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="flex items-start gap-3 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary service-detail-link">
-      <i class="ri-user-star-line service-icon service-emoji"></i>
-      <span>
-        <span class="font-bold text-gray-900 group-hover/item:text-primary">Interim Management (Lateral Hiring)</span>
-        <p class="text-gray-500 text-sm mt-1">Mid-to-senior level hiring for short-term projects or leadership gaps.</p>
-      </span>
-    </a>
-  </li>
-  <li class="fade-in-left group/item">
-    <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="flex items-start gap-3 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary service-detail-link">
-      <i class="ri-money-dollar-circle-line service-icon service-emoji"></i>
-      <span>
-        <span class="font-bold text-gray-900 group-hover/item:text-primary">Payroll Management</span>
-        <p class="text-gray-500 text-sm mt-1">Accurate payroll processing, statutory compliance, and employee satisfaction.</p>
-      </span>
-    </a>
-  </li>
-  <li class="fade-in-left group/item">
-    <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="flex items-start gap-3 px-2 py-1 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary service-detail-link">
-      <i class="ri-user-search-line service-icon service-emoji"></i>
-      <span>
-        <span class="font-bold text-gray-900 group-hover/item:text-primary">Background Verification</span>
-        <p class="text-gray-500 text-sm mt-1">Comprehensive checks to ensure candidate authenticity and compliance.</p>
-      </span>
-    </a>
-  </li>
-</ul>
-<style>
-.service-detail-link:hover .service-emoji {
-  animation: talent-bounce 0.7s cubic-bezier(.4,2,.6,1);
-  transform: scale(1.25) rotate(-8deg);
-  color: #00C48C;
-  filter: drop-shadow(0 4px 12px #00c48c55) brightness(1.2);
-}
-@keyframes talent-bounce {
-  0% { transform: scale(1) rotate(0deg); filter: none; }
-  30% { transform: scale(1.35) rotate(-8deg); filter: drop-shadow(0 4px 16px #00c48c77); }
-  60% { transform: scale(0.95) rotate(4deg); filter: drop-shadow(0 2px 8px #00c48c55); }
-  100% { transform: scale(1.25) rotate(-8deg); filter: drop-shadow(0 4px 12px #00c48c55) brightness(1.2); }
-}
-.service-detail-link:hover .font-bold {
-  color: #00C48C;
-}
-</style>
-  </div>
-</div>
-<script>
-(function() {
-  var parent = document.querySelector('.talent-hover-parent');
-  var list = parent && parent.querySelector('.talent-services-list');
-  var hideTimeout;
-  if (parent && list) {
-    parent.addEventListener('mouseenter', function() {
-      clearTimeout(hideTimeout);
-      list.classList.add('pointer-events-auto');
-      list.classList.remove('opacity-0','invisible');
-    });
-    parent.addEventListener('mouseleave', function() {
-      hideTimeout = setTimeout(function() {
-        list.classList.add('opacity-0','invisible');
-        list.classList.remove('pointer-events-auto');
-      }, 350); // slow fade out
-    });
-    list.addEventListener('mouseenter', function() {
-      clearTimeout(hideTimeout);
-      list.classList.add('pointer-events-auto');
-      list.classList.remove('opacity-0','invisible');
-    });
-    list.addEventListener('mouseleave', function() {
-      hideTimeout = setTimeout(function() {
-        list.classList.add('opacity-0','invisible');
-        list.classList.remove('pointer-events-auto');
-      }, 350);
-    });
-  }
-})();
-</script>
-<a href="https://dhanvarshsupremesolutions.com/digital-solutions" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary flex items-center gap-3 service-link">
-  <i class="ri-code-s-slash-line service-icon"></i>
-  Web & App Development
-</a>
-<a href="https://dhanvarshsupremesolutions.com/investment-services" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary flex items-center gap-3 service-link">
-  <i class="ri-bar-chart-2-line service-icon"></i>
-  Investment & Fund Management
-</a>
-<style>
-.service-icon {
-  font-size: 1.5rem;
-  transition: transform 0.25s cubic-bezier(.4,2,.6,1), color 0.25s;
-  color: #6b7280; /* Tailwind gray-500 */
-}
-.service-link:hover .service-icon {
-  transform: scale(1.25) rotate(-8deg);
-  color: #00C48C; /* Tailwind primary */
-  filter: drop-shadow(0 2px 6px #00c48c33);
-}
-</style>
+<a href="Dhanvarsh Main website Landing.html" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up" style="animation-delay: 0.1s">Home</a>
+<a href="about.html" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">About Us</a>
+<div class="relative group">
+<a href="#" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">Services</a>
+<div class="absolute top-full left-0 mt-2 w-80 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block z-50">
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Strategic Talent Acquisition (Temporary/permanent staffing)</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Background Verification</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Payroll Management</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">HR Compliance Implementation & Audit</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Turnkey Recruitment (Bulk Hiring)</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Interim Management (Lateral Hiring)</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">AI Agent Implementation</a>
 </div>
 </div>
-<style>
-/* Make Services dropdown easier to hover */
-.services-group:hover .services-dropdown,
-.services-dropdown:hover {
-  display: block !important;
-}
-.services-dropdown {
-  transition: visibility 0.2s linear, opacity 0.2s linear;
-}
-.services-group:not(:hover) .services-dropdown:not(:hover) {
-  opacity: 0;
-  visibility: hidden;
-  transition-delay: 0.5s;
-}
-.services-group:hover .services-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s;
-}
-</style>
-<div class="relative group fade-in-up">
+<div class="relative group">
 <a href="#" class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">Tools</a>
-<div class="absolute top-full left-0 mt-1 w-64 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block">
-<a href="https://dhanvarshsupremesolutions.com/free-resume-maker" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary flex items-center gap-3 tool-link">
-  <i class="ri-file-text-line tool-icon"></i>
-  Professional Resume Maker
-</a>
-<a href="https://dhanvarshsupremesolutions.com/free-pdf-editor" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary flex items-center gap-3 tool-link">
-  <i class="ri-file-pdf-line tool-icon"></i>
-  PDF Editor
-</a>
-<style>
-.tool-icon {
-  font-size: 1.5rem;
-  transition: transform 0.25s cubic-bezier(.4,2,.6,1), color 0.25s;
-  color: #6b7280;
-}
-.tool-link:hover .tool-icon {
-  transform: scale(1.25) rotate(-8deg);
-  color: #00C48C;
-  filter: drop-shadow(0 2px 6px #00c48c33);
-}
-</style>
-
+<div class="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block">
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">Professional Resume Maker</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">PDF Editor</a>
+<a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">File Converter</a>
 </div>
 </div>
-<a href="https://dhanvarshsupremesolutions.com/contact" class="live-animated-contact bg-primary text-white px-6 py-2 rounded-button transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 fade-in-up">
-  <span class="relative z-20">Contact Us</span>
-</a>
-<style>
-.live-animated-contact {
-  background: repeating-linear-gradient(120deg, #00C48C 0%, #0A2647 25%, #00C48C 50%, #43e97b 75%, #00C48C 100%);
-  background-size: 300% 100%;
-  animation: live-gradient-slide 4s linear infinite;
-  box-shadow: 0 4px 18px 0 #00c48c33;
-}
-.live-animated-contact span {
-  position: relative;
-  z-index: 2;
-}
-@keyframes live-gradient-slide {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
-.live-animated-contact:hover {
-  filter: brightness(1.08) saturate(1.2) drop-shadow(0 0 8px #00c48c44);
-  transform: scale(1.05);
-}
-</style>
+<a href="#contact-section" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-primary/90 transition-all hover:shadow-lg hover:scale-105 whitespace-nowrap cursor-pointer">Contact Us</a>
 </div>
 <!-- Mobile Menu Toggle Button -->
-<button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
-  <span class="mobile-hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </span>
+<button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-2xl"></i>
 </button>
-<style>
-@media (max-width: 768px) {
-  .mobile-hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    z-index: 51;
-  }
-  .mobile-hamburger span {
-    display: block;
-    width: 100%;
-    height: 2.2px;
-    margin: 2px 0;
-    background: #222;
-    border-radius: 2px;
-    transition: all 0.3s cubic-bezier(.4,2,.6,1);
-  }
-  .mobile-hamburger.active span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-  }
-  .mobile-hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .mobile-hamburger.active span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-}
-</style>
 </nav>
 <!-- Mobile Slide-out Menu - Full screen overlay navigation for mobile devices -->
-<div id="mobileMenu" class="fixed top-0 right-0 w-0 h-screen bg-white shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-in-out" style="max-width: 100vw; height: 100vh;">
-<div class="mobile-menu-header flex justify-between items-center p-6 border-b">
-  <div class="mobile-menu-logo-wrapper w-full flex justify-center items-center">
-    <a href="https://dhanvarshsupremesolutions.com" class="mobile-menu-logo-link" style="text-decoration: none;">
-      <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="mobile-menu-logo h-20 mx-auto">
-    </a>
-  </div>
-  <!-- Removed closeMenuBtn for single toggle button UX -->
+<div id="mobileMenu" class="fixed top-0 right-0 w-0 h-full bg-white shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center p-6 border-b">
+<div class="flex items-center gap-2">
+<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-10">
+<span class="font-['Montserrat'] text-primary font-bold text-xl">DHANVARSH</span>
 </div>
-<style>
-@media (max-width: 768px) {
-  .mobile-menu-header {
-    justify-content: center !important;
-    padding-bottom: 0.5rem !important;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  .mobile-menu-logo-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .mobile-menu-logo {
-    height: 80px !important;
-    max-height: 100px;
-    width: auto;
-    display: block;
-  }
-  .mobile-menu-logo-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  .mobile-menu-header span {
-    display: none !important;
-  }
-}
-</style>
-<div class="p-6 flex-1 overflow-y-auto">
-<div class="space-y-6 mobile-fade-parent" style="display: flex; flex-direction: column;">
-<a href="https://dhanvarshsupremesolutions.com" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors fade-in-up-mobile">Home</a>
-<a href="about.html" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors fade-in-up-mobile">About Us</a>
-<div class="space-y-2">
-  <div class="flex items-center justify-between">
-    <span class="text-lg font-medium text-gray-800 fade-in-up-mobile">Services</span>
-    <button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
-      <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
-    </button>
-  </div>
-  <div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
-    <!-- 1. Talent Acquisition & Recruitment Services (with nested dropdown) -->
-    <div class="space-y-2">
-      <div>
-  <a href="https://dhanvarshsupremesolutions.com/strategic-talent-acquisition" class="block text-gray-700 hover:text-primary transition-colors">Talent Acquisition & Recruitment Services</a>
+<button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center">
+<i class="ri-close-line text-2xl"></i>
+</button>
 </div>
-      <div class="mobile-subdropdown-content hidden pl-4 space-y-2 pt-2">
-        <a href="https://dhanvarshsupremesolutions.com/strategic-talent-acquisition" class="block text-gray-700 hover:text-primary transition-colors">Strategic Talent Acquisition</a>
-        <a href="https://dhanvarshsupremesolutions.com/turnkey-recruitment" class="block text-gray-700 hover:text-primary transition-colors">Turnkey Recruitment (Bulk Hiring)</a>
-        <a href="https://dhanvarshsupremesolutions.com/interim-management" class="block text-gray-700 hover:text-primary transition-colors">Interim Management (Lateral Hiring)</a>
-        <a href="https://dhanvarshsupremesolutions.com/background-verification" class="block text-gray-700 hover:text-primary transition-colors">Background Verification</a>
-        <a href="https://dhanvarshsupremesolutions.com/payroll-management" class="block text-gray-700 hover:text-primary transition-colors">Payroll Management</a>
-        <a href="https://dhanvarshsupremesolutions.com/ai-agent-implementation" class="block text-gray-700 hover:text-primary transition-colors">AI Agent Implementation</a>
-      </div>
-    </div>
-    <!-- 2. Web & App Development -->
-    <a href="https://dhanvarshsupremesolutions.com/digital-solutions" class="block text-gray-700 hover:text-primary transition-colors">Web & App Development</a>
-    <!-- 3. Investment & Fund Management -->
-    <a href="https://dhanvarshsupremesolutions.com/investment-services" class="block text-gray-700 hover:text-primary transition-colors">Investment & Fund Management</a>
-  </div>
-</div>
+<div class="p-6 overflow-y-auto max-h-[calc(100vh-80px)]">
+<div class="space-y-6">
+<a href="Dhanvarsh Main website Landing.html" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors">Home</a>
+<a href="about.html" class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors">About Us</a>
 <div class="space-y-2">
 <div class="flex items-center justify-between">
-<span class="text-lg font-medium text-gray-800 fade-in-up-mobile">Tools</span>
+<span class="text-lg font-medium text-gray-800">Services</span>
 <button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
 <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
 </button>
 </div>
 <div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
-<a href="https://dhanvarshsupremesolutions.com/free-resume-maker" class="block text-gray-700 hover:text-primary transition-colors">Professional Resume Maker</a>
-<a href="https://dhanvarshsupremesolutions.com/free-pdf-editor" class="block text-gray-700 hover:text-primary transition-colors">PDF Editor</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Strategic Talent Acquisition</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Background Verification</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Payroll Management</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">HR Compliance Implementation & Audit</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Turnkey Recruitment (Bulk Hiring)</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Interim Management (Lateral Hiring)</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">AI Agent Implementation</a>
 </div>
 </div>
-<a href="https://dhanvarshsupremesolutions.com/contact" class="live-animated-contact bg-primary text-white px-6 py-2 rounded-button transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 fade-in-up-mobile block text-center w-full" id="mobileContactBtn"><span class="relative z-20">Contact Us</span></a>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-lg font-medium text-gray-800">Tools</span>
+<button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
+<i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+</button>
+</div>
+<div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">Professional Resume Maker</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">PDF Editor</a>
+<a href="#" class="block text-gray-700 hover:text-primary transition-colors">File Converter</a>
+</div>
+</div>
+<a href="#contact-section" class="bg-primary text-white px-6 py-3 rounded-button w-full hover:bg-primary/90 transition-all block text-center" id="mobileContactBtn">Contact Us</a>
 </div>
 </div>
 </div>
@@ -729,44 +271,19 @@ height: 16px;
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const menuOverlay = document.getElementById("menuOverlay");
   const dropdownToggles = document.querySelectorAll(".mobile-dropdown-toggle");
   const mobileContactBtn = document.getElementById("mobileContactBtn");
   // Open mobile menu
   mobileMenuBtn.addEventListener("click", function () {
-    const isOpen = mobileMenu.classList.contains("mobile-menu-open");
-    const fadeLinks = mobileMenu.querySelectorAll('.fade-in-up-mobile, .text-lg.font-medium.text-gray-800.fade-in-up-mobile');
-    if (!isOpen) {
-      mobileMenu.style.width = "100vw";
-      menuOverlay.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-      mobileMenu.classList.add("mobile-menu-open");
-      mobileMenu.classList.remove("mobile-menu-close");
-      document.querySelector('.mobile-hamburger').classList.add('active');
-      // Animate links in after menu is fully open
-      setTimeout(() => {
-        fadeLinks.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, 90 * i);
-        });
-      }, 300);
-    } else {
-      mobileMenu.classList.remove("mobile-menu-open");
-      mobileMenu.classList.add("mobile-menu-close");
-      // Animate links out
-      fadeLinks.forEach((el) => {
-        el.classList.remove('visible');
-      });
-      setTimeout(() => {
-        mobileMenu.style.width = "0";
-        menuOverlay.classList.add("hidden");
-        document.body.style.overflow = "";
-      }, 300);
-      document.querySelector('.mobile-hamburger').classList.remove('active');
-    }
-});
+    mobileMenu.style.width = "300px";
+    menuOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    mobileMenu.classList.add("mobile-menu-open");
+    mobileMenu.classList.remove("mobile-menu-close");
+  });
   // Close mobile menu
   function closeMenu() {
     mobileMenu.classList.remove("mobile-menu-open");
@@ -777,16 +294,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.overflow = "";
     }, 300);
   }
-  menuOverlay.addEventListener("click", function() {
-    mobileMenu.classList.remove("mobile-menu-open");
-    mobileMenu.classList.add("mobile-menu-close");
-    setTimeout(() => {
-      mobileMenu.style.width = "0";
-      menuOverlay.classList.add("hidden");
-      document.body.style.overflow = "";
-    }, 300);
-    document.querySelector('.mobile-hamburger').classList.remove('active');
-  });
+  closeMenuBtn.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
   // Mobile contact button
   if (mobileContactBtn) {
     mobileContactBtn.addEventListener("click", function () {
@@ -819,39 +328,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  // Smooth scroll for all contact buttons
-  document.querySelectorAll('a[href="#contact-section"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      document
-        .getElementById("contact-section")
-        .scrollIntoView({ behavior: "smooth" });
-    });
-  });
-  // Check for viewport size changes and adjust layout
-  function checkViewport() {
-    if (window.innerWidth <= 768) {
-      document.querySelectorAll(".col-span-3, .col-span-4").forEach((el) => {
-        el.style.gridColumn = "span 12";
-      });
-    } else {
-      document.querySelectorAll(".col-span-3").forEach((el) => {
-        el.style.gridColumn = "span 3";
-      });
-      document.querySelectorAll(".col-span-4").forEach((el) => {
-        el.style.gridColumn = "span 4";
-      });
-    }
-  }
-  // Run on load and resize
-  checkViewport();
-  window.addEventListener("resize", checkViewport);
 });
 </script>
 </header>
-<!-- /////////////////////////////////////////////////////////////////////// -->
-<!-- End of Header Section -->
-<!-- /////////////////////////////////////////////////////////////////////// -->
 <div class="relative w-full h-[80vh] overflow-hidden mt-24">
 <!-- Slide 1: Content Left, Image Right -->
 <div class="slide absolute inset-0 flex flex-col md:flex-row active" data-index="0">
@@ -997,6 +476,190 @@ What began as a specialized recruitment service has evolved into a comprehensive
 </button>
 </div>
 
+<!-- Why Choose Us Section -->
+<div class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900">Why Choose Us?</h2>
+            <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Discover the core values and strengths that make Dhanvarsh the ideal partner for your business.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                <div class="text-primary text-5xl mb-4"><i class="ri-star-line"></i></div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Experience</h3>
+                <p class="text-gray-700">With years of experience in the industry, we have a proven track record of delivering exceptional results for our clients.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                <div class="text-primary text-5xl mb-4"><i class="ri-team-line"></i></div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Expert Team</h3>
+                <p class="text-gray-700">Our team of dedicated professionals is passionate about helping your business succeed through innovative solutions.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                <div class="text-primary text-5xl mb-4"><i class="ri-settings-3-line"></i></div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Tailored Solutions</h3>
+                <p class="text-gray-700">We provide customized services that are tailored to meet the unique needs and goals of your organization.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Services Section -->
+<section class="bg-gray-100 py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold text-gray-800 leading-tight">Our Services</h2>
+            <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">We offer a comprehensive suite of services designed to help your business thrive.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- HR Services -->
+            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden transform hover:-translate-y-2">
+                <div class="relative">
+                    <img src="assets/images/hr-services.jpg" alt="HR Services" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-3xl font-bold text-white">HR Services</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">From recruitment to compliance, we provide end-to-end HR solutions.</p>
+                    <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                </div>
+            </div>
+            <!-- Website & App Development -->
+            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden transform hover:-translate-y-2">
+                <div class="relative">
+                    <img src="assets/images/web-development.jpg" alt="Website & App Development" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-3xl font-bold text-white">Website & App Development</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">Crafting stunning, high-performance digital experiences for your brand.</p>
+                    <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                </div>
+            </div>
+            <!-- Stock Market Advisory -->
+            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden transform hover:-translate-y-2">
+                <div class="relative">
+                    <img src="assets/images/stock-market.jpg" alt="Stock Market Advisory" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-3xl font-bold text-white">Stock Market Advisory</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">Expert guidance to help you navigate the complexities of the stock market.</p>
+                    <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                </div>
+            </div>
+            <!-- Investment Portfolio Handling -->
+            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden transform hover:-translate-y-2">
+                <div class="relative">
+                    <img src="assets/images/investment-portfolio.jpg" alt="Investment Portfolio Handling" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-3xl font-bold text-white">Investment Portfolio Handling</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">Strategic portfolio management to grow and protect your wealth.</p>
+                    <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Journey Section -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Our Journey</h2>
+        <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">From a humble beginning to a trusted partner for businesses worldwide, our journey has been one of passion, innovation, and relentless commitment.</p>
+        <div class="relative wrap overflow-hidden p-10 h-full">
+            <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+            <!-- right timeline -->
+            <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                <div class="order-1 w-5/12"></div>
+                <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                    <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                </div>
+                <div class="order-1 bg-blue-400 rounded-lg shadow-xl w-5/12 px-6 py-4 journey-card">
+                    <h3 class="font-bold text-white text-xl">2015 - The Idea</h3>
+                    <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">Dhanvarsh was born from a vision to provide comprehensive business solutions under one roof.</p>
+                </div>
+            </div>
+            <!-- left timeline -->
+            <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                <div class="order-1 w-5/12"></div>
+                <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                    <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                </div>
+                <div class="order-1 bg-red-400 rounded-lg shadow-xl w-5/12 px-6 py-4 journey-card">
+                    <h3 class="font-bold text-white text-xl">2017 - First Milestone</h3>
+                    <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">Successfully served our 100th client, expanding our portfolio into HR and financial advisory.</p>
+                </div>
+            </div>
+            <!-- right timeline -->
+            <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                <div class="order-1 w-5/12"></div>
+                <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                    <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                </div>
+                <div class="order-1 bg-blue-400 rounded-lg shadow-xl w-5/12 px-6 py-4 journey-card">
+                    <h3 class="font-bold text-white text-xl">2020 - Tech Expansion</h3>
+                    <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">Launched our Website & App Development wing, embracing the digital transformation wave.</p>
+                </div>
+            </div>
+             <!-- left timeline -->
+            <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                <div class="order-1 w-5/12"></div>
+                <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                    <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                </div>
+                <div class="order-1 bg-red-400 rounded-lg shadow-xl w-5/12 px-6 py-4 journey-card">
+                    <h3 class="font-bold text-white text-xl">2023 - Future Forward</h3>
+                    <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">Continuing to innovate and provide supreme solutions to help our clients achieve their goals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="bg-white py-20">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">What Our Clients Say</h2>
+        <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">We are proud to have earned the trust of our clients. Here's what they have to say about their experience with Dhanvarsh.</p>
+        <div class="relative overflow-hidden testimonial-container" style="height: 300px;">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card absolute w-full transition-all duration-700 ease-in-out">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-blue-500 shadow-lg">
+                <p class="text-gray-700 italic text-xl mb-4">"Dhanvarsh transformed our HR processes. Their team is professional, knowledgeable, and truly dedicated."</p>
+                <h4 class="font-bold text-gray-900 text-lg">John D.</h4>
+                <p class="text-gray-500">CEO, Tech Innovators</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card absolute w-full transition-all duration-700 ease-in-out" style="transform: translateX(100%); opacity: 0;">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-blue-500 shadow-lg">
+                <p class="text-gray-700 italic text-xl mb-4">"The website they developed for us is stunning and functional. It has significantly boosted our online presence."</p>
+                <h4 class="font-bold text-gray-900 text-lg">Jane S.</h4>
+                <p class="text-gray-500">Marketing Head, Creative Co.</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card absolute w-full transition-all duration-700 ease-in-out" style="transform: translateX(100%); opacity: 0;">
+                <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Client 3" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-blue-500 shadow-lg">
+                <p class="text-gray-700 italic text-xl mb-4">"Their stock market advice has been invaluable. We've seen consistent growth in our investments."</p>
+                <h4 class="font-bold text-gray-900 text-lg">Sam Wilson</h4>
+                <p class="text-gray-500">Independent Investor</p>
+            </div>
+        </div>
+        <div class="testimonial-dots flex justify-center mt-8">
+            <!-- Dots will be generated by JS -->
+        </div>
+    </div>
+</section>
+
 <!-- Footer Section -->
 <footer class="bg-gray-900 text-white py-16 mt-20">
 <div class="container mx-auto px-6">
@@ -1074,73 +737,114 @@ What began as a specialized recruitment service has evolved into a comprehensive
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-const slides = document.querySelectorAll('.slide');
-const indicators = document.querySelectorAll('.slide-indicator');
-const prevBtn = document.getElementById('prev-slide');
-const nextBtn = document.getElementById('next-slide');
-let currentSlide = 0;
-let autoSlideInterval;
-function showSlide(index) {
-slides.forEach(slide => {
-slide.classList.remove('active');
-slide.style.transform = 'translateX(100%)';
-});
-indicators.forEach(indicator => {
-indicator.classList.remove('bg-primary');
-indicator.classList.add('bg-gray-300');
-});
-slides[index].classList.add('active');
-slides[index].style.transform = 'translateX(0)';
-indicators[index].classList.remove('bg-gray-300');
-indicators[index].classList.add('bg-primary');
-currentSlide = index;
-}
-function nextSlide() {
-let nextIndex = currentSlide + 1;
-if (nextIndex >= slides.length) {
-nextIndex = 0;
-}
-showSlide(nextIndex);
-}
-function prevSlide() {
-let prevIndex = currentSlide - 1;
-if (prevIndex < 0) {
-prevIndex = slides.length - 1;
-}
-showSlide(prevIndex);
-}
-function startAutoSlide() {
-autoSlideInterval = setInterval(nextSlide, 8000);
-}
-function resetAutoSlide() {
-clearInterval(autoSlideInterval);
-startAutoSlide();
-}
-nextBtn.addEventListener('click', () => {
-nextSlide();
-resetAutoSlide();
-});
-prevBtn.addEventListener('click', () => {
-prevSlide();
-resetAutoSlide();
-});
-indicators.forEach((indicator, index) => {
-indicator.addEventListener('click', () => {
-showSlide(index);
-resetAutoSlide();
-});
-});
-// Initialize
-showSlide(0);
-startAutoSlide();
-// Handle visibility change
-document.addEventListener('visibilitychange', () => {
-if (document.hidden) {
-clearInterval(autoSlideInterval);
-} else {
-startAutoSlide();
-}
-});
+    // Hero Slider
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.slide-indicator');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            const isCurrent = i === index;
+            slide.classList.toggle('active', isCurrent);
+            slide.style.transform = isCurrent ? 'translateX(0)' : (i < index ? 'translateX(-100%)' : 'translateX(100%)');
+        });
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('bg-primary', i === index);
+            indicator.classList.toggle('bg-gray-300', i !== index);
+        });
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        showSlide((currentSlide + 1) % slides.length);
+    }
+
+    function prevSlide() {
+        showSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 8000);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => { showSlide(index); resetAutoSlide(); });
+    });
+
+    showSlide(0);
+    startAutoSlide();
+
+    // Journey Timeline Animation
+    const journeyCards = document.querySelectorAll('.journey-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    journeyCards.forEach(card => observer.observe(card));
+
+    // Testimonial Slider
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const dotsContainer = document.querySelector('.testimonial-dots');
+    let currentTestimonial = 0;
+
+    if (testimonialCards.length > 0) {
+        // Create dots
+        testimonialCards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.dataset.index = i;
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.testimonial-dots .dot');
+
+        function showTestimonial(index) {
+            testimonialCards.forEach((card, i) => {
+                const isActive = i === index;
+                card.style.opacity = isActive ? '1' : '0';
+                card.style.transform = isActive ? 'translateX(0)' : (i < currentTestimonial ? 'translateX(-100%)' : 'translateX(100%)');
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentTestimonial = index;
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                showTestimonial(parseInt(e.target.dataset.index));
+            });
+        });
+
+        setInterval(() => {
+            showTestimonial((currentTestimonial + 1) % testimonialCards.length);
+        }, 5000); // Change testimonial every 5 seconds
+
+        showTestimonial(0);
+    }
+
+    // Handle visibility change for all animations
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(autoSlideInterval);
+        } else {
+            startAutoSlide();
+        }
+    });
 });
 </script>
 </body>
