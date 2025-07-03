@@ -1200,7 +1200,7 @@ document.addEventListener("click", function (event) {
   </div>
   
   <!-- Additional decorative elements -->
-  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 to-transparent z-10"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-green-100 to-transparent z-10"></div>
   
   <!-- Enhanced particle effect -->
   <div class="absolute inset-0 z-0 opacity-50">
@@ -1290,87 +1290,481 @@ document.addEventListener("click", function (event) {
   animation: text-gradient 4s linear infinite;
 }
 </style>
-<section class="bg-gray-50 py-20">
+<section class="bg-green-100 py-20">
 <div class="container mx-auto px-6">
 <div class="text-center">
-<span class="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-medium">Our Services</span>
-<h2 class="text-4xl font-bold text-gray-900 mt-6">Comprehensive HR Solutions</h2>
-<p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">We offer a wide range of services tailored to meet your specific HR and recruitment needs to help you achieve your organizational goals.</p>
+<div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+  <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
+    <span class="relative flex h-3 w-3 mr-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+    </span>
+    <span class="text-sm font-medium text-white">Our Services</span>
+  </div>
 </div>
-<div class="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group slide-in-right" style="animation-delay: 0.4s">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-user-search-line text-primary text-3xl"></i>
+<h2 class="text-4xl font-bold text-gray-900 mt-6">Comprehensive Business Solutions</h2>
+<p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">We offer a wide range of services across HR, Digital Development, and Investment Management to help you achieve your organizational goals.</p>
 </div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">Strategic Talent Acquisition</h3>
-<p class="text-gray-600 mb-6">Temporary and permanent staffing solutions tailored to meet your specific business requirements.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
+
+<!-- Advanced Services Tabs Navigation -->
+<div class="mt-12 flex flex-wrap justify-center gap-4">
+  <button id="tab-hr" class="service-tab active px-6 py-3 rounded-full text-white bg-primary shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2" aria-label="HR Solutions Tab">
+    <i class="ri-user-search-line"></i>
+    <span>HR Solutions</span>
+  </button>
+  <button id="tab-digital" class="service-tab px-6 py-3 rounded-full text-gray-700 bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2" aria-label="Digital Development Tab">
+    <i class="ri-code-s-slash-line"></i>
+    <span>Digital Development</span>
+  </button>
+  <button id="tab-investment" class="service-tab px-6 py-3 rounded-full text-gray-700 bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2" aria-label="Investment Management Tab">
+    <i class="ri-bar-chart-2-line"></i>
+    <span>Investment Management</span>
+  </button>
 </div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group slide-in-right" style="animation-delay: 0.4s">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-shield-check-line text-primary text-3xl"></i>
+<!-- Services Content -->
+<div class="mt-12">
+  <!-- HR Solutions Tab Content -->
+  <div id="content-hr" class="service-content active">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- HR Service Cards -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <i class="ri-user-search-line text-primary text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Strategic Talent Acquisition</h3>
+          <p class="text-gray-600 mb-6">Temporary and permanent staffing solutions tailored to meet your specific business requirements.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/hr-services" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary font-medium group-hover:bg-primary group-hover:text-white rounded-full hover:bg-primary/90 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <i class="ri-shield-check-line text-primary text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Background Verification</h3>
+          <p class="text-gray-600 mb-6">Comprehensive verification services ensuring you hire trustworthy and reliable professionals.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/hr-services" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary font-medium group-hover:bg-primary group-hover:text-white rounded-full hover:bg-primary/90 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <i class="ri-money-dollar-circle-line text-primary text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Payroll Management</h3>
+          <p class="text-gray-600 mb-6">Efficient payroll solutions to streamline your HR operations and ensure compliance.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/hr-services" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary font-medium group-hover:bg-primary group-hover:text-white rounded-full hover:bg-primary/90 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <i class="ri-file-list-3-line text-primary text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">HR Compliance Implementation</h3>
+          <p class="text-gray-600 mb-6">Comprehensive HR compliance solutions to keep your organization aligned with regulations.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/hr-services" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary font-medium group-hover:bg-primary group-hover:text-white rounded-full hover:bg-primary/90 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <i class="ri-team-line text-primary text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Turnkey Recruitment</h3>
+          <p class="text-gray-600 mb-6">Specialized bulk hiring solutions for large-scale recruitment needs and projects.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/hr-services" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary font-medium group-hover:bg-primary group-hover:text-white rounded-full hover:bg-primary/90 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <i class="ri-user-settings-line text-primary text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Interim Management</h3>
+          <p class="text-gray-600 mb-6">Professional lateral hiring solutions for temporary management positions.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/hr-services" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary font-medium group-hover:bg-primary group-hover:text-white rounded-full hover:bg-primary/90 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Digital Development Tab Content -->
+  <div id="content-digital" class="service-content hidden">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <!-- Category: Website Development -->
+      <div class="md:col-span-12">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+          <i class="ri-global-line mr-3 text-blue-500"></i>
+          Website Development
+        </h3>
+      </div>
+      
+      <div class="md:col-span-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <h4 class="text-xl font-bold text-gray-900 mb-4">Business Website</h4>
+          <p class="text-gray-600 mb-6">Clean, responsive websites to showcase your services and brand.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/digital-services" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium group-hover:bg-blue-500 group-hover:text-white rounded-full hover:bg-blue-600 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <h4 class="text-xl font-bold text-gray-900 mb-4">E-Commerce Website</h4>
+          <p class="text-gray-600 mb-6">Online store setup with cart, payments, and product management.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/digital-services" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium group-hover:bg-blue-500 group-hover:text-white rounded-full hover:bg-blue-600 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <h4 class="text-xl font-bold text-gray-900 mb-4">Landing Page Design</h4>
+          <p class="text-gray-600 mb-6">High-converting single pages for ads, campaigns, or product launches.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/digital-services" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium group-hover:bg-blue-500 group-hover:text-white rounded-full hover:bg-blue-600 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <!-- Category: Mobile App Development -->
+      <div class="md:col-span-12 mt-8">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+          <i class="ri-smartphone-line mr-3 text-blue-500"></i>
+          Mobile App Development
+        </h3>
+      </div>
+      
+      <div class="md:col-span-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+            <i class="ri-smartphone-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">Android & iOS App Development</h4>
+          <p class="text-gray-600 mb-6">Custom mobile apps built using Flutter or React Native.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/digital-services" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium group-hover:bg-blue-500 group-hover:text-white rounded-full hover:bg-blue-600 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+            <i class="ri-device-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">Hybrid Apps</h4>
+          <p class="text-gray-600 mb-6">Cost-effective apps that work seamlessly on both platforms.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/digital-services" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium group-hover:bg-blue-500 group-hover:text-white rounded-full hover:bg-blue-600 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+            <i class="ri-apps-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">Business & Utility Apps</h4>
+          <p class="text-gray-600 mb-6">Apps for employee tracking, bookings, internal tools, and more.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/digital-services" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium group-hover:bg-blue-500 group-hover:text-white rounded-full hover:bg-blue-600 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Investment Management Tab Content -->
+  <div id="content-investment" class="service-content hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-gray-400 to-gray-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+            <i class="ri-line-chart-line text-gray-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Long-term Equity Investment</h3>
+          <p class="text-gray-600 mb-6">Expert consulting and assistance for strategic long-term investments in equity markets.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/investment-services" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 border border-gray-600 font-medium group-hover:bg-gray-700 group-hover:text-white rounded-full hover:bg-gray-700 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-gray-400 to-gray-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+            <i class="ri-exchange-funds-line text-gray-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Index Options Trading</h3>
+          <p class="text-gray-600 mb-6">Day-to-day trading consulting in index options to maximize potential returns.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/investment-services" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 border border-gray-600 font-medium group-hover:bg-gray-700 group-hover:text-white rounded-full hover:bg-gray-700 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-gray-400 to-gray-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+            <i class="ri-copper-coin-line text-gray-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Commodity & Forex Markets</h3>
+          <p class="text-gray-600 mb-6">Specialized consulting for commodity and forex market investments.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/investment-services" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 border border-gray-600 font-medium group-hover:bg-gray-700 group-hover:text-white rounded-full hover:bg-gray-700 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+        <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-gray-400 to-gray-600 transition-all duration-300 group-hover:h-full"></div>
+        <div class="p-8 relative z-10">
+          <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+            <i class="ri-radar-line text-gray-500 text-3xl group-hover:scale-110 transition-transform"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Technical Analysis Tools</h3>
+          <p class="text-gray-600 mb-6">Advanced indicators & screeners to support your technical analysis and trading decisions.</p>
+          <a href="https://dhanvarshsupremesolutions.com/services/investment-services" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 border border-gray-600 font-medium group-hover:bg-gray-700 group-hover:text-white rounded-full hover:bg-gray-700 transition-all duration-300 group/btn shadow-md hover:shadow-lg">
+  Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-1"></i>
+</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">Background Verification</h3>
-<p class="text-gray-600 mb-6">Comprehensive verification services ensuring you hire trustworthy and reliable professionals.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
+
+<!-- Futuristic 3D graphic element -->
+<div class="mt-20 relative h-40 overflow-hidden rounded-xl">
+  <div class="absolute inset-0 bg-gradient-to-r from-green-500/80 to-blue-600/80 opacity-90"></div>
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="text-center text-white z-10">
+      <h3 class="text-2xl font-bold mb-2">Ready to transform your business?</h3>
+      <p class="mb-4">Let's discuss how our services can help you achieve your goals.</p>
+      <a href="tel:9152962655" class="call-animate relative inline-flex items-center px-10 py-3 rounded-full font-semibold bg-white text-primary shadow-lg border-2 border-primary transition-all duration-500 overflow-hidden">
+        Call Now <i class="ri-phone-line ml-3"></i>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Animated Background Elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <span class="absolute -left-10 top-1/2 w-40 h-40 bg-white/10 rounded-full blur-xl float-animation" style="animation-duration:12s;"></span>
+    <span class="absolute left-1/4 -top-10 w-24 h-24 bg-white/10 rounded-full blur-lg float-animation" style="animation-duration:15s;animation-delay:3s;"></span>
+    <span class="absolute right-1/4 -bottom-10 w-32 h-32 bg-white/10 rounded-full blur-xl float-animation" style="animation-duration:18s;animation-delay:5s;"></span>
+    <span class="absolute -right-10 top-1/3 w-48 h-48 bg-white/10 rounded-full blur-xl float-animation" style="animation-duration:20s;animation-delay:2s;"></span>
+    <!-- Floating Circles -->
+    <span class="bubble big" style="left:50%; top:-40px; animation-duration:18s;"></span>
+    <span class="bubble small" style="left:10%; bottom:-40px; animation-duration:14s; animation-delay:2s;"></span>
+    <span class="bubble tiny" style="right:15%; top:20%; animation-duration:16s; animation-delay:1s;"></span>
+    <!-- Floating Dots -->
+    <span class="dot" style="left:75%; top:30%; animation-duration:7s;"></span>
+    <span class="dot" style="left:20%; bottom:25%; animation-duration:5s; animation-delay:2s;"></span>
+    <span class="dot" style="right:30%; top:10%; animation-duration:6s; animation-delay:1s;"></span>
+    <span class="dot" style="left:5%; bottom:-10px; animation-duration:4s;"></span>
+    <span class="dot" style="right:40%; bottom:-15px; animation-duration:5s; animation-delay:1s;"></span>
+    <span class="dot" style="left:60%; bottom:-20px; animation-duration:6s; animation-delay:2s;"></span>
+    <!-- Right-side extra dots -->
+    <span class="dot" style="right:10%; bottom:-12px; animation-duration:5s;"></span>
+    <span class="dot" style="right:5%; bottom:-5px; animation-duration:6s; animation-delay:0.5s;"></span>
+    <span class="dot" style="right:18%; bottom:-18px; animation-duration:7s; animation-delay:1.5s;"></span>
+  </div>
 </div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group slide-in-right" style="animation-delay: 0.4s">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-money-dollar-circle-line text-primary text-3xl"></i>
+
+<style>
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 4s linear infinite;
+}
+</style>
+
+<style>
+@keyframes cubeRotate {
+  0%   { transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  50%  { transform: translateY(25px) rotateX(180deg) rotateY(180deg) rotateZ(180deg); }
+  100% { transform: translateY(0) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+.cube {
+  position: absolute;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  transform-style: preserve-3d;
+  backdrop-filter: blur(2px);
+  animation: cubeRotate 20s linear infinite;
+}
+.cube { display:none; }
+
+/* Bubbles */
+@keyframes bubbleFloat {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+.bubble {
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
+  animation:bubbleFloat 8s ease-in-out infinite;
+  backdrop-filter:blur(2px);
+}
+.bubble.big{width:110px;height:110px;}
+.bubble.small{width:80px;height:80px;}
+.bubble.tiny{width:50px;height:50px;}
+.cube.small { width: 90px; height: 90px; animation-duration: 25s; }
+.cube.tiny { width: 60px; height: 60px; animation-duration: 30s; }
+
+/* Dots */
+@keyframes dotRise {
+  0%   { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+.dot {
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:rgba(255,255,255,0.45);
+  border-radius:50%;
+  animation: dotRise 6s linear infinite;
+}
+</style>
+
+<!-- Tab Switching Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.service-tab');
+  const contents = document.querySelectorAll('.service-content');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs and contents
+      tabs.forEach(t => t.classList.remove('active', 'bg-primary', 'text-white'));
+      tabs.forEach(t => t.classList.add('bg-white', 'text-gray-700'));
+      contents.forEach(c => c.classList.add('hidden'));
+      contents.forEach(c => c.classList.remove('active'));
+      
+      // Add active class to clicked tab
+      tab.classList.add('active', 'bg-primary', 'text-white');
+      tab.classList.remove('bg-white', 'text-gray-700');
+      
+      // Show corresponding content
+      const contentId = 'content-' + tab.id.split('-')[1];
+      document.getElementById(contentId).classList.remove('hidden');
+      document.getElementById(contentId).classList.add('active');
+      
+      // Add animation classes
+      const activeContent = document.getElementById(contentId);
+      const cards = activeContent.querySelectorAll('.bg-white');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          card.style.transition = 'all 0.5s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 50 * index);
+      });
+    });
+  });
+  
+  // Initialize first tab content with animations
+  const firstTabContent = document.querySelector('.service-content.active');
+  if (firstTabContent) {
+    const cards = firstTabContent.querySelectorAll('.bg-white');
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        card.style.transition = 'all 0.5s ease-out';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 50 * index);
+    });
+  }
+});
+</script>
+
+<style>
+/* Service tab styles */
+.service-tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-tab::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.service-tab:hover::after {
+  left: 100%;
+}
+
+/* Service content transition */
+.service-content {
+  transition: all 0.3s ease-in-out;
+}
+
+.service-content.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.service-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 </div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">Payroll Management</h3>
-<p class="text-gray-600 mb-6">Efficient payroll solutions to streamline your HR operations and ensure compliance.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
-</div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group slide-in-right" style="animation-delay: 0.4s">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-file-list-3-line text-primary text-3xl"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">HR Compliance Implementation & Audit</h3>
-<p class="text-gray-600 mb-6">Comprehensive HR compliance solutions to keep your organization aligned with regulations.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
-</div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group slide-in-right" style="animation-delay: 0.4s">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-team-line text-primary text-3xl"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">Turnkey Recruitment</h3>
-<p class="text-gray-600 mb-6">Specialized bulk hiring solutions for large-scale recruitment needs and projects.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
-</div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group slide-in-right" style="animation-delay: 0.4s">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-user-star-line text-primary text-3xl"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">Interim Management</h3>
-<p class="text-gray-600 mb-6">Professional lateral hiring solutions for temporary management positions.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
-</div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group col-span-3">
-<div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-<i class="ri-robot-line text-primary text-3xl"></i>
-</div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">AI Agent Implementation</h3>
-<p class="text-gray-600 mb-6">Cutting-edge AI solutions to enhance your HR processes and decision-making capabilities.</p>
-<button class="text-primary flex items-center group/btn">
-Learn More <i class="ri-arrow-right-line ml-2 transition-transform group-hover/btn:translate-x-2"></i>
-</button>
-</div>
-</div>
-</div>
-<section class="bg-white py-20">
+<section class="bg-green-50 py-20">
 <div class="container mx-auto px-6">
 <div class="text-center">
 <span class="bg-blue-500/10 text-blue-500 px-6 py-2 rounded-full text-sm font-medium">Tools & Resources</span>
@@ -1411,7 +1805,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </div>
 </div>
 </section>
-<section class="bg-gray-50 py-20">
+<section class="bg-green-50 py-20">
 <div class="container mx-auto px-6">
 <div class="text-center">
 <span class="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-medium">Our Clientele</span>
@@ -1451,8 +1845,8 @@ animation-play-state: paused;
 <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/63e74a55eb00bd3c0ad8d523987c9edd.png" alt="Trident Group" class="max-h-12 object-contain">
 </div>
 </div>
-<div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-<div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+<div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-green-50 to-transparent z-10"></div>
+<div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-green-50 to-transparent z-10"></div>
 </div>
 </div>
 <section class="bg-white py-20">
@@ -1778,7 +2172,7 @@ animation-play-state: paused;
 </div>
 </div>
 </div>
-<section class="bg-gray-50 py-10">
+<section class="bg-green-50 py-10">
 <div class="container mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
 <div class="fade-in-up">
@@ -1848,9 +2242,14 @@ Send Message
 </div>
 </div>
 </div>
+</div>
 </section>
 </main>
-<footer class="bg-gray-900 text-white pt-20 pb-10">
+<footer class="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-700 pt-24 pb-12 overflow-hidden">
+  <!-- Decorative floating elements -->
+  <span class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl animate-ping"></span>
+  <span class="absolute top-20 right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl animate-ping"></span>
+  <span class="absolute bottom-10 left-24 w-20 h-20 bg-emerald-500/10 rounded-full blur-2xl animate-ping"></span>
 <div class="container mx-auto px-6">
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 mb-16">
 <style>
@@ -1925,8 +2324,8 @@ Send Message
 </ul>
 </div>
 </div>
-<div class="border-t border-gray-800 pt-8 text-center">
-<p class="text-gray-400">&copy; 2021 Dhanvarsh Supreme Solutions. All rights reserved.</p>
+<div class="border-t border-gray-300 pt-8 text-center">
+<p class="text-gray-400">&copy; 2025 Dhanvarsh Supreme Solutions. All rights reserved.</p>
 </div>
 </div>
 </footer>
@@ -2035,6 +2434,39 @@ slider.parentElement.addEventListener('mouseenter', stopAutoSlide);
 slider.parentElement.addEventListener('mouseleave', startAutoSlide);
 // Add smooth transition
 slider.style.transition = 'transform 0.5s ease-in-out';
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.service-tab');
+    const tabContents = document.querySelectorAll('.service-content');
+
+    const colorMap = {
+      'tab-hr': 'bg-primary',
+      'tab-digital': 'bg-blue-500',
+      'tab-investment': 'bg-gray-600'
+    };
+
+    function resetTabs() {
+      tabButtons.forEach(btn => {
+        btn.classList.remove('bg-primary','bg-blue-500','bg-gray-600','text-white');
+        btn.classList.add('bg-white','text-gray-700');
+      });
+      tabContents.forEach(cont => cont.classList.add('hidden'));
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        resetTabs();
+        btn.classList.remove('bg-white','text-gray-700');
+        btn.classList.add(colorMap[btn.id],'text-white');
+        const contentId = btn.id.replace('tab','content');
+        const content = document.getElementById(contentId);
+        if(content){
+          content.classList.remove('hidden');
+        }
+      });
+    });
+  });
 </script>
 </body>
 </html>
