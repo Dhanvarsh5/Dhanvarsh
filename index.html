@@ -634,6 +634,9 @@ height: 16px;
     width: auto;
     display: block;
   }
+  .mobile-menu-logo-eos {
+    max-height: 64px !important;
+  }
   .mobile-menu-logo-link {
     display: flex;
     justify-content: center;
@@ -1032,14 +1035,36 @@ document.addEventListener("click", function (event) {
   }
 });
 </script>
-<section class="relative overflow-hidden py-20 pt-10 mt-[-80px]">
+<section class="relative overflow-hidden py-20 pt-10 mt-[-80px] elevate-section">
+  <style>
+    /* Size adjustments for "Elevating Business Potential" section */
+    .elevate-section h2{font-size:1.75rem !important;}
+    @media(min-width:768px){.elevate-section h2{font-size:2.25rem !important;}}
+    .elevate-section h3{font-size:1.75rem !important;}
+    .elevate-section p{font-size:0.88rem !important;}
+    /* Element spacing */
+    .elevate-section .grid{gap:1rem !important;}
+    /* Image & container sizing */
+    .elevate-section .md\:col-span-5{flex-basis:90% !important;max-width:90% !important;transform:scale(1);transform-origin:left top;}
+    /* Image & card padding */
+    .elevate-section .md\\:col-span-5 img{width:200% !important;max-width:200% !important;height:auto;}
+    .elevate-section .md\\:col-span-7{padding:0.75rem !important;transform:scale(0.85);transform-origin:left top;}
+    /* Icon container resize */
+    .elevate-section .learn-btn{padding:0.6rem 1.25rem !important;font-size:0.9rem !important;}
+
+    .elevate-section .w-14{width:2.5rem !important;height:2.5rem !important;}
+    /* Shrink "Elevating Business Potential" badge */
+    .elevate-section .inline-flex.items-center.mb-6{transform:scale(0.85);}
+    /* Nudge entire section content upward */
+    .elevate-section > .container{transform:translateY(-20px);}
+  </style>
   <!-- Animated background with geometric shapes -->
   <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-primary/90 opacity-95 z-0"></div>
   
   <!-- Floating geometric shapes -->
   <div class="absolute inset-0 overflow-hidden z-0">
     <div class="absolute top-[10%] left-[5%] w-40 h-40 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute top-[50%] left-[80%] w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute top-[50%] left-[50%] w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
     <div class="absolute top-[80%] left-[30%] w-40 h-40 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
     <div class="absolute top-[20%] left-[70%] w-32 h-32 border-2 border-primary/20 rounded-lg rotate-12 animate-float"></div>
     <div class="absolute top-[60%] left-[15%] w-24 h-24 border-2 border-emerald-400/20 rounded-lg -rotate-12 animate-float" style="animation-delay: 1.5s;"></div>
@@ -1061,8 +1086,7 @@ document.addEventListener("click", function (event) {
       </div>
              <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">Leading Business Solutions <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Provider in India</span></h2>
        <div class="w-24 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-6 rounded-full"></div>
-      <p class="mt-6 text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">For over a decade, we've been helping businesses transform challenges into opportunities through innovative solutions and strategic planning.</p>
-    </div>
+      </div>
     
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mt-8">
       <!-- Left column with image -->
@@ -1118,7 +1142,7 @@ document.addEventListener("click", function (event) {
               <div class="absolute inset-0 rounded-full transform group-hover/btn:translate-y-[2px] transition-transform duration-300"></div>
               
               <!-- Button with realistic shadow -->
-              <a href="https://dhanvarshsupremesolutions.com/about" class="relative inline-flex items-center px-8 py-3.5 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full font-medium overflow-hidden z-10 shadow-[0_4px_14px_0_rgba(0,196,140,0.4)] group-hover/btn:shadow-[0_6px_20px_rgba(0,196,140,0.6)] group-hover/btn:translate-y-[-2px] transition-all duration-300">
+              <a href="https://dhanvarshsupremesolutions.com/about" class="relative inline-flex items-center learn-btn px-8 py-3.5 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full font-medium overflow-hidden z-10 shadow-[0_4px_14px_0_rgba(0,196,140,0.4)] group-hover/btn:shadow-[0_6px_20px_rgba(0,196,140,0.6)] group-hover/btn:translate-y-[-2px] transition-all duration-300">
                                  <span class="relative z-20 flex items-center">
                    <!-- Animated icon with pulse effect -->
                    <span class="mr-3 relative">
@@ -1289,6 +1313,42 @@ document.addEventListener("click", function (event) {
 .animate-text-gradient {
   animation: text-gradient 4s linear infinite;
 }
+</style>
+<style>
+  /* Size adjustments for Services cards */
+  /* Further reduce overall card footprint */
+  .service-content .p-8{padding:1.25rem!important;}
+  .service-content .w-16{width:3rem!important;height:3rem!important;}
+  .service-content h3{font-size:1.25rem!important;}
+  .service-content p{font-size:1rem!important;}
+  .service-content a.inline-flex{padding:0.55rem 1.25rem!important;font-size:0.95rem!important;}
+  /* Reduce spacing between cards */
+  .service-content .grid{gap:1rem!important;}
+
+  /* --- Call Now button animations --- */
+  .call-animate{
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  /* Subtle bounce */
+  .call-animate:hover{transform:translateY(-3px) scale(1.03); box-shadow:0 8px 20px rgba(0,196,140,0.4);}  
+  /* Pulsating glow ring */
+  .call-animate::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:9999px;
+    box-shadow:0 0 0 0 rgba(0,196,140,0.7);
+    animation:pulse-ring 2.2s cubic-bezier(0.66,0,0,1) infinite;
+    z-index:-1;
+  }
+  @keyframes pulse-ring{
+    0%{box-shadow:0 0 0 0 rgba(0,196,140,0.6);} 70%{box-shadow:0 0 0 14px rgba(0,196,140,0);} 100%{box-shadow:0 0 0 0 rgba(0,196,140,0);} }
+  /* Phone icon wiggle */
+  .call-animate i{display:inline-block;animation:phone-wiggle 1.5s ease-in-out infinite;transform-origin:center;}
+  @keyframes phone-wiggle{0%,100%{transform:rotate(0);} 20%{transform:rotate(18deg);} 40%{transform:rotate(-18deg);} 60%{transform:rotate(12deg);} 80%{transform:rotate(-12deg);} }
+
 </style>
 <section class="bg-green-100 py-20">
 <div class="container mx-auto px-6">
@@ -1586,14 +1646,14 @@ document.addEventListener("click", function (event) {
   
   <!-- Animated Background Elements -->
   <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-    <span class="absolute -left-10 top-1/2 w-40 h-40 bg-white/10 rounded-full blur-xl float-animation" style="animation-duration:12s;"></span>
+    
     <span class="absolute left-1/4 -top-10 w-24 h-24 bg-white/10 rounded-full blur-lg float-animation" style="animation-duration:15s;animation-delay:3s;"></span>
-    <span class="absolute right-1/4 -bottom-10 w-32 h-32 bg-white/10 rounded-full blur-xl float-animation" style="animation-duration:18s;animation-delay:5s;"></span>
-    <span class="absolute -right-10 top-1/3 w-48 h-48 bg-white/10 rounded-full blur-xl float-animation" style="animation-duration:20s;animation-delay:2s;"></span>
+    
+    
     <!-- Floating Circles -->
-    <span class="bubble big" style="left:50%; top:-40px; animation-duration:18s;"></span>
-    <span class="bubble small" style="left:10%; bottom:-40px; animation-duration:14s; animation-delay:2s;"></span>
-    <span class="bubble tiny" style="right:15%; top:20%; animation-duration:16s; animation-delay:1s;"></span>
+    
+    
+    
     <!-- Floating Dots -->
     <span class="dot" style="left:75%; top:30%; animation-duration:7s;"></span>
     <span class="dot" style="left:20%; bottom:25%; animation-duration:5s; animation-delay:2s;"></span>
@@ -1601,6 +1661,10 @@ document.addEventListener("click", function (event) {
     <span class="dot" style="left:5%; bottom:-10px; animation-duration:4s;"></span>
     <span class="dot" style="right:40%; bottom:-15px; animation-duration:5s; animation-delay:1s;"></span>
     <span class="dot" style="left:60%; bottom:-20px; animation-duration:6s; animation-delay:2s;"></span>
+    <!-- Left-side extra dots -->
+    <span class="dot" style="left:12%; top:35%; animation-duration:6s; animation-delay:0.3s;"></span>
+    <span class="dot" style="left:8%; top:60%; animation-duration:5s; animation-delay:1s;"></span>
+    <span class="dot" style="left:25%; top:15%; animation-duration:7s; animation-delay:0.7s;"></span>
     <!-- Right-side extra dots -->
     <span class="dot" style="right:10%; bottom:-12px; animation-duration:5s;"></span>
     <span class="dot" style="right:5%; bottom:-5px; animation-duration:6s; animation-delay:0.5s;"></span>
@@ -1658,8 +1722,9 @@ document.addEventListener("click", function (event) {
 
 /* Dots */
 @keyframes dotRise {
-  0%   { transform: translateY(0); opacity: 0.8; }
-  100% { transform: translateY(-120px); opacity: 0; }
+  0%   { transform: translateY(120px); opacity: 0; }
+  10%  { opacity: 0.8; }
+  100% { transform: translateY(-140px); opacity: 0; }
 }
 .dot {
   position:absolute;
@@ -1767,333 +1832,493 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="bg-green-50 py-20">
 <div class="container mx-auto px-6">
 <div class="text-center">
-<span class="bg-blue-500/10 text-blue-500 px-6 py-2 rounded-full text-sm font-medium">Tools & Resources</span>
-<h2 class="text-4xl font-bold text-gray-900 mt-6">Powerful Tools <span class="text-blue-500">for Your Success</span></h2>
+<div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+  <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
+    <span class="relative flex h-3 w-3 mr-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+    </span>
+    <span class="text-sm font-medium text-white">Tools & Resources</span>
+  </div>
+</div>
+<h2 class="text-4xl font-bold text-gray-900 mt-6">Powerful AI Tools <span class="text-blue-500">for Your Success</span></h2>
 <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Explore our collection of tools designed to help you in your career journey and HR management.</p>
 </div>
 <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
-<div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+<div class="bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+<div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full"></div>
+  <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
 <i class="ri-file-text-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-4">Professional Resume Maker</h3>
 <p class="text-gray-600 mb-6">Create a professional resume in minutes with our easy-to-use builder. Free to use!</p>
-<a href="https://readdy.ai/home/02d3663a-f335-49ae-9694-924dc0c0a9f1/4fd7b53b-aee3-4ec4-9583-eded1aec4e6b" data-readdy="true" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+<a href="https://dhanvarshsupremesolutions.com/tools/resume-maker" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium rounded-full group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
-<div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+<div class="bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+<div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full"></div>
+  <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
 <i class="ri-file-edit-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
 </div>
 <h3 class="text-xl font-bold text-gray-900 mb-4">PDF Editor</h3>
 <p class="text-gray-600 mb-6">Edit, annotate, and organize your PDF files with our comprehensive tool. Free to use!</p>
-<a href="https://dhanvarshsupremesolutions.com/pdf-editor" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+<a href="https://dhanvarshsupremesolutions.com/tools/pdf-editor" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium rounded-full group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
-<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
-<div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+<div class="bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+<div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full"></div>
+  <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
 <i class="ri-file-transfer-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
 </div>
-<h3 class="text-xl font-bold text-gray-900 mb-4">File Converter</h3>
-<p class="text-gray-600 mb-6">Convert between different file formats quickly and easily. Completely free!</p>
-<a href="https://dhanvarshsupremesolutions.com/file-converter" class="bg-purple-600/10 text-purple-600 px-6 py-3 rounded-button inline-flex items-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+<h3 class="text-xl font-bold text-gray-900 mb-4">Job Description Maker</h3>
+<p class="text-gray-600 mb-6">Generate clear, compelling job descriptions effortlessly for any role.</p>
+<a href="https://dhanvarshsupremesolutions.com/tools/jd-maker" class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium rounded-full group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
 </div>
 </div>
 </section>
-<section class="bg-green-50 py-20">
+<section class="bg-white py-20">
 <div class="container mx-auto px-6">
-<div class="text-center">
-<span class="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-medium">Our Clientele</span>
+
+<div class="text-center mt-12">
+<div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+  <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
+    <span class="relative flex h-3 w-3 mr-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+    </span>
+    <span class="text-sm font-medium text-white">Our Clientele</span>
+  </div>
+</div>
+<div class="relative overflow-hidden mt-12">
+<style>
+.client-slider{
+  display:flex;
+  gap:4rem; /* extra wide gap between logos */
+  --gap:4rem;
+}
+/* Make each logo container narrower to increase visible logos */
+.client-slider > div{
+  width:10rem !important; /* 160px */
+}
+/* Larger logo images */
+.client-slider img{
+  max-height:140px;
+}
+/* Specific size for EOS Globe logo */
+.logo-eos{ max-height:64px !important; }
+
+.logo-slide{ flex-shrink:0; }
+/* Remove marquee animation */
+.client-logo {
+  max-height: 50px;
+  max-width: 160px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: grayscale(80%);
+  opacity: 0.75;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add styles for SVG logos */
+.svg-logo {
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.svg-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+.client-logo:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Container for the slider to ensure proper overflow handling */
+.client-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+</style>
+<div class="client-slider-container overflow-hidden relative">
+  <div id="logoCarousel" class="flex items-center gap-4 client-slider">
+<!-- First set of logos -->
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/245810001193fe3659cc5ded0c2b485a.png" alt="Shaadi.com" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/c4c2bbf796e5cdfeeacdaaed5f40ec24.jpeg" alt="Hexaware" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/282b5135af99b78908a1c22bc9b3b3b5.jpeg" alt="EOS Globe" class="object-contain hover:scale-105 transition-transform logo-eos" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/63e74a55eb00bd3c0ad8d523987c9edd.png" alt="Trident Group" class="max-h-28 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/gorxwe3zrxdl89scot31s/236092550_4349217158450164_5582884404527820614_n.png?rlkey=x1q1n7rxk6f8x5gt3wysbvabw&raw=1" alt="Turtlemint" class="max-h-28 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/da4l4z2ly9sok76y148br/Screenshot-2025-07-09-172134.png?rlkey=h1r1qrfc3ytust9jbyallipsn&raw=1" alt="New Client Logo" class="max-h-28 object-cover object-left hover:scale-105 transition-transform mt-2" loading="lazy" style="clip-path: inset(0 12% 0 0);">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/vfog2w3l6klc7bihj9a2a/download-4.png?rlkey=slmo35564gaue9jtry9mumakg&raw=1" alt="New Client Logo 2" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/2k17chbcnqe0vc2ozeck7/1732258488212.jpeg?rlkey=1kthb54df644pdq5vfp2mmt87&raw=1" alt="Digitide" class="max-h-36 object-contain hover:scale-105 transition-transform mt-4" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/gfv3nu4pvplay893yunw2/download.jpeg?rlkey=hxd5ztnbu4db8i6cwy72co17f&raw=1" alt="New Client Logo 4" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/a23s4yobt7iipb0c5hz5o/images.png?rlkey=5xahnjc25p49wg0r5g7vz9dz6&raw=1" alt="New Client Logo 5" class="max-h-36 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/gwkfae7l9y41bra1xq57k/download-3.png?rlkey=jhjeecb2kpso81dyvfnftjjsa&raw=1" alt="Athena" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/y9uuljwpcxbl9bxza46wf/download-2.png?rlkey=buqbsy57l610nxba7xjbuaidi&raw=1" alt="New Client Logo 7" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/30jutke4gm3ybaidqhuyx/utrqxssuuwjrb5gcuyhu.webp?rlkey=idyiy7c8t172nztrycjoy9kys&raw=1" alt="New Client Logo 8" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/o8i72q2ox5zdc9y4rpym6/download-3.jpeg?rlkey=e24mrvhi2zaqm4u6ez7dunjir&raw=1" alt="New Client Logo 9" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/2sgxlc2118htmhxm6k14h/download-4.jpeg?rlkey=wdc6gn8fwcuesfpk3j6ru4coj&raw=1" alt="New Client Logo 10" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+
+<!-- Slides will loop via JavaScript, duplicate set removed -->
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/245810001193fe3659cc5ded0c2b485a.png" alt="Shaadi.com" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/c4c2bbf796e5cdfeeacdaaed5f40ec24.jpeg" alt="Hexaware" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/282b5135af99b78908a1c22bc9b3b3b5.jpeg" alt="EOS Globe" class="object-contain hover:scale-105 transition-transform logo-eos" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/63e74a55eb00bd3c0ad8d523987c9edd.png" alt="Trident Group" class="max-h-28 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/gorxwe3zrxdl89scot31s/236092550_4349217158450164_5582884404527820614_n.png?rlkey=x1q1n7rxk6f8x5gt3wysbvabw&raw=1" alt="Turtlemint" class="max-h-28 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/da4l4z2ly9sok76y148br/Screenshot-2025-07-09-172134.png?rlkey=h1r1qrfc3ytust9jbyallipsn&raw=1" alt="New Client Logo" class="max-h-28 object-cover object-left hover:scale-105 transition-transform mt-2" loading="lazy" style="clip-path: inset(0 12% 0 0);">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/vfog2w3l6klc7bihj9a2a/download-4.png?rlkey=slmo35564gaue9jtry9mumakg&raw=1" alt="New Client Logo 2" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/2k17chbcnqe0vc2ozeck7/1732258488212.jpeg?rlkey=1kthb54df644pdq5vfp2mmt87&raw=1" alt="Digitide" class="max-h-36 object-contain hover:scale-105 transition-transform mt-4" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/gfv3nu4pvplay893yunw2/download.jpeg?rlkey=hxd5ztnbu4db8i6cwy72co17f&raw=1" alt="New Client Logo 4" class="max-h-16 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/a23s4yobt7iipb0c5hz5o/images.png?rlkey=5xahnjc25p49wg0r5g7vz9dz6&raw=1" alt="New Client Logo 5" class="max-h-36 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/gwkfae7l9y41bra1xq57k/download-3.png?rlkey=jhjeecb2kpso81dyvfnftjjsa&raw=1" alt="Athena" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/y9uuljwpcxbl9bxza46wf/download-2.png?rlkey=buqbsy57l610nxba7xjbuaidi&raw=1" alt="New Client Logo 7" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/30jutke4gm3ybaidqhuyx/utrqxssuuwjrb5gcuyhu.webp?rlkey=idyiy7c8t172nztrycjoy9kys&raw=1" alt="New Client Logo 8" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/o8i72q2ox5zdc9y4rpym6/download-3.jpeg?rlkey=e24mrvhi2zaqm4u6ez7dunjir&raw=1" alt="New Client Logo 9" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+<div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
+  <img src="https://www.dropbox.com/scl/fi/2sgxlc2118htmhxm6k14h/download-4.jpeg?rlkey=wdc6gn8fwcuesfpk3j6ru4coj&raw=1" alt="New Client Logo 10" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+</div>
+</div>
+<div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+<div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+</div>
+</div>
 <h2 class="text-4xl font-bold text-gray-900 mt-6">Trusted by <span class="text-primary">Industry Leaders</span></h2>
 <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">We're proud to work with some of the most respected companies across various industries.</p>
 </div>
-<div class="mt-20 relative overflow-hidden">
-<style>
-@keyframes slideLeft {
-0% { transform: translateX(100%); }
-100% { transform: translateX(-100%); }
-}
-.client-slider {
-animation: slideLeft 20s linear infinite;
-}
-.client-slider:hover {
-animation-play-state: paused;
-}
-</style>
-<div class="flex items-center justify-center gap-16 client-slider">
-<div class="flex-shrink-0 w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/245810001193fe3659cc5ded0c2b485a.png" alt="Shaadi.com" class="max-h-12 object-contain">
 </div>
-<div class="flex-shrink-0 w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/74a6cd1d760f3075b0ebee69f5ef1e74.png" alt="One Point One Solutions" class="max-h-12 object-contain">
-</div>
-<div class="flex-shrink-0 w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/c4c2bbf796e5cdfeeacdaaed5f40ec24.jpeg" alt="Hexaware" class="max-h-12 object-contain">
-</div>
-<div class="flex-shrink-0 w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/282b5135af99b78908a1c22bc9b3b3b5.jpeg" alt="EOS Globe" class="max-h-12 object-contain">
-</div>
-<div class="flex-shrink-0 w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/74a6cd1d760f3075b0ebee69f5ef1e74.png" alt="Cogent" class="max-h-12 object-contain">
-</div>
-<div class="flex-shrink-0 w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/63e74a55eb00bd3c0ad8d523987c9edd.png" alt="Trident Group" class="max-h-12 object-contain">
-</div>
-</div>
-<div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-green-50 to-transparent z-10"></div>
-<div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-green-50 to-transparent z-10"></div>
-</div>
-</div>
-<section class="bg-white py-20">
+<section class="bg-white pt-40 pb-40">
 <div class="container mx-auto px-6">
-<div class="text-center">
-<span class="bg-purple-600/10 text-purple-600 px-6 py-2 rounded-full text-sm font-medium">Testimonials</span>
-<h2 class="text-4xl font-bold text-gray-900 mt-6">What Our <span class="text-purple-600">Clients Say</span></h2>
-<p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it — hear from the businesses and individuals we've helped.</p>
-</div>
-<div class="mt-20 relative">
-<div class="overflow-hidden">
-<div class="flex transition-transform duration-500 ease-in-out" id="testimonialSlider">
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-primary/5 max-w-2xl mx-auto">
-<div class="flex items-center gap-4 mb-4">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Priya Malhotra" class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-xs"></i>
-</div>
-</div>
-<div>
-<h4 class="text-lg font-semibold text-gray-900">Priya Malhotra</h4>
-<p class="text-sm text-gray-600">HR Consultant, Mahindra & Mahindra</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-4xl text-primary/10 absolute -top-2 -left-1"></i>
-<p class="text-gray-700 text-sm relative z-10 pl-4 leading-relaxed">Partnering with Dhanvarsh has transformed our hiring process. Their innovative recruitment strategies, coupled with a strong candidate network, have significantly improved our time-to-hire and quality of talent acquisition.</p>
-</div>
-<div class="flex gap-1 mt-4">
-<i class="ri-star-fill text-yellow-400 text-sm"></i>
-<i class="ri-star-fill text-yellow-400 text-sm"></i>
-<i class="ri-star-fill text-yellow-400 text-sm"></i>
-<i class="ri-star-fill text-yellow-400 text-sm"></i>
-<i class="ri-star-fill text-yellow-400 text-sm"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Priya Mehta" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Priya Mehta</h4>
-<p class="text-gray-600">CEO, InnovateX Solutions</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">The level of professionalism and efficiency demonstrated by Dhanvarsh is unmatched. They've been instrumental in building our dream team.</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-pulse"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Arun Patel" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Arun Patel</h4>
-<p class="text-gray-600">Managing Director, GlobalTech India</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">Working with Dhanvarsh has been a game-changer for our recruitment needs. Their understanding of our industry and requirements is exceptional.</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-ping"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Sneha Reddy" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Sneha Reddy</h4>
-<p class="text-gray-600">Head of HR, Nexus Technologies</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">The AI implementation services from Dhanvarsh have revolutionized our HR processes. The efficiency gains are remarkable.</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-bounce"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Vikram Malhotra" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Vikram Malhotra</h4>
-<p class="text-gray-600">Director, Stellar Enterprises</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">Their background verification service is thorough and reliable. We've significantly reduced our hiring risks.</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-pulse"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Ananya Desai" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Ananya Desai</h4>
-<p class="text-gray-600">VP HR, Future Dynamics</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">The payroll management system implemented by Dhanvarsh has streamlined our operations completely. Excellent service!</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-ping"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-ping" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Rahul Kapoor" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Rahul Kapoor</h4>
-<p class="text-gray-600">CEO, Innovate Solutions</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">Their interim management solutions helped us navigate a critical transition period seamlessly. Highly recommended!</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-bounce"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-bounce" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-<div class="min-w-full px-4">
-<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-purple-600/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="relative">
-<img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/b6638c635264acf0f9912f7780d4cab3.png" alt="Meera Iyer" class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20">
-<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-<i class="ri-check-line text-white text-sm"></i>
-</div>
-</div>
-<div>
-<h4 class="text-xl font-semibold text-gray-900">Meera Iyer</h4>
-<p class="text-gray-600">HR Manager, Global Systems</p>
-</div>
-</div>
-<div class="relative">
-<i class="ri-double-quotes-l text-6xl text-primary/10 absolute -top-4 -left-2"></i>
-<p class="text-gray-700 relative z-10 pl-6">The compliance audit services from Dhanvarsh are thorough and professional. They've helped us maintain perfect compliance records.</p>
-</div>
-<div class="flex gap-1 mt-6">
-<i class="ri-star-fill text-yellow-400 animate-pulse"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.1s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.2s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.3s"></i>
-<i class="ri-star-fill text-yellow-400 animate-pulse" style="animation-delay: 0.4s"></i>
-</div>
-</div>
-</div>
-</div>
-<button class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors z-10" onclick="moveSlider(-1)">
-<i class="ri-arrow-left-s-line text-2xl"></i>
-</button>
-<button class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors z-10" onclick="moveSlider(1)">
-<i class="ri-arrow-right-s-line text-2xl"></i>
-</button>
-</div>
-<div class="flex justify-center gap-2 mt-8">
-<button class="w-3 h-3 rounded-full bg-primary transition-all duration-300" onclick="goToSlide(0)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(1)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(2)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(3)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(4)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(5)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(6)"></button>
-<button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(7)"></button>
-</div>
-</div>
+  <!-- Centered Badge -->
+  <div class="text-center mb-16">
+    <div class="inline-flex items-center px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+      <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
+        <span class="relative flex h-3 w-3 mr-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+        </span>
+        <span class="text-sm font-medium text-white">Testimonials</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="relative">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start">
+      <!-- Left column with heading and description -->
+      <div class="md:col-span-5 lg:col-span-4 md:sticky md:top-24 pr-8 pt-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">What Our <span class="text-purple-600">Clients Say</span></h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-400 mb-6 rounded-full"></div>
+        <p class="text-xl text-gray-600">Don't just take our word for it — hear from the businesses and individuals we've helped.</p>
+        
+        <!-- Decorative quote mark -->
+        <div class="mt-12 opacity-15">
+          <i class="ri-double-quotes-l text-9xl text-purple-300"></i>
+        </div>
+      </div>
+      
+      <!-- Right column with testimonial cards -->
+      <div class="md:col-span-7 lg:col-span-8 relative left-[-140px]">
+
+<!-- New Animated Sliding Cards -->
+<div class="mt-6">
+  <div class="container-scroll h-[250vh]">
+    <div class="sticky left-0 top-0 h-svh w-full py-8">
+      <div class="ml-auto mr-0 size-full h-[450px] w-[350px] cards-container">
+        <!-- Testimonial 1 -->
+        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="1">
+          <div class="flex flex-col items-center space-y-4 text-center">
+            <div class="flex items-center text-purple-500">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <div class="mx-auto w-4/5 text-lg">
+              <blockquote cite="#">Partnering with Dhanvarsh has transformed our hiring process. Their innovative recruitment strategies, coupled with a strong candidate network, have significantly improved our time-to-hire and quality of talent acquisition.</blockquote>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Priya Malhotra">
+            </div>
+            <div>
+              <span class="block text-lg font-semibold tracking-tight">Priya Malhotra</span>
+              <span class="block text-sm text-gray-500">HR Consultant, Mahindra & Mahindra</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="2">
+          <div class="flex flex-col items-center space-y-4 text-center">
+            <div class="flex items-center text-purple-500">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <div class="mx-auto w-4/5 text-lg">
+              <blockquote cite="#">The level of professionalism and efficiency demonstrated by Dhanvarsh is unmatched. They've been instrumental in building our dream team.</blockquote>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Priya Mehta">
+            </div>
+            <div>
+              <span class="block text-lg font-semibold tracking-tight">Priya Mehta</span>
+              <span class="block text-sm text-gray-500">CEO, InnovateX Solutions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="3">
+          <div class="flex flex-col items-center space-y-4 text-center">
+            <div class="flex items-center text-purple-500">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <div class="mx-auto w-4/5 text-lg">
+              <blockquote cite="#">Working with Dhanvarsh has been a game-changer for our recruitment needs. Their understanding of our industry and requirements is exceptional.</blockquote>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Arun Patel">
+            </div>
+            <div>
+              <span class="block text-lg font-semibold tracking-tight">Arun Patel</span>
+              <span class="block text-sm text-gray-500">Managing Director, GlobalTech India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="4">
+          <div class="flex flex-col items-center space-y-4 text-center">
+            <div class="flex items-center text-purple-500">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <div class="mx-auto w-4/5 text-lg">
+              <blockquote cite="#">The AI implementation services from Dhanvarsh have revolutionized our HR processes. The efficiency gains are remarkable.</blockquote>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Sneha Reddy">
+            </div>
+            <div>
+              <span class="block text-lg font-semibold tracking-tight">Sneha Reddy</span>
+              <span class="block text-sm text-gray-500">Head of HR, Nexus Technologies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Container Scroll Styles */
+    .container-scroll {
+      position: relative;
+      min-height: 80svh;
+      width: 100%;
+      perspective: 1000px;
+    }
+
+    /* Cards Container Styles */
+    .cards-container {
+      position: relative;
+      perspective: 1000px;
+      max-width: 380px;
+    }
+
+    /* Card Transformed Styles */
+    .card-transformed {
+      will-change: transform;
+      backface-visibility: hidden;
+      z-index: 10;
+      transition: all 0.5s ease;
+      border-top: 4px solid #9333ea;
+      box-shadow: 0 10px 25px rgba(147, 51, 234, 0.15);
+    }
+
+    .card-transformed[data-index="1"] {
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+    }
+    .card-transformed[data-index="2"] {
+      top: 10px;
+      z-index: 30;
+      box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2);
+    }
+    .card-transformed[data-index="3"] {
+      top: 20px;
+      z-index: 20;
+      box-shadow: 0 6px 15px rgba(147, 51, 234, 0.15);
+    }
+    .card-transformed[data-index="4"] {
+      top: 30px;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(147, 51, 234, 0.1);
+    }
+
+    /* ScrollTrigger Animation */
+    @media (min-width: 768px) {
+      .sticky {
+        position: sticky;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollContainer = document.querySelector('.container-scroll');
+      const cards = document.querySelectorAll('.card-transformed');
+      const totalCards = cards.length;
+
+      function updateCardsOnScroll() {
+        const containerTop = scrollContainer.getBoundingClientRect().top;
+        const containerHeight = scrollContainer.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate scroll progress (0 to 1)
+        let scrollProgress = 0;
+        if (containerTop <= 0) {
+          // How far we've scrolled into the container
+          const scrolledAmount = Math.abs(containerTop);
+          // Total scrollable amount (container height minus viewport)
+          const scrollableAmount = containerHeight - viewportHeight;
+          
+          scrollProgress = Math.min(scrolledAmount / scrollableAmount, 1);
+        }
+        
+        // Apply transforms to each card based on scroll progress
+        cards.forEach((card, index) => {
+          const cardIndex = parseInt(card.getAttribute('data-index'));
+          const startRange = (cardIndex - 1) / totalCards;
+          const endRange = cardIndex / totalCards;
+          
+          // Calculate rotation and y-translation
+          let rotation = 0;
+          let yTranslate = 0;
+          let scale = 1;
+          let opacity = 1;
+          
+          if (scrollProgress >= startRange && scrollProgress <= endRange) {
+            const localProgress = (scrollProgress - startRange) / (endRange - startRange);
+            rotation = (1 - localProgress) * ((totalCards - cardIndex + 1) * 5);
+            yTranslate = -180 * localProgress;
+            scale = 1 - (localProgress * 0.05);
+            opacity = 1 - (localProgress * 0.3);
+          } else if (scrollProgress > endRange) {
+            rotation = 0;
+            yTranslate = -180;
+            scale = 0.95;
+            opacity = 0.7;
+          } else {
+            rotation = (totalCards - cardIndex + 1) * 5;
+            yTranslate = 0;
+            scale = 1;
+            opacity = 1;
+          }
+          
+          card.style.transform = `translateY(${yTranslate}%) rotate(${rotation}deg) scale(${scale})`;
+          card.style.opacity = opacity;
+        });
+      }
+
+      // Initial positioning
+      updateCardsOnScroll();
+      
+      // Update on scroll
+      window.addEventListener('scroll', updateCardsOnScroll);
+      window.addEventListener('resize', updateCardsOnScroll);
+    });
+  </script>
+</div>
+    </div>
+  </div>
 </div>
 </section>
 <section class="bg-white py-20">
@@ -2245,7 +2470,13 @@ Send Message
 </div>
 </section>
 </main>
-<footer class="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-700 pt-24 pb-12 overflow-hidden">
+<footer class="relative bg-gradient-to-b from-white via-emerald-50 to-emerald-100 text-gray-700 pt-32 pb-12 overflow-hidden">
+  <!-- Decorative top wave -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
+    <svg class="relative block w-[calc(100%+1.3px)] h-16" preserveAspectRatio="none" viewBox="0 0 1200 120">
+      <path d="M0,0V46.29c47.52,22,103.79,29.28,158,17.39,70.03-15.65,136.94-57.59,207-59.62,62-1.8,119,31.55,178,46.27C628.34,70,699,64.71,764,49.59c57.31-13,112-37.29,171-43,54.87-5.25,108,9.17,160,24V0Z" fill="currentColor" class="text-white"></path>
+    </svg>
+  </div>
   <!-- Decorative floating elements -->
   <span class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl animate-ping"></span>
   <span class="absolute top-20 right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl animate-ping"></span>
@@ -2467,6 +2698,29 @@ slider.style.transition = 'transform 0.5s ease-in-out';
       });
     });
   });
+</script>
+<script>
+// Smooth continuous logo carousel
+document.addEventListener('DOMContentLoaded',()=>{
+  const carousel=document.getElementById('logoCarousel');
+  if(!carousel) return;
+  const speed = 0.8; // px per frame (faster)
+  // Duplicate slides for seamless loop
+  [...carousel.children].forEach(slide=>carousel.appendChild(slide.cloneNode(true)));
+  const totalWidth = carousel.scrollWidth / 2; // width of original slides
+  let offset = 0;
+  function animate(){
+    offset -= speed;
+    if(-offset >= totalWidth){
+      offset = 0;
+    }
+    carousel.style.transform = `translateX(${offset}px)`;
+    requestAnimationFrame(animate);
+  }
+  // Disable transition for continuous movement
+  carousel.style.transition = 'none';
+  requestAnimationFrame(animate);
+});
 </script>
 </body>
 </html>
