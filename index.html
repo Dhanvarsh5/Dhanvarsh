@@ -1835,8 +1835,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
   <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
     <span class="relative flex h-3 w-3 mr-2">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
     </span>
     <span class="text-sm font-medium text-white">Tools & Resources</span>
   </div>
@@ -2054,141 +2054,276 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </div>
 <h2 class="text-4xl font-bold text-gray-900 mt-6">Trusted by <span class="text-primary">Industry Leaders</span></h2>
 <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">We're proud to work with some of the most respected companies across various industries.</p>
+
+<!-- Decorative Design Element -->
+<div class="relative mx-auto mt-8 mb-10 max-w-4xl">
+  <!-- Animated Wave Pattern -->
+  <div class="absolute inset-x-0 top-1/2 transform -translate-y-1/2 z-0 overflow-hidden">
+    <div class="w-full h-20 opacity-10">
+      <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,200 L0,200 Z" fill="url(#wave-gradient)" class="animate-wave-slow"></path>
+        <path d="M0,100 C150,0 350,200 500,100 C650,0 850,200 1000,100 L1000,200 L0,200 Z" fill="url(#wave-gradient-2)" class="animate-wave"></path>
+        <defs>
+          <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00C48C"/>
+            <stop offset="50%" stop-color="#38BDF8"/>
+            <stop offset="100%" stop-color="#0EA5E9"/>
+          </linearGradient>
+          <linearGradient id="wave-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0EA5E9"/>
+            <stop offset="50%" stop-color="#38BDF8"/>
+            <stop offset="100%" stop-color="#00C48C"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  
+           <!-- Trust Indicators with Animated Counters -->
+     <div class="flex justify-center items-center gap-6 md:gap-12 z-10 relative">
+       <div class="flex flex-col items-center px-5 py-4 bg-gradient-to-br from-white to-green-50 rounded-lg shadow-lg border border-green-100/40 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+        <span class="text-3xl font-bold text-primary relative">
+          <span class="counter" data-target="99" data-suffix="%">0</span>
+          <span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full opacity-30 animate-pulse"></span>
+        </span>
+        <span class="text-sm font-medium text-gray-700 mt-1">Client Satisfaction</span>
+       </div>
+       <div class="h-12 w-0.5 bg-gradient-to-b from-transparent via-blue-200/30 to-transparent"></div>
+       <div class="flex flex-col items-center px-5 py-4 bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg border border-blue-100/40 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+        <span class="text-3xl font-bold text-blue-500 relative">
+          <span class="counter" data-target="50" data-suffix="+">0</span>
+          <span class="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full opacity-30 animate-pulse"></span>
+        </span>
+        <span class="text-sm font-medium text-gray-700 mt-1">Partner Companies</span>
+       </div>
+       <div class="h-12 w-0.5 bg-gradient-to-b from-transparent via-green-200/30 to-transparent"></div>
+       <div class="flex flex-col items-center px-5 py-4 bg-gradient-to-br from-white to-teal-50 rounded-lg shadow-lg border border-teal-100/40 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+         <span class="text-3xl font-bold text-emerald-500 relative">
+           <span class="counter" data-target="2000" data-suffix="+">0</span>
+           <span class="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full opacity-30 animate-pulse"></span>
+         </span>
+        <span class="text-sm font-medium text-gray-700 mt-1">Successful Placements</span>
+      </div>
+    </div>
+  
+  <!-- Decorative Dots Pattern -->
+  <div class="absolute -bottom-2 left-1/4 transform -translate-x-1/2">
+    <div class="flex space-x-1">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary"></span>
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+    </div>
+  </div>
+  <div class="absolute -bottom-2 right-1/4 transform translate-x-1/2">
+    <div class="flex space-x-1">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary"></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes wave-animation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-wave {
+    animation: wave-animation 15s linear infinite;
+  }
+  .animate-wave-slow {
+    animation: wave-animation 20s linear infinite;
+  }
+</style>
+
+<!-- Number Counter Animation Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+    
+    // Function to start counter animation
+    function startCounters() {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 2000; // Animation duration in milliseconds
+      
+      counters.forEach(counter => {
+        // Skip if already animated
+        if (counter.classList.contains('animated')) return;
+        
+        const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const increment = target / (speed / 30); // Update every 30ms
+        let current = 0;
+        
+        const updateCount = () => {
+          current += increment;
+          
+          // Round down to handle decimals
+          const value = Math.floor(current);
+          
+          // Don't go past the target
+          if (value < target) {
+            counter.textContent = value + suffix;
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.textContent = target + suffix;
+            counter.classList.add('animated');
+          }
+        };
+        
+        updateCount();
+      });
+    }
+    
+    // Check if counters are in viewport and start animation
+    function checkCounters() {
+      const counterSection = document.querySelector('.counter').closest('.relative');
+      if (isInViewport(counterSection)) {
+        startCounters();
+        // Remove scroll listener after animation starts
+        window.removeEventListener('scroll', checkCounters);
+      }
+    }
+    
+    // Initial check and add scroll listener
+    checkCounters();
+    window.addEventListener('scroll', checkCounters);
+  });
+</script>
 </div>
 </div>
 <section class="bg-white pt-40 pb-40">
 <div class="container mx-auto px-6">
-  <!-- Centered Badge -->
-  <div class="text-center mb-16">
-    <div class="inline-flex items-center px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
-      <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
-        <span class="relative flex h-3 w-3 mr-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
-        </span>
-        <span class="text-sm font-medium text-white">Testimonials</span>
-      </div>
-    </div>
-  </div>
   
   <div class="relative">
+    <!-- Testimonial badge removed -->
+    
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start">
       <!-- Left column with heading and description -->
-      <div class="md:col-span-5 lg:col-span-4 md:sticky md:top-24 pr-8 pt-12">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">What Our <span class="text-purple-600">Clients Say</span></h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-400 mb-6 rounded-full"></div>
-        <p class="text-xl text-gray-600">Don't just take our word for it — hear from the businesses and individuals we've helped.</p>
+      <div class="md:col-span-5 lg:col-span-4 md:sticky md:top-32 pr-8 pt-10 pl-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Client <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">Testimonials</span></h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-primary to-blue-400 mb-4 rounded-full"></div>
+        <p class="text-lg text-gray-600 leading-relaxed">Real experiences from clients who've partnered with us.</p>
         
-        <!-- Decorative quote mark -->
-        <div class="mt-12 opacity-15">
-          <i class="ri-double-quotes-l text-9xl text-purple-300"></i>
+        <!-- Decorative quote mark with better positioning -->
+        <div class="mt-8 opacity-15 transform -rotate-6">
+          <i class="ri-double-quotes-l text-8xl text-purple-300"></i>
         </div>
       </div>
       
       <!-- Right column with testimonial cards -->
-      <div class="md:col-span-7 lg:col-span-8 relative left-[-140px]">
+      <div class="md:col-span-7 lg:col-span-8 relative left-[-90px] top-[-20px]">
 
 <!-- New Animated Sliding Cards -->
 <div class="mt-6">
-  <div class="container-scroll h-[250vh]">
-    <div class="sticky left-0 top-0 h-svh w-full py-8">
-      <div class="ml-auto mr-0 size-full h-[450px] w-[350px] cards-container">
+  <div class="container-scroll h-[180vh]">
+    <div class="sticky-cards-container">
+      <div class="ml-auto mr-0 size-full h-[350px] w-[280px] cards-container">
         <!-- Testimonial 1 -->
-        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="1">
-          <div class="flex flex-col items-center space-y-4 text-center">
-            <div class="flex items-center text-purple-500">
+        <div class="absolute flex size-full flex-col items-center justify-center gap-3 rounded-2xl border border-stone-300 bg-white p-3 shadow-lg card-transformed" data-index="1" style="border-top: 4px solid #00C48C;">
+          <div class="flex flex-col items-center space-y-3 text-center">
+            <div class="flex items-center text-amber-400">
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
             </div>
-            <div class="mx-auto w-4/5 text-lg">
+            <div class="mx-auto w-4/5 text-base">
               <blockquote cite="#">Partnering with Dhanvarsh has transformed our hiring process. Their innovative recruitment strategies, coupled with a strong candidate network, have significantly improved our time-to-hire and quality of talent acquisition.</blockquote>
             </div>
           </div>
-          <div class="flex items-center gap-4">
-            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
-              <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Priya Malhotra">
+          <div class="flex items-center gap-3">
+            <div class="relative size-10 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Priya Malhotra">
             </div>
             <div>
-              <span class="block text-lg font-semibold tracking-tight">Priya Malhotra</span>
-              <span class="block text-sm text-gray-500">HR Consultant, Mahindra & Mahindra</span>
+              <span class="block text-sm font-semibold tracking-tight">Priya Malhotra</span>
+              <span class="block text-xs text-gray-500">HR Consultant, Mahindra & Mahindra</span>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="2">
-          <div class="flex flex-col items-center space-y-4 text-center">
-            <div class="flex items-center text-purple-500">
+        <div class="absolute flex size-full flex-col items-center justify-center gap-3 rounded-2xl border border-stone-300 bg-white p-3 shadow-lg card-transformed" data-index="2" style="border-top: 4px solid #00C48C;">
+          <div class="flex flex-col items-center space-y-3 text-center">
+            <div class="flex items-center text-amber-400">
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
             </div>
-            <div class="mx-auto w-4/5 text-lg">
+            <div class="mx-auto w-4/5 text-base">
               <blockquote cite="#">The level of professionalism and efficiency demonstrated by Dhanvarsh is unmatched. They've been instrumental in building our dream team.</blockquote>
             </div>
           </div>
-          <div class="flex items-center gap-4">
-            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
-              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Priya Mehta">
+          <div class="flex items-center gap-3">
+            <div class="relative size-10 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Priya Mehta">
             </div>
             <div>
-              <span class="block text-lg font-semibold tracking-tight">Priya Mehta</span>
-              <span class="block text-sm text-gray-500">CEO, InnovateX Solutions</span>
+              <span class="block text-sm font-semibold tracking-tight">Priya Mehta</span>
+              <span class="block text-xs text-gray-500">CEO, InnovateX Solutions</span>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 3 -->
-        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="3">
-          <div class="flex flex-col items-center space-y-4 text-center">
-            <div class="flex items-center text-purple-500">
+        <div class="absolute flex size-full flex-col items-center justify-center gap-3 rounded-2xl border border-stone-300 bg-white p-3 shadow-lg card-transformed" data-index="3" style="border-top: 4px solid #00C48C;">
+          <div class="flex flex-col items-center space-y-3 text-center">
+            <div class="flex items-center text-amber-400">
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
             </div>
-            <div class="mx-auto w-4/5 text-lg">
+            <div class="mx-auto w-4/5 text-base">
               <blockquote cite="#">Working with Dhanvarsh has been a game-changer for our recruitment needs. Their understanding of our industry and requirements is exceptional.</blockquote>
             </div>
           </div>
-          <div class="flex items-center gap-4">
-            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
-              <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Arun Patel">
+          <div class="flex items-center gap-3">
+            <div class="relative size-10 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Arun Patel">
             </div>
             <div>
-              <span class="block text-lg font-semibold tracking-tight">Arun Patel</span>
-              <span class="block text-sm text-gray-500">Managing Director, GlobalTech India</span>
+              <span class="block text-sm font-semibold tracking-tight">Arun Patel</span>
+              <span class="block text-xs text-gray-500">Managing Director, GlobalTech India</span>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 4 -->
-        <div class="absolute flex size-full flex-col items-center justify-center gap-6 rounded-2xl border border-stone-300 bg-white p-6 shadow-lg card-transformed" data-index="4">
-          <div class="flex flex-col items-center space-y-4 text-center">
-            <div class="flex items-center text-purple-500">
+        <div class="absolute flex size-full flex-col items-center justify-center gap-3 rounded-2xl border border-stone-300 bg-white p-3 shadow-lg card-transformed" data-index="4" style="border-top: 4px solid #00C48C;">
+          <div class="flex flex-col items-center space-y-3 text-center">
+            <div class="flex items-center text-amber-400">
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
               <i class="ri-star-fill"></i>
             </div>
-            <div class="mx-auto w-4/5 text-lg">
+            <div class="mx-auto w-4/5 text-base">
               <blockquote cite="#">The AI implementation services from Dhanvarsh have revolutionized our HR processes. The efficiency gains are remarkable.</blockquote>
             </div>
           </div>
-          <div class="flex items-center gap-4">
-            <div class="relative size-12 overflow-hidden rounded-full border border-stone-300">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Sneha Reddy">
+          <div class="flex items-center gap-3">
+            <div class="relative size-10 overflow-hidden rounded-full border border-stone-300">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Portrait of Sneha Reddy">
             </div>
             <div>
-              <span class="block text-lg font-semibold tracking-tight">Sneha Reddy</span>
-              <span class="block text-sm text-gray-500">Head of HR, Nexus Technologies</span>
+              <span class="block text-sm font-semibold tracking-tight">Sneha Reddy</span>
+              <span class="block text-xs text-gray-500">Head of HR, Nexus Technologies</span>
             </div>
           </div>
         </div>
@@ -2209,7 +2344,15 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
     .cards-container {
       position: relative;
       perspective: 1000px;
-      max-width: 380px;
+      max-width: 280px;
+    }
+
+    /* Fixed container for cards during animation */
+    .sticky-cards-container {
+      position: sticky;
+      top: 20vh; /* Fixed position from viewport top */
+      height: 400px;
+      width: 100%;
     }
 
     /* Card Transformed Styles */
@@ -2218,30 +2361,33 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
       backface-visibility: hidden;
       z-index: 10;
       transition: all 0.5s ease;
-      border-top: 4px solid #9333ea;
-      box-shadow: 0 10px 25px rgba(147, 51, 234, 0.15);
+      border-top: 4px solid #00C48C;
+      box-shadow: 0 10px 25px rgba(0, 196, 140, 0.15);
+      transform-origin: center center;
     }
 
     .card-transformed[data-index="1"] {
       top: 0;
       z-index: 40;
-      box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 196, 140, 0.3);
     }
     .card-transformed[data-index="2"] {
-      top: 10px;
+      top: 12px; /* Increased from 8px for more separation */
       z-index: 30;
-      box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2);
+      box-shadow: 0 8px 20px rgba(0, 196, 140, 0.2);
     }
     .card-transformed[data-index="3"] {
-      top: 20px;
+      top: 24px; /* Increased from 16px for more separation */
       z-index: 20;
-      box-shadow: 0 6px 15px rgba(147, 51, 234, 0.15);
+      box-shadow: 0 6px 15px rgba(0, 196, 140, 0.15);
     }
     .card-transformed[data-index="4"] {
-      top: 30px;
+      top: 36px; /* Increased from 24px for more separation */
       z-index: 10;
-      box-shadow: 0 4px 10px rgba(147, 51, 234, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 196, 140, 0.1);
     }
+
+    /* Testimonial badge removed */
 
     /* ScrollTrigger Animation */
     @media (min-width: 768px) {
@@ -2254,8 +2400,16 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const scrollContainer = document.querySelector('.container-scroll');
+      const cardsContainer = document.querySelector('.sticky-cards-container');
       const cards = document.querySelectorAll('.card-transformed');
       const totalCards = cards.length;
+
+      // Set initial card positions with rotation
+      cards.forEach((card, index) => {
+        const cardIndex = parseInt(card.getAttribute('data-index'));
+        const initialRotation = (totalCards - cardIndex + 1) * 5;
+        card.style.transform = `rotate(${initialRotation}deg)`;
+      });
 
       function updateCardsOnScroll() {
         const containerTop = scrollContainer.getBoundingClientRect().top;
@@ -2264,48 +2418,67 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
         
         // Calculate scroll progress (0 to 1)
         let scrollProgress = 0;
-        if (containerTop <= 0) {
-          // How far we've scrolled into the container
-          const scrolledAmount = Math.abs(containerTop);
-          // Total scrollable amount (container height minus viewport)
-          const scrollableAmount = containerHeight - viewportHeight;
+        // Delay animation start by using a smaller trigger point (further down the page)
+        const triggerPoint = viewportHeight * 0.5; // Changed from 0.8 to 0.5 to delay animation
+        
+        if (containerTop <= triggerPoint) {
+          // How far we've scrolled into the animation zone
+          const scrolledAmount = Math.abs(containerTop - triggerPoint);
+          // Limit the scrollable amount to create a focused animation section
+          const animationZoneHeight = viewportHeight * 1.5; // Increased from 1.2 to 1.5 for more gradual animation
           
-          scrollProgress = Math.min(scrolledAmount / scrollableAmount, 1);
+          scrollProgress = Math.min(scrolledAmount / animationZoneHeight, 1);
         }
         
-        // Apply transforms to each card based on scroll progress
-        cards.forEach((card, index) => {
-          const cardIndex = parseInt(card.getAttribute('data-index'));
-          const startRange = (cardIndex - 1) / totalCards;
-          const endRange = cardIndex / totalCards;
+        // Add an initial delay phase before any animation starts
+        const delayPhase = 0.10; // Reduced from 0.15 to start animation sooner
+        const rotationPhase = 0.20; // Reduced from 0.3 to complete rotation faster
+        const movePhase = 0.70; // Increased from 0.55 to allow more scroll space for card movement
+
+        if (scrollProgress <= delayPhase) {
+          // Phase 0: Initial delay - cards stay in original position
+          // Do nothing during the delay phase
           
-          // Calculate rotation and y-translation
-          let rotation = 0;
-          let yTranslate = 0;
-          let scale = 1;
-          let opacity = 1;
+        } else if (scrollProgress > delayPhase && scrollProgress <= (delayPhase + rotationPhase)) {
+          // Phase 1: Cards rotate to straighten
+          const rotationProgress = (scrollProgress - delayPhase) / rotationPhase;
           
-          if (scrollProgress >= startRange && scrollProgress <= endRange) {
-            const localProgress = (scrollProgress - startRange) / (endRange - startRange);
-            rotation = (1 - localProgress) * ((totalCards - cardIndex + 1) * 5);
-            yTranslate = -180 * localProgress;
-            scale = 1 - (localProgress * 0.05);
-            opacity = 1 - (localProgress * 0.3);
-          } else if (scrollProgress > endRange) {
-            rotation = 0;
-            yTranslate = -180;
-            scale = 0.95;
-            opacity = 0.7;
-          } else {
-            rotation = (totalCards - cardIndex + 1) * 5;
-            yTranslate = 0;
-            scale = 1;
-            opacity = 1;
-          }
+          cards.forEach((card, index) => {
+            const cardIndex = parseInt(card.getAttribute('data-index'));
+            const rotation = (1 - rotationProgress) * ((totalCards - cardIndex + 1) * 5);
+            card.style.transform = `rotate(${rotation}deg)`;
+          });
           
-          card.style.transform = `translateY(${yTranslate}%) rotate(${rotation}deg) scale(${scale})`;
-          card.style.opacity = opacity;
-        });
+        } else if (scrollProgress > (delayPhase + rotationPhase) && scrollProgress <= 1) {
+          // Phase 2: Cards move upward sequentially
+          const moveProgress = (scrollProgress - delayPhase - rotationPhase) / movePhase;
+          
+          cards.forEach((card, index) => {
+            const cardIndex = parseInt(card.getAttribute('data-index'));
+            const cardDelay = 0.25; // Increased from 0.15 to create more time between cards
+            const cardStart = (cardIndex - 1) * cardDelay;
+            const cardMoveTime = 0.20; // Decreased from 0.25 for faster individual card movement
+            
+            let yTranslate = 0;
+            let opacity = 1;
+            let scale = 1;
+            
+            // Calculate this card's progress
+            const cardMoveProgress = Math.max(0, Math.min(1, (moveProgress - cardStart) / cardMoveTime));
+            
+            if (cardMoveProgress > 0) {
+              // Make cards move completely off-screen (-200% ensures they're fully gone)
+              yTranslate = -200 * cardMoveProgress;
+              // Fade out more quickly (0.9 instead of 0.7)
+              opacity = 1 - (cardMoveProgress * 0.9);
+              // Add slight scaling effect for more dynamic movement
+              scale = 1 - (cardMoveProgress * 0.15);
+            }
+            
+            card.style.transform = `translateY(${yTranslate}%) rotate(0deg) scale(${scale})`;
+            card.style.opacity = opacity;
+          });
+        }
       }
 
       // Initial positioning
