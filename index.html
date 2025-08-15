@@ -163,6 +163,8 @@ h3 { font-size: 1.5rem !important; }
   .mobile-center-logo .flex-col, .mobile-center-logo .flex.flex-col {
     align-items: center !important;
   }
+  /* Slightly shift hero section up on mobile only */
+  .hero-section { margin-top: -28px !important; }
 }
 /* Small Screen Breakpoint */
 @media (max-width: 640px) {
@@ -260,6 +262,68 @@ grid-column: span 1;
 }
 }
 /* Element Animations */
+/* Entry Animation System */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.animate-fade-in.animate-in {
+  opacity: 1;
+}
+
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-scale-in.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animations */
+.animate-stagger-1 { transition-delay: 0.1s; }
+.animate-stagger-2 { transition-delay: 0.2s; }
+.animate-stagger-3 { transition-delay: 0.3s; }
+.animate-stagger-4 { transition-delay: 0.4s; }
+.animate-stagger-5 { transition-delay: 0.5s; }
+.animate-stagger-6 { transition-delay: 0.6s; }
+
 /* Floating Animation */
 @keyframes float {
 0% { transform: translateY(0px); }
@@ -317,6 +381,15 @@ to { transform: translateY(-50%); }
 from { transform: translateY(-50%); }
 to { transform: translateY(0); }
 }
+/* Mobile horizontal slider animations */
+@keyframes slideLeftToRight {
+from { transform: translateX(0); }
+to { transform: translateX(-50%); }
+}
+@keyframes slideRightToLeft {
+from { transform: translateX(-50%); }
+to { transform: translateX(0); }
+}
 .slide-up {
 animation: slideUp 20s linear infinite;
 }
@@ -333,6 +406,74 @@ position: absolute;
 width: 100%;
 display: flex;
 flex-direction: column;
+}
+
+/* Mobile-only horizontal slider styles */
+@media (max-width: 768px) {
+  .hero-slider-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    height: 300px !important;
+  }
+  
+  .slider-container {
+    height: 130px !important;
+    width: 100% !important;
+  }
+  
+  .slider-track {
+    flex-direction: row !important;
+    width: 200% !important;
+    height: 100% !important;
+  }
+  /* Move the 2nd slide (slide-down track) slightly up */
+  .slider-track.slide-down { margin-top: 0.25rem !important; }
+  
+  .slider-track img {
+    width: auto !important;
+    height: 120px !important;
+    margin-right: 1rem !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0;
+  }
+  /* Full-bleed mobile slider: extend to viewport edges and add edge fades */
+  .hero-slider-mobile {
+    position: relative !important;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    overflow: hidden !important;
+  }
+  .hero-slider-mobile::before,
+  .hero-slider-mobile::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3vw; /* reduced fade width */
+    pointer-events: none;
+    z-index: 5;
+  }
+  .hero-slider-mobile::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%);
+  }
+  .hero-slider-mobile::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%);
+  }
+  /* Ensure inner containers honor full-bleed without extra padding */
+  .hero-slider-mobile .slider-container { width: 100% !important; }
+  .hero-slider-mobile .slider-track { left: 0; right: 0; }
+  
+  .slide-up {
+    animation: slideLeftToRight 15s linear infinite !important;
+  }
+  
+  .slide-down {
+    animation: slideRightToLeft 15s linear infinite !important;
+  }
 }
 .slider-track::after {
 content: "";
@@ -827,21 +968,73 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- Main Content Area -->
 <main class="pt-20">
 <!-- Hero Section - Main landing area with animated text and image slider -->
-<section class="relative overflow-hidden">
+<section class="relative overflow-hidden hero-section">
   <!-- Dot Pattern Background -->
   <div id="dotPattern" class="absolute inset-0 pointer-events-none opacity-70" style="background-image: radial-gradient(circle, rgb(212 212 212) 1px, transparent 1px); background-size: 16px 16px;"></div>
   <div class="container mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[80vh] items-center relative z-20">
 <!-- Hero Left Column - Text Content -->
-<div class="flex flex-col reveal self-start -mt-2 md:-mt-4">
+<div class="flex flex-col self-start -mt-2 md:-mt-4">
 <!-- Tag Line with Animation -->
-<span class="border-2 border-primary/30 bg-primary/10 text-primary px-4 py-1 rounded-full text-sm inline-block w-fit scale-in" style="animation-delay: 0.6s">Dhanvarsh Supreme Solutions</span>
-<h1 class="text-6xl md:text-7xl font-extrabold mt-6 text-emerald-600 reveal reveal-delay-1 leading-tight">
+<span class="animate-scale-in animate-stagger-1 border-2 border-primary/30 bg-primary/10 text-primary px-4 py-1 rounded-full text-sm inline-block w-fit hero-badge">Dhanvarsh Supreme Solutions</span>
+<!-- Mobile-only font sizing for hero title -->
+<style>
+  @media (max-width: 768px) {
+    .hero-title { font-size: 3rem !important; line-height: 1.15 !important; margin-top: 0.5rem !important; }
+    .hero-subtitle { font-size: 1.35rem !important; line-height: 1.3 !important; margin-top: 0.5rem !important; }
+    #typingText { font-size: 1.3rem !important; line-height: 1.3 !important; margin-top: 0.6rem !important; }
+    .hero-desc { margin-top: -0.5rem !important; }
+    .hero-badge { display: none !important; }
+    .hero-desc br { display: none !important; }
+    /* Toggle sliders for mobile: show mobile slider below typingText, hide desktop slider */
+    .hero-slider-desktop { display: none !important; }
+    .hero-slider-mobile { display: block !important; margin-top: 1rem !important; }
+    /* Move CTA button slightly up */
+    .hero-cta { margin-top: 2.25rem !important; }
+    /* Slightly reduce Get Started button size */
+    .brutalist-button { transform: scale(0.92); transform-origin: left top; }
+    .button-text span:last-child { font-size: 14px !important; }
+  }
+  @media (max-width: 640px) {
+    .hero-title { font-size: 2.45rem !important; margin-top: 1rem !important; }
+    .hero-subtitle { font-size: 1.2rem !important; margin-top: 0.7rem !important; }
+    #typingText { font-size: 1.1rem !important; margin-top: 0.6rem !important; }
+    .hero-desc { margin-top: -0.5rem !important; }
+    .hero-cta { margin-top: 1.25rem !important; }
+    .brutalist-button { transform: scale(0.9); transform-origin: left top; }
+    .button-text span:last-child { font-size: 13px !important; }
+  }
+</style>
+<h1 class="animate-on-scroll animate-stagger-2 hero-title text-[64px] md:text-7xl font-extrabold mt-6 text-emerald-600 leading-tight">
   Empowering Your Business Growth
 </h1>
-<h2 class="text-3xl md:text-4xl text-[#0A2647] mt-4 reveal reveal-delay-2 tracking-wide">
- By offering expert solutions in
+<h2 class="animate-slide-left animate-stagger-3 hero-subtitle text-3xl md:text-4xl text-[#0A2647] mt-4 tracking-wide">
+By offering expert solutions in
 </h2>
-<h3 class="text-4xl font-semibold text-gray-800 mt-8 typewriter font-['Poppins'] reveal reveal-delay-3" id="typingText"></h3>
+<h3 class="animate-fade-in animate-stagger-4 text-4xl font-semibold text-gray-800 mt-8 typewriter font-['Poppins']" id="typingText"></h3>
+<!-- Mobile-only Slider placed directly after typing text -->
+<div class="hero-slider-mobile" style="display:none;">
+  <!-- Two Row (stacked) containers, each sliding horizontally via existing mobile CSS -->
+  <div class="grid grid-cols-1 gap-2 hero-slider-grid">
+    <div class="slider-container">
+      <div class="slider-track slide-up">
+        <img src="https://public.readdy.ai/ai/img_res/1156ab6f1e49b8bece3cfd3f22ff21a2.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/878ed40677031c9c30b7f866bc7440e5.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/aff249a4cfbed48deaa470031eb1dd15.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/0badd4786dd466c8adcb76bd34f9355f.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/ef3f00a2423e068a030295d5b0be043c.jpg" class="w-full object-cover rounded-lg" alt="HR Services">
+      </div>
+    </div>
+    <div class="slider-container">
+      <div class="slider-track slide-down mt-6">
+        <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/286584fe8ff7309a398c839f4b09ebad.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/7663f3930407cedd04c3f5b6f44346c9.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+        <img src="https://public.readdy.ai/ai/img_res/f46bec96688542c10d523f53b50383a9.jpg" class="w-full object-cover rounded-lg" alt="HR Services">
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Typewriter Effect Styles -->
 <style>
 @keyframes blink {
@@ -930,11 +1123,11 @@ document.addEventListener("DOMContentLoaded", () => {
   new TypeWriter(element, phrases);
 });
 </script>
-<p class="text-gray-600 mt-6 text-lg leading-relaxed reveal reveal-delay-4">
+<p class="animate-on-scroll animate-stagger-5 text-gray-600 mt-6 text-lg leading-relaxed hero-desc">
   Launching ideas with innovative solutions that drive real results.<br>
   Partner with us to transform your vision into reality.
 </p>
-<div class="relative reveal-delay-5 mt-10">
+<div class="animate-scale-in animate-stagger-6 relative mt-10 hero-cta">
 <button id="getStartedBtn" class="brutalist-button">
   <div class="button-text">
     <span>Get Started</span>
@@ -947,9 +1140,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 <!-- Hero Right Column - Image Slider -->
-<div class="relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-50/50 h-[750px] -mt-20 pt-2 z-10">
+<div class="animate-slide-right animate-stagger-2 relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-50/50 h-[750px] -mt-20 pt-2 z-10 hero-slider-desktop">
 <!-- Two Column Image Grid with Sliding Animation -->
-<div class="grid grid-cols-2 gap-4 h-full">
+<div class="grid grid-cols-2 gap-4 h-full hero-slider-grid">
 <div class="slider-container">
 <div class="slider-track slide-up">
 <img src="https://public.readdy.ai/ai/img_res/1156ab6f1e49b8bece3cfd3f22ff21a2.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
@@ -960,7 +1153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 <div class="slider-container">
-<div class="slider-track slide-down mt-32">
+<div class="slider-track slide-down mt-6">
 <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
 <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
 <img src="https://public.readdy.ai/ai/img_res/286584fe8ff7309a398c839f4b09ebad.jpg" class="w-full object-cover rounded-lg mb-4" alt="HR Services">
@@ -1057,6 +1250,11 @@ document.addEventListener("click", function (event) {
     .elevate-section .inline-flex.items-center.mb-6{transform:scale(0.85);}
     /* Nudge entire section content upward */
     .elevate-section > .container{transform:translateY(-20px);}
+    /* Mobile: add space before section and remove upward nudge */
+    @media (max-width: 768px) {
+      .elevate-section { margin-top: 1.25rem !important; }
+      .elevate-section > .container { transform: translateY(0) !important; }
+    }
   </style>
   <!-- Animated background with geometric shapes -->
   <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-primary/90 opacity-95 z-0"></div>
@@ -1073,7 +1271,7 @@ document.addEventListener("click", function (event) {
   
   <div class="container mx-auto px-6 pt-[20px] relative z-10">
     <div class="text-center mb-8">
-      <div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+      <div class="animate-scale-in animate-stagger-1 inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
         <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
           <span class="relative flex h-3 w-3 mr-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -1084,13 +1282,13 @@ document.addEventListener("click", function (event) {
           </span>
         </div>
       </div>
-             <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">Leading Business Solutions <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Provider in India</span></h2>
-       <div class="w-24 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-6 rounded-full"></div>
+             <h2 class="animate-on-scroll animate-stagger-2 text-4xl md:text-5xl font-bold text-white leading-tight">Leading Business Solutions <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Provider in India</span></h2>
+       <div class="animate-fade-in animate-stagger-3 w-24 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-6 rounded-full"></div>
       </div>
     
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mt-8">
       <!-- Left column with image -->
-      <div class="md:col-span-5 relative">
+      <div class="animate-slide-left animate-stagger-3 md:col-span-5 relative">
                  <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-emerald-500/20 rounded-xl transform rotate-3 scale-105 -z-10"></div>
         <div class="relative overflow-hidden rounded-xl shadow-2xl border border-white/10 transform hover:-rotate-2 transition-transform duration-500">
           <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/a93236a02070812ebf7b7266427fae5a.png" alt="About Us" class="w-full h-auto rounded-xl">
@@ -1107,7 +1305,7 @@ document.addEventListener("click", function (event) {
       </div>
       
       <!-- Right column with text content -->
-      <div class="md:col-span-7 bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-xl border border-white/10 shadow-xl">
+      <div class="animate-slide-right animate-stagger-4 md:col-span-7 bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-xl border border-white/10 shadow-xl">
                  <h3 class="text-3xl font-bold text-white mb-6 flex items-center">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Our Mission & Vision</span>
           <div class="ml-4 h-px flex-grow bg-gradient-to-r from-primary/50 to-transparent"></div>
@@ -1387,7 +1585,7 @@ document.addEventListener("click", function (event) {
   <div id="content-hr" class="service-content active">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       <!-- HR Service Cards -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+      <div class="animate-on-scroll animate-stagger-1 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
         <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
         <div class="p-8 relative z-10">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -1401,7 +1599,7 @@ document.addEventListener("click", function (event) {
         </div>
       </div>
       
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+      <div class="animate-on-scroll animate-stagger-2 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
         <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
         <div class="p-8 relative z-10">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -1415,7 +1613,7 @@ document.addEventListener("click", function (event) {
         </div>
       </div>
       
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+      <div class="animate-on-scroll animate-stagger-3 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
         <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
         <div class="p-8 relative z-10">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -1429,7 +1627,7 @@ document.addEventListener("click", function (event) {
         </div>
       </div>
       
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+      <div class="animate-on-scroll animate-stagger-4 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
         <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
         <div class="p-8 relative z-10">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -1443,7 +1641,7 @@ document.addEventListener("click", function (event) {
         </div>
       </div>
       
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+      <div class="animate-on-scroll animate-stagger-5 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
         <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
         <div class="p-8 relative z-10">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -1457,7 +1655,7 @@ document.addEventListener("click", function (event) {
         </div>
       </div>
       
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+      <div class="animate-on-scroll animate-stagger-6 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
         <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-primary to-emerald-400 transition-all duration-300 group-hover:h-full"></div>
         <div class="p-8 relative z-10">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
@@ -1832,7 +2030,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="bg-green-50 py-20">
 <div class="container mx-auto px-6">
 <div class="text-center">
-<div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
+<div class="animate-scale-in animate-stagger-1 inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group">
   <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
     <span class="relative flex h-3 w-3 mr-2">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -1841,11 +2039,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <span class="text-sm font-medium text-white">Tools & Resources</span>
   </div>
 </div>
-<h2 class="text-4xl font-bold text-gray-900 mt-6">Powerful AI Tools <span class="text-blue-500">for Your Success</span></h2>
-<p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Explore our collection of tools designed to help you in your career journey and HR management.</p>
+<h2 class="animate-on-scroll animate-stagger-2 text-4xl font-bold text-gray-900 mt-6">Powerful AI Tools <span class="text-blue-500">for Your Success</span></h2>
+<p class="animate-fade-in animate-stagger-3 mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Explore our collection of tools designed to help you in your career journey and HR management.</p>
 </div>
 <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-<div class="bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+<div class="animate-on-scroll animate-stagger-4 bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
 <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full"></div>
   <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
 <i class="ri-file-text-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
@@ -1856,7 +2054,7 @@ document.addEventListener('DOMContentLoaded', function() {
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
-<div class="bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+<div class="animate-on-scroll animate-stagger-5 bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
 <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full"></div>
   <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
 <i class="ri-file-edit-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
@@ -1867,7 +2065,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
-<div class="bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
+<div class="animate-on-scroll animate-stagger-6 bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
 <div class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full"></div>
   <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
 <i class="ri-file-transfer-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
@@ -2688,7 +2886,7 @@ Send Message
   .col-span-3 { grid-column: span 6; }
 }
 </style>
-<div class="col-span-4 space-y-6">
+<div class="animate-slide-left animate-stagger-1 col-span-4 space-y-6">
 <div class="flex items-center gap-2">
 <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png" alt="Dhanvarsh Logo" class="h-12">
 <div class="flex flex-col">
@@ -2708,7 +2906,7 @@ Send Message
 </a>
 </div>
 </div>
-<div class="col-span-2">
+<div class="animate-on-scroll animate-stagger-2 col-span-2">
 <h3 class="text-lg font-semibold mb-6 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-primary">Quick Links</h3>
 <ul class="space-y-4">
 <li><a href="#" class="text-gray-600 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Home</a></li>
@@ -2718,7 +2916,7 @@ Send Message
 <li><a href="#" class="text-gray-600 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Contact</a></li>
 </ul>
 </div>
-<div class="col-span-3">
+<div class="animate-on-scroll animate-stagger-3 col-span-3">
 <h3 class="text-lg font-semibold mb-6 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-primary">Services</h3>
 <ul class="space-y-4">
 <li><a href="#" class="text-gray-600 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Talent Acquisition &amp; HR Services</a></li>
@@ -2726,7 +2924,7 @@ Send Message
 <li><a href="#" class="text-gray-600 hover:text-primary transition-colors hover:translate-x-2 inline-block transform">Investment &amp; Fund Management</a></li>
 </ul>
 </div>
-<div class="col-span-3">
+<div class="animate-slide-right animate-stagger-4 col-span-3">
 <h3 class="text-lg font-semibold mb-6 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-primary">Contact Us</h3>
 <ul class="space-y-4">
 <li class="flex gap-3 group">
@@ -2931,6 +3129,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   background-size: 400% 400%;
   animation: shine 8s ease infinite;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   pointer-events: none;
@@ -2948,5 +3147,35 @@ document.addEventListener('DOMContentLoaded',()=>{
   padding-bottom: 0.5rem;
 }
 </style>
+
+<!-- Entry Animation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Intersection Observer for entry animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animation classes
+  const animatedElements = document.querySelectorAll(
+    '.animate-on-scroll, .animate-fade-in, .animate-slide-left, .animate-slide-right, .animate-scale-in'
+  );
+  
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
 </body>
 </html>
