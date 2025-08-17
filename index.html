@@ -1216,7 +1216,18 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-document.getElementById("getStartedBtn").addEventListener("click", function () {
+document.getElementById("getStartedBtn").addEventListener("click", function (e) {
+  // Mobile: open modal instead of desktop dropdown
+  if (window.innerWidth <= 768) {
+    e.preventDefault();
+    const modal = document.getElementById("getStartedModal");
+    if (modal) {
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+    return;
+  }
+  // Desktop: toggle existing small dropdown
   const menu = document.getElementById("optionsMenu");
   menu.classList.toggle("hidden");
 });
@@ -1252,8 +1263,23 @@ document.addEventListener("click", function (event) {
     .elevate-section > .container{transform:translateY(-20px);}
     /* Mobile: add space before section and remove upward nudge */
     @media (max-width: 768px) {
-      .elevate-section { margin-top: 1.25rem !important; }
+      .elevate-section { margin-top: 1.25rem !important; padding-bottom: 5rem !important; }
       .elevate-section > .container { transform: translateY(0) !important; }
+      /* Mobile-only: enlarge image and its holder */
+      .elevate-section .elevate-image-frame { transform: scale(1.04) !important; transform-origin: center top !important; margin-top: 0.55rem !important; margin-bottom: 1rem !important; }
+      .elevate-section .elevate-image-holder { transform: rotate(2deg) scale(1.08) !important; transform-origin: center top !important; }
+      /* Improve vertical rhythm on mobile */
+      .elevate-section .grid { gap: 1.25rem !important; }
+      /* Columns */
+      .elevate-section .md\:col-span-5 { flex-basis: 100% !important; max-width: 100% !important; }
+      /* Image sizing and centering */
+      .elevate-section .md\\:col-span-5 img { width: 101% !important; max-width: none !important; height: auto !important; transform: translateX(-0.5%) !important; }
+      /* Right card spacing and reset scaling */
+      .elevate-section .md\:col-span-7 { margin-top: 1rem !important; transform: none !important; padding: 1rem !important; }
+      /* Center 'Our Mission & Vision' heading and intro paragraph */
+      .elevate-section .md\:col-span-7 h3 { justify-content: center !important; text-align: center !important; }
+      .elevate-section .md\:col-span-7 h3 .h-px { display: none !important; }
+      .elevate-section .md\:col-span-7 > p { text-align: center !important; }
     }
   </style>
   <!-- Animated background with geometric shapes -->
@@ -1289,8 +1315,8 @@ document.addEventListener("click", function (event) {
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mt-8">
       <!-- Left column with image -->
       <div class="animate-slide-left animate-stagger-3 md:col-span-5 relative">
-                 <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-emerald-500/20 rounded-xl transform rotate-3 scale-105 -z-10"></div>
-        <div class="relative overflow-hidden rounded-xl shadow-2xl border border-white/10 transform hover:-rotate-2 transition-transform duration-500">
+                 <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-emerald-500/20 rounded-xl transform rotate-3 scale-105 -z-10 elevate-image-holder"></div>
+        <div class="relative overflow-hidden rounded-xl shadow-2xl border border-white/10 transform hover:-rotate-2 transition-transform duration-500 elevate-image-frame">
           <img src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/a93236a02070812ebf7b7266427fae5a.png" alt="About Us" class="w-full h-auto rounded-xl">
                       <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 to-transparent flex items-end">
             <div class="p-6">
@@ -1422,7 +1448,7 @@ document.addEventListener("click", function (event) {
   </div>
   
   <!-- Additional decorative elements -->
-  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-green-100 to-transparent z-10"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-green-100 to-transparent z-0"></div>
   
   <!-- Enhanced particle effect -->
   <div class="absolute inset-0 z-0 opacity-50">
@@ -1830,7 +1856,15 @@ document.addEventListener("click", function (event) {
 </div>
 
 <!-- Futuristic 3D graphic element -->
-<div class="mt-20 relative h-40 overflow-hidden rounded-xl">
+<style>
+  /* Mobile-only adjustments for CTA banner */
+  @media (max-width: 768px) {
+    .cta-banner h3 { font-size: 1.125rem !important; } /* ~18px */
+    .cta-banner p { font-size: 0.9rem !important; margin-bottom: 0.75rem !important; line-height: 1.4 !important; }
+    .cta-banner a { padding: 0.625rem 1.25rem !important; font-size: 0.95rem !important; }
+  }
+  </style>
+<div class="mt-20 relative h-40 overflow-hidden rounded-xl cta-banner">
   <div class="absolute inset-0 bg-gradient-to-r from-green-500/80 to-blue-600/80 opacity-90"></div>
   <div class="absolute inset-0 flex items-center justify-center">
     <div class="text-center text-white z-10">
@@ -2149,6 +2183,61 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
   width: 100%;
   overflow: hidden;
 }
+
+/* Reduce edge overlay width globally (overrides w-32 utility) */
+.client-slider-container > .absolute { width: 2rem !important; }
+
+/* Mobile-only: force horizontal sliding (no wrap) */
+@media (max-width: 768px) {
+  /* override earlier mobile rules that wrapped the logos */
+  .client-slider {
+    flex-wrap: nowrap !important;
+    gap: 1.25rem !important; /* tighter gap on mobile */
+  }
+  .client-slider > div {
+    width: 120px !important; /* fixed width for consistent spacing */
+    height: 72px !important; /* uniform container height */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 120px !important; /* prevent shrinking/wrapping with fixed width */
+  }
+  .client-slider img {
+    height: 56px !important; /* same visible size for all logos */
+    width: auto !important;
+    max-height: none !important;
+    margin: 0 !important; /* neutralize per-logo margins */
+    object-fit: contain !important;
+  }
+  /* Increase size for specific logos on mobile */
+  .client-slider img[alt="Trident Group"],
+  .client-slider img[alt="Turtlemint"],
+  .client-slider img[alt="Digitide"],
+  .client-slider img[alt="New Client Logo"],
+  .client-slider img[alt="New Client Logo 2"],
+  .client-slider img[alt="New Client Logo 4"],
+  .client-slider img[alt="New Client Logo 5"],
+  .client-slider img[alt="New Client Logo 7"],
+  .client-slider img[alt="New Client Logo 8"],
+  .client-slider img[alt="New Client Logo 9"],
+  .client-slider img[alt="New Client Logo 10"],
+  .client-slider img[alt="Athena"] {
+    height: 72px !important; /* larger size for specified logos */
+  }
+  /* Reduce edge fade overlays further on mobile */
+  .client-slider-container > .absolute { width: 1rem !important; }
+  /* Custom mobile logo animation to show all logos */
+  @keyframes mobileLogoSlide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  #logoCarousel { 
+    animation: mobileLogoSlide 25s linear infinite !important; 
+    will-change: transform;
+    width: max-content !important; /* Allow full width for all logos */
+    display: flex !important;
+  }
+}
 </style>
 <div class="client-slider-container overflow-hidden relative">
   <div id="logoCarousel" class="flex items-center gap-4 client-slider">
@@ -2278,7 +2367,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
   </div>
   
            <!-- Trust Indicators with Animated Counters -->
-     <div class="flex justify-center items-center gap-6 md:gap-12 z-10 relative">
+     <div id="trustIndicators" class="flex justify-center items-center gap-6 md:gap-12 z-10 relative">
        <div class="flex flex-col items-center px-5 py-4 bg-gradient-to-br from-white to-green-50 rounded-lg shadow-lg border border-green-100/40 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         <span class="text-3xl font-bold text-primary relative">
           <span class="counter" data-target="99" data-suffix="%">0</span>
@@ -2331,6 +2420,16 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
   }
   .animate-wave-slow {
     animation: wave-animation 20s linear infinite;
+  }
+</style>
+
+<style>
+  /* Mobile-only compact sizing for trust indicators (99%, 50+, 2000+) */
+  @media (max-width: 768px) {
+    #trustIndicators { gap: 0.75rem !important; }
+    #trustIndicators > div { padding: 0.5rem 0.75rem !important; }
+    #trustIndicators .text-3xl { font-size: 1.5rem !important; line-height: 1.25 !important; }
+    #trustIndicators .text-sm { font-size: 0.75rem !important; }
   }
 </style>
 
@@ -2399,7 +2498,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </script>
 </div>
 </div>
-<section class="bg-white pt-40 pb-40">
+<section class="bg-white pt-10 md:pt-40 pb-40">
 <div class="container mx-auto px-6">
   
   <div class="relative">
@@ -2419,7 +2518,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
       </div>
       
       <!-- Right column with testimonial cards -->
-      <div class="md:col-span-7 lg:col-span-8 relative left-[-90px] top-[-20px]">
+      <div id="testimonialsRight" class="md:col-span-7 lg:col-span-8 relative left-[-30px] top-[-80px] md:left-[-60px]">
 
 <!-- New Animated Sliding Cards -->
 <div class="mt-6">
@@ -2710,7 +2809,10 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
   /* FAQ adjustments */
   .faq-answer{max-height:0;overflow:hidden;padding-top:0;padding-bottom:0!important;transition:max-height .5s ease,padding .3s ease;}
   .faq-answer.open{padding-bottom:1.5rem;}
-  .faq-item h3{font-size:1rem;}
+  /* Mobile-only: reduce FAQ question size */
+  @media (max-width: 640px) {
+    .faq-item h3 { font-size: 1rem !important; }
+  }
 
 </style>
 </div>
@@ -2785,9 +2887,9 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </div>
 <section class="bg-white py-1 mt-24">
 <div class="container mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-<div class="fade-in-up">
-<div class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group -mt-32 ml-[41rem] relative z-10 overflow-visible">
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+ <div class="fade-in-up">
+<div class="flex w-fit items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group -mt-4 md:-mt-32 mx-auto md:mx-0 md:ml-[41rem] relative z-10 overflow-visible">
   <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
     <span class="relative flex h-3 w-3 mr-2">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -2796,7 +2898,6 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
     <span class="text-sm font-medium text-white whitespace-nowrap">Get In Touch</span>
   </div>
 </div>
-<h2 class="text-4xl font-bold text-gray-900 mt-6">Contact Us</h2>
 <p class="mt-4 text-xl text-gray-600">Have questions or need assistance? Our team is here to help. Reach out to us and we'll respond as soon as possible.</p>
 <div class="mt-12 space-y-8">
 <div class="flex items-start gap-4 group hover:-translate-y-1 transition-transform duration-300">
@@ -2830,7 +2931,7 @@ Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-
 </div>
 </div>
 </div>
-<div class="bg-white rounded-xl shadow-xl p-6 scale-in mt-16 shine-border relative overflow-hidden max-w-lg mx-auto md:ml-auto">
+<div class="bg-white rounded-xl shadow-xl p-6 scale-in mt-8 md:mt-16 mb-12 md:mb-0 shine-border relative overflow-hidden w-full max-w-none md:max-w-lg mx-auto md:ml-auto">
 <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
 <form id="contactForm" class="space-y-4 compact-form" method="POST" action="contact.php">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -2866,7 +2967,7 @@ Send Message
 </div>
 </section>
 </main>
-<footer class="relative bg-white text-gray-900 pt-14 pb-12 overflow-hidden -mt-24 md:-mt-32 z-20 border-t border-gray-300">
+<footer class="relative bg-white text-gray-900 pt-14 pb-8 md:pb-12 overflow-hidden -mt-24 md:-mt-32 z-20 border-t border-gray-300">
   <!-- Decorative top wave -->
   <div class="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
     <svg class="relative block w-[calc(100%+1.3px)] h-16" preserveAspectRatio="none" viewBox="0 0 1200 120">
@@ -2878,12 +2979,20 @@ Send Message
 
 
 <div class="container mx-auto px-6">
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 mb-16">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 mb-5 md:mb-20 footer-links-grid">
 <style>
 @media (max-width: 768px) {
   .col-span-4 { grid-column: span 12; }
   .col-span-2 { grid-column: span 6; }
   .col-span-3 { grid-column: span 6; }
+}
+/* Mobile layout: show Quick Links and Services side by side */
+@media (max-width: 640px) {
+  .footer-links-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .col-span-4 { grid-column: span 2 !important; } /* Brand block full width */
+  .col-span-2 { grid-column: span 1 !important; } /* Quick Links half width */
+  .animate-on-scroll.col-span-3 { grid-column: span 1 !important; } /* Services half width */
+  .animate-slide-right.col-span-3 { grid-column: span 2 !important; } /* Contact Us full width */
 }
 </style>
 <div class="animate-slide-left animate-stagger-1 col-span-4 space-y-6">
@@ -2942,13 +3051,16 @@ Send Message
 </ul>
 </div>
 </div>
-<div class="border-t border-gray-300 pt-8 md:flex md:justify-between md:items-center text-sm text-center space-y-4 md:space-y-0">
-<p class="text-gray-600">&copy; 2025 Dhanvarsh Supreme Solutions. All rights reserved.</p>
-  <div class="flex justify-center gap-6">
-    <a href="https://dhanvarshsupremesolutions.com/policies/service-policy" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+<div class="border-t border-gray-300 pt-5 md:pt-8 flex flex-col md:flex md:flex-row md:justify-between md:items-center text-sm text-center space-y-4 md:space-y-0">
+  <div class="flex justify-center items-center gap-4 md:gap-6 order-1 md:order-2 mb-3 md:mb-0">
     <a href="https://dhanvarshsupremesolutions.com/policies/Privacy-policy" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
+    <span class="text-gray-400 select-none md:hidden">|</span>
+    <a href="https://dhanvarshsupremesolutions.com/policies/service-policy" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+    <span class="text-gray-400 select-none md:hidden">|</span>
     <a href="https://dhanvarshsupremesolutions.com/policies/refund-policy" class="text-gray-600 hover:text-primary transition-colors">Refund Policy</a>
   </div>
+  <div class="h-px bg-gray-300 w-full md:hidden order-2"></div>
+  <p class="text-gray-600 order-3 md:order-1 whitespace-nowrap text-[13px] md:text-sm">&copy; 2025 Dhanvarsh Supreme Solutions. All rights reserved.</p>
 </div>
 </div>
 </footer>
@@ -3098,9 +3210,11 @@ slider.style.transition = 'transform 0.5s ease-in-out';
 <script>
 // Smooth continuous logo carousel
 document.addEventListener('DOMContentLoaded',()=>{
+  // Run JS carousel only on desktop; mobile uses CSS animation
+  if (window.innerWidth <= 768) return;
   const carousel=document.getElementById('logoCarousel');
   if(!carousel) return;
-  const speed = 0.8; // px per frame (faster)
+  const speed = 1.2; // px per frame (faster desktop speed)
   // Duplicate slides for seamless loop
   [...carousel.children].forEach(slide=>carousel.appendChild(slide.cloneNode(true)));
   const totalWidth = carousel.scrollWidth / 2; // width of original slides
@@ -3175,6 +3289,39 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 });
+</script>
+
+<!-- Get Started Modal (Mobile Only) -->
+<div id="getStartedModal" class="fixed inset-0 z-[60] hidden md:hidden">
+  <div class="absolute inset-0 bg-black/50" data-close="overlay"></div>
+  <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 shadow-2xl max-h-[80vh] md:max-h-none overflow-y-auto">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-semibold text-gray-900">Get Started</h3>
+      <button id="closeGetStartedModal" aria-label="Close" class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600"><i class="ri-close-line text-xl"></i></button>
+    </div>
+    <div class="space-y-3">
+      <a href="https://dhanvarshsupremesolutions.com/recruitment-services" class="block px-4 py-3 rounded-lg border border-gray-200 text-gray-800 hover:bg-primary/10 hover:text-primary">Talent Acquisition & HR Services</a>
+      <a href="https://dhanvarshsupremesolutions.com/digital-solutions" class="block px-4 py-3 rounded-lg border border-gray-200 text-gray-800 hover:bg-primary/10 hover:text-primary">Web & App Development</a>
+      <a href="https://dhanvarshsupremesolutions.com/investment-services" class="block px-4 py-3 rounded-lg border border-gray-200 text-gray-800 hover:bg-primary/10 hover:text-primary">Investment & Fund Management</a>
+    </div>
+  </div>
+  
+</div>
+<script>
+  // Mobile modal close logic
+  (function(){
+    const modal = document.getElementById('getStartedModal');
+    const closeBtn = document.getElementById('closeGetStartedModal');
+    if(!modal) return;
+    function closeModal(){
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){ if(e.target.dataset.close === 'overlay') closeModal(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !modal.classList.contains('hidden')) closeModal(); });
+    window.addEventListener('resize', function(){ if(window.innerWidth > 768 && modal && !modal.classList.contains('hidden')) closeModal(); });
+  })();
 </script>
 
 </body>
