@@ -150,7 +150,7 @@
     }
 
     /* Responsive Design - Mobile and Tablet Breakpoints */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .container {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -209,9 +209,9 @@
         align-items: center !important;
       }
 
-      /* Slightly shift hero section up on mobile only */
+      /* Slightly shift hero section down on mobile for better spacing */
       .hero-section {
-        margin-top: -28px !important;
+        margin-top: 10px !important;
       }
     }
 
@@ -251,44 +251,34 @@
       }
     }
 
-    /* Animation Styles */
-    /* Mobile Menu Animations - Controls slide-in/out and fade effects */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
+    /* Smooth Slide-in from right for the mobile menu */
+    .mobile-menu-reveal {
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+      visibility: hidden;
     }
 
-    @keyframes slideInRight {
-      from {
-        transform: translateX(100%);
-      }
-
-      to {
-        transform: translateX(0);
-      }
+    .mobile-menu-reveal.active {
+      transform: translateX(0);
+      visibility: visible;
     }
 
-    @keyframes slideOutRight {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(100%);
-      }
+    /* Transition for the hamburger spans */
+    .mobile-hamburger span {
+      transition: all 0.4s cubic-bezier(.4, 2, .6, 1);
     }
 
-    .mobile-menu-open {
-      animation: slideInRight 0.55s cubic-bezier(.77, 0, .18, 1) forwards;
+    .mobile-hamburger.active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
     }
 
-    .mobile-menu-close {
-      animation: slideOutRight 0.45s cubic-bezier(.77, 0, .18, 1) forwards;
+    .mobile-hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    .mobile-hamburger.active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
     }
 
     .fade-in {
@@ -296,7 +286,7 @@
     }
 
     /* Mobile-specific Animations and Transitions */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .fade-in-up-mobile {
         opacity: 0;
         transform: translateY(20px);
@@ -601,7 +591,7 @@
     }
 
     /* Mobile-only horizontal slider styles */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .hero-slider-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -695,9 +685,9 @@
 <body class="bg-white min-h-screen">
 
   <!-- Header Section - Fixed navigation bar with logo and menu -->
-  <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 border-b">
+  <header class="absolute top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 border-b">
     <!-- Main Navigation -->
-    <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="container mx-auto px-6 py-2 flex items-center justify-between relative">
       <!-- Logo and Brand Name -->
       <a href="https://dhanvarshsupremesolutions.com" class="flex items-center gap-4 group mobile-center-logo"
         style="text-decoration: none;">
@@ -709,12 +699,10 @@
         </div>
       </a>
       <!-- Desktop Navigation Menu - Hidden on mobile, visible on medium screens and up -->
-      <div class="hidden md:flex flex-row items-center gap-8">
+      <div class="hidden lg:flex flex-row items-center gap-8 absolute left-1/2 -translate-x-1/2">
         <a href="https://dhanvarshsupremesolutions.com"
           class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up">Home</a>
-        <a href="https://dhanvarshsupremesolutions.com/about"
-          class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up">About
-          Us</a>
+
         <div class="relative group fade-in-up">
           <a href="https://dhanvarshsupremesolutions.com/Services"
             class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all">Services</a>
@@ -940,41 +928,46 @@
 
           </div>
         </div>
+        <a href="https://dhanvarshsupremesolutions.com/about"
+          class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up">About</a>
         <a href="https://dhanvarshsupremesolutions.com/contact"
-          class="live-animated-contact bg-primary text-white px-6 py-2 rounded-button transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 fade-in-up">
-          <span class="relative z-20">Contact Us</span>
-        </a>
-        <style>
-          .live-animated-contact {
-            background: repeating-linear-gradient(120deg, #00C48C 0%, #0A2647 25%, #00C48C 50%, #43e97b 75%, #00C48C 100%);
-            background-size: 300% 100%;
-            animation: live-gradient-slide 4s linear infinite;
-            box-shadow: 0 4px 18px 0 #00c48c33;
-          }
-
-          .live-animated-contact span {
-            position: relative;
-            z-index: 2;
-          }
-
-          @keyframes live-gradient-slide {
-            0% {
-              background-position: 0% 50%;
-            }
-
-            100% {
-              background-position: 200% 50%;
-            }
-          }
-
-          .live-animated-contact:hover {
-            filter: brightness(1.08) saturate(1.2) drop-shadow(0 0 8px #00c48c44);
-            transform: scale(1.05);
-          }
-        </style>
+          class="text-gray-700 hover:text-emerald-500 transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 hover:after:w-full after:transition-all fade-in-up">Contact</a>
       </div>
+      <a href="tel:9152962655"
+        class="hidden lg:flex live-animated-contact bg-primary text-white px-6 py-2 rounded-button transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 fade-in-up">
+        <span class="relative z-20">Consult Now</span>
+      </a>
+      <style>
+        .live-animated-contact {
+          background: repeating-linear-gradient(120deg, #00C48C 0%, #0A2647 25%, #00C48C 50%, #43e97b 75%, #00C48C 100%);
+          background-size: 300% 100%;
+          animation: live-gradient-slide 4s linear infinite;
+          box-shadow: 0 4px 18px 0 #00c48c33;
+        }
+
+        .live-animated-contact span {
+          position: relative;
+          z-index: 2;
+        }
+
+        @keyframes live-gradient-slide {
+          0% {
+            background-position: 0% 50%;
+          }
+
+          100% {
+            background-position: 200% 50%;
+          }
+        }
+
+        .live-animated-contact:hover {
+          filter: brightness(1.08) saturate(1.2) drop-shadow(0 0 8px #00c48c44);
+          transform: scale(1.05);
+        }
+      </style>
+
       <!-- Mobile Menu Toggle Button -->
-      <button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
+      <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center" aria-label="Open menu">
         <span class="mobile-hamburger">
           <span></span>
           <span></span>
@@ -982,58 +975,43 @@
         </span>
       </button>
       <style>
-        @media (max-width: 768px) {
-          .mobile-hamburger {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            z-index: 51;
-          }
+        .mobile-hamburger {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          z-index: 110;
+          /* Ensure it stays above the side menu */
+          position: relative;
+        }
 
-          .mobile-hamburger span {
-            display: block;
-            width: 100%;
-            height: 2.2px;
-            margin: 2px 0;
-            background: #222;
-            border-radius: 2px;
-            transition: all 0.3s cubic-bezier(.4, 2, .6, 1);
-          }
-
-          .mobile-hamburger.active span:nth-child(1) {
-            transform: translateY(6px) rotate(45deg);
-          }
-
-          .mobile-hamburger.active span:nth-child(2) {
-            opacity: 0;
-          }
-
-          .mobile-hamburger.active span:nth-child(3) {
-            transform: translateY(-6px) rotate(-45deg);
-          }
+        .mobile-hamburger span {
+          display: block;
+          width: 100%;
+          height: 2.2px;
+          margin: 2px 0;
+          background: #222;
+          border-radius: 2px;
         }
       </style>
     </nav>
-    <!-- Mobile Slide-out Menu - Full screen overlay navigation for mobile devices -->
+    <!-- Mobile Slide-out Menu - Viewport-level -->
     <div id="mobileMenu"
-      class="fixed top-0 right-0 w-0 h-screen bg-white shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-in-out"
-      style="max-width: 100vw; height: 100vh;">
-      <div class="mobile-menu-header flex justify-between items-center p-6 border-b">
+      class="fixed top-0 right-0 w-full h-screen bg-white shadow-2xl z-[100] mobile-menu-reveal flex flex-col">
+      <div class="mobile-menu-header flex justify-between items-center p-6 border-b border-gray-100">
         <div class="mobile-menu-logo-wrapper w-full flex justify-center items-center">
           <a href="https://dhanvarshsupremesolutions.com" class="mobile-menu-logo-link" style="text-decoration: none;">
             <img
               src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/f0cacadc37605d53b47a805ef53eb0a4.png"
-              alt="Dhanvarsh Logo" class="mobile-menu-logo h-20 mx-auto">
+              alt="Dhanvarsh Logo" class="mobile-menu-logo h-16 mx-auto">
           </a>
         </div>
-        <!-- Removed closeMenuBtn for single toggle button UX -->
       </div>
       <style>
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .mobile-menu-header {
             justify-content: center !important;
             padding-bottom: 0.5rem !important;
@@ -1048,8 +1026,8 @@
           }
 
           .mobile-menu-logo {
-            height: 80px !important;
-            max-height: 100px;
+            height: 60px !important;
+            max-height: 80px;
             width: auto;
             display: block;
           }
@@ -1073,90 +1051,126 @@
       <div class="p-6 flex-1 overflow-y-auto">
         <div class="space-y-6 mobile-fade-parent" style="display: flex; flex-direction: column;">
           <a href="https://dhanvarshsupremesolutions.com"
-            class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors fade-in-up-mobile">Home</a>
-          <a href="about.html"
-            class="block text-lg font-medium text-gray-800 hover:text-primary transition-colors fade-in-up-mobile">About
-            Us</a>
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-medium text-gray-800 fade-in-up-mobile">Services</span>
-              <button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
+            class="group block text-lg font-medium text-gray-800 hover:text-primary transition-all duration-300 fade-in-up-mobile py-3 border-b border-gray-50 flex items-center gap-3">
+            <i class="ri-home-4-line text-xl text-gray-400 group-hover:text-primary transition-colors"></i>
+            Home
+          </a>
+
+          <div class="space-y-2 fade-in-up-mobile group">
+            <div class="flex items-center justify-between py-3 border-b border-gray-50">
+              <div class="flex items-center gap-3">
+                <i class="ri-briefcase-4-line text-xl text-gray-400 group-hover:text-primary transition-colors"></i>
+                <span
+                  class="text-lg font-medium text-gray-800 group-hover:text-primary transition-colors">Services</span>
+              </div>
+              <button
+                class="mobile-dropdown-toggle w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
                 <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
               </button>
             </div>
-            <div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
+            <div class="mobile-dropdown-content hidden pl-11 space-y-3 pt-2 bg-gray-50/50 rounded-lg">
               <!-- 1. Talent Acquisition & HR Services (with nested dropdown) -->
               <div class="space-y-2">
                 <div>
-                  <a href="https://dhanvarshsupremesolutions.com/strategic-talent-acquisition"
-                    class="block text-gray-700 hover:text-primary transition-colors">Talent Acquisition & HR
+                  <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
+                    class="block text-gray-700 hover:text-primary transition-colors font-medium">Talent Acquisition & HR
                     Services</a>
                 </div>
-                <div class="mobile-subdropdown-content hidden pl-4 space-y-2 pt-2">
-                  <a href="https://dhanvarshsupremesolutions.com/strategic-talent-acquisition"
-                    class="block text-gray-700 hover:text-primary transition-colors">Strategic Talent Acquisition</a>
-                  <a href="https://dhanvarshsupremesolutions.com/turnkey-recruitment"
-                    class="block text-gray-700 hover:text-primary transition-colors">Turnkey Recruitment (Bulk
+                <div class="mobile-subdropdown-content pl-2 space-y-2 pt-2 border-l-2 border-primary/20 ml-1">
+                  <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
+                    class="block text-gray-600 hover:text-primary transition-colors text-sm">Strategic Talent
+                    Acquisition</a>
+                  <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
+                    class="block text-gray-600 hover:text-primary transition-colors text-sm">Turnkey Recruitment (Bulk
                     Hiring)</a>
-                  <a href="https://dhanvarshsupremesolutions.com/interim-management"
-                    class="block text-gray-700 hover:text-primary transition-colors">Interim Management (Lateral
+                  <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
+                    class="block text-gray-600 hover:text-primary transition-colors text-sm">Interim Management (Lateral
                     Hiring)</a>
-                  <a href="https://dhanvarshsupremesolutions.com/background-verification"
-                    class="block text-gray-700 hover:text-primary transition-colors">Background Verification</a>
-                  <a href="https://dhanvarshsupremesolutions.com/payroll-management"
-                    class="block text-gray-700 hover:text-primary transition-colors">Payroll Management</a>
-                  <a href="https://dhanvarshsupremesolutions.com/ai-agent-implementation"
-                    class="block text-gray-700 hover:text-primary transition-colors">AI Agent Implementation</a>
+                  <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
+                    class="block text-gray-600 hover:text-primary transition-colors text-sm">Background Verification</a>
+                  <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
+                    class="block text-gray-600 hover:text-primary transition-colors text-sm">Payroll Management</a>
                 </div>
               </div>
               <!-- 2. Web & App Development -->
               <a href="https://dhanvarshsupremesolutions.com/digital-solutions"
-                class="block text-gray-700 hover:text-primary transition-colors">Web & App Development</a>
+                class="block text-gray-700 hover:text-primary transition-colors font-medium">Web & App Development</a>
               <!-- 3. Investment & Fund Management -->
               <a href="https://dhanvarshsupremesolutions.com/investment-services"
-                class="block text-gray-700 hover:text-primary transition-colors">Investment & Fund Management</a>
+                class="block text-gray-700 hover:text-primary transition-colors font-medium">Investment & Fund
+                Management</a>
             </div>
           </div>
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-medium text-gray-800 fade-in-up-mobile">Tools</span>
-              <button class="mobile-dropdown-toggle w-8 h-8 flex items-center justify-center">
+
+          <div class="space-y-2 fade-in-up-mobile group">
+            <div class="flex items-center justify-between py-3 border-b border-gray-50">
+              <div class="flex items-center gap-3">
+                <i class="ri-tools-line text-xl text-gray-400 group-hover:text-primary transition-colors"></i>
+                <span class="text-lg font-medium text-gray-800 group-hover:text-primary transition-colors">Tools</span>
+              </div>
+              <button
+                class="mobile-dropdown-toggle w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
                 <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
               </button>
             </div>
-            <div class="mobile-dropdown-content hidden pl-4 space-y-3 pt-2">
+            <div class="mobile-dropdown-content hidden pl-11 space-y-3 pt-2 bg-gray-50/50 rounded-lg">
               <a href="https://dhanvarshsupremesolutions.com/free-resume-maker"
                 class="block text-gray-700 hover:text-primary transition-colors">Professional Resume Maker</a>
               <a href="https://dhanvarshsupremesolutions.com/free-pdf-editor"
                 class="block text-gray-700 hover:text-primary transition-colors">PDF Editor</a>
             </div>
           </div>
+
+          <a href="https://dhanvarshsupremesolutions.com/about"
+            class="group block text-lg font-medium text-gray-800 hover:text-primary transition-all duration-300 fade-in-up-mobile py-3 border-b border-gray-50 flex items-center gap-3">
+            <i class="ri-team-line text-xl text-gray-400 group-hover:text-primary transition-colors"></i>
+            About
+          </a>
+
           <a href="https://dhanvarshsupremesolutions.com/contact"
-            class="live-animated-contact bg-primary text-white px-6 py-2 rounded-button transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 fade-in-up-mobile block text-center w-full"
-            id="mobileContactBtn"><span class="relative z-20">Contact Us</span></a>
+            class="group block text-lg font-medium text-gray-800 hover:text-primary transition-all duration-300 fade-in-up-mobile py-3 border-b border-gray-50 flex items-center gap-3">
+            <i class="ri-phone-line text-xl text-gray-400 group-hover:text-primary transition-colors"></i>
+            Contact
+          </a>
         </div>
       </div>
+
+      <!-- Sticky/Properly Positioned Consult Now Button at Bottom -->
+      <div class="p-6 border-t bg-gray-50/80 backdrop-blur-md">
+        <a href="tel:9152962655"
+          class="live-animated-contact bg-primary text-white px-6 py-4 rounded-xl transition-all whitespace-nowrap cursor-pointer relative overflow-hidden z-10 block text-center w-full shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1"
+          id="mobileContactBtn">
+          <span class="relative z-20 font-bold tracking-wide text-lg flex items-center justify-center gap-2">
+            <i class="ri-customer-service-2-fill text-xl"></i>
+            Consult Now
+          </span>
+        </a>
+      </div>
     </div>
-    <div id="menuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+    <div id="menuOverlay"
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
         const mobileMenu = document.getElementById("mobileMenu");
         const menuOverlay = document.getElementById("menuOverlay");
         const dropdownToggles = document.querySelectorAll(".mobile-dropdown-toggle");
         const mobileContactBtn = document.getElementById("mobileContactBtn");
-        // Open mobile menu
-        mobileMenuBtn.addEventListener("click", function () {
-          const isOpen = mobileMenu.classList.contains("mobile-menu-open");
-          const fadeLinks = mobileMenu.querySelectorAll('.fade-in-up-mobile, .text-lg.font-medium.text-gray-800.fade-in-up-mobile');
+        // Open/Close mobile menu via hamburger
+        mobileMenuBtn && mobileMenuBtn.addEventListener("click", function () {
+          const isOpen = mobileMenu.classList.contains("active");
+          const hamburger = this.querySelector(".mobile-hamburger");
+
           if (!isOpen) {
-            mobileMenu.style.width = "100vw";
-            menuOverlay.classList.remove("hidden");
+            mobileMenu.classList.add("active");
+            hamburger.classList.add("active");
+            document.body.classList.add("mobile-menu-active");
+            menuOverlay.classList.remove("opacity-0", "pointer-events-none");
+            menuOverlay.classList.add("opacity-100");
             document.body.style.overflow = "hidden";
-            mobileMenu.classList.add("mobile-menu-open");
-            mobileMenu.classList.remove("mobile-menu-close");
-            document.querySelector('.mobile-hamburger').classList.add('active');
-            // Animate links in after menu is fully open
+            const fadeLinks = mobileMenu.querySelectorAll('.fade-in-up-mobile');
             setTimeout(() => {
               fadeLinks.forEach((el, i) => {
                 setTimeout(() => {
@@ -1165,39 +1179,34 @@
               });
             }, 300);
           } else {
-            mobileMenu.classList.remove("mobile-menu-open");
-            mobileMenu.classList.add("mobile-menu-close");
-            // Animate links out
-            fadeLinks.forEach((el) => {
-              el.classList.remove('visible');
-            });
-            setTimeout(() => {
-              mobileMenu.style.width = "0";
-              menuOverlay.classList.add("hidden");
-              document.body.style.overflow = "";
-            }, 300);
-            document.querySelector('.mobile-hamburger').classList.remove('active');
+            closeMenu();
           }
         });
+
         // Close mobile menu
         function closeMenu() {
-          mobileMenu.classList.remove("mobile-menu-open");
-          mobileMenu.classList.add("mobile-menu-close");
+          mobileMenu.classList.remove("active");
+          const hamburger = mobileMenuBtn.querySelector(".mobile-hamburger");
+          hamburger.classList.remove("active");
+          document.body.classList.remove("mobile-menu-active");
+
+          // Start fading out overlay and links immediately
+          menuOverlay.classList.remove("opacity-100");
+          menuOverlay.classList.add("opacity-0", "pointer-events-none");
+          mobileMenu.querySelectorAll('.fade-in-up-mobile').forEach(el => el.classList.remove('visible'));
+
           setTimeout(() => {
-            mobileMenu.style.width = "0";
-            menuOverlay.classList.add("hidden");
             document.body.style.overflow = "";
-          }, 300);
+          }, 400);
         }
+
+        // Add event listener for close button (if still exists in any case, but we use hamburger)
+        if (closeMenuBtn) {
+          closeMenuBtn.addEventListener("click", closeMenu);
+        }
+
         menuOverlay.addEventListener("click", function () {
-          mobileMenu.classList.remove("mobile-menu-open");
-          mobileMenu.classList.add("mobile-menu-close");
-          setTimeout(() => {
-            mobileMenu.style.width = "0";
-            menuOverlay.classList.add("hidden");
-            document.body.style.overflow = "";
-          }, 300);
-          document.querySelector('.mobile-hamburger').classList.remove('active');
+          closeMenu();
         });
         // Mobile contact button
         if (mobileContactBtn) {
@@ -1266,7 +1275,7 @@
   <!-- /////////////////////////////////////////////////////////////////////// -->
 
   <!-- Main Content Area -->
-  <main class="pt-20">
+  <main class="pt-16">
     <!-- Hero Section - Main landing area with animated text and image slider -->
     <section class="relative overflow-hidden hero-section">
       <!-- Dot Pattern Background -->
@@ -1274,20 +1283,20 @@
         style="background-image: radial-gradient(circle, rgb(212 212 212) 1px, transparent 1px); background-size: 16px 16px;">
       </div>
       <div
-        class="container mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[80vh] items-center relative z-20">
+        class="container mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 min-h-[80vh] items-center relative z-20">
         <!-- Hero Left Column - Text Content -->
-        <div class="flex flex-col self-start -mt-2 md:-mt-4">
+        <div class="flex flex-col self-start -mt-2 lg:-mt-4">
           <!-- Tag Line with Animation -->
           <span
             class="animate-scale-in animate-stagger-1 border-2 border-primary/30 bg-primary/10 text-primary px-4 py-1 rounded-full text-sm inline-block w-fit hero-badge">Dhanvarsh
             Supreme Solutions</span>
           <!-- Mobile-only font sizing for hero title -->
           <style>
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
               .hero-title {
                 font-size: 3rem !important;
                 line-height: 1.15 !important;
-                margin-top: 0.5rem !important;
+                margin-top: 2rem !important;
               }
 
               .hero-subtitle {
@@ -1343,7 +1352,7 @@
             @media (max-width: 640px) {
               .hero-title {
                 font-size: 2.45rem !important;
-                margin-top: 1rem !important;
+                margin-top: 2.5rem !important;
               }
 
               .hero-subtitle {
@@ -1375,11 +1384,11 @@
             }
           </style>
           <h1
-            class="animate-on-scroll animate-stagger-2 hero-title text-[64px] md:text-7xl font-extrabold mt-6 text-emerald-600 leading-tight">
+            class="animate-on-scroll animate-stagger-2 hero-title text-[64px] lg:text-7xl font-extrabold mt-6 text-emerald-600 leading-tight">
             Empowering Your Business Growth
           </h1>
           <h2
-            class="animate-slide-left animate-stagger-3 hero-subtitle text-3xl md:text-4xl text-[#0A2647] mt-4 tracking-wide">
+            class="animate-slide-left animate-stagger-3 hero-subtitle text-3xl lg:text-4xl text-[#0A2647] mt-4 tracking-wide">
             By offering expert solutions in
           </h2>
           <h3
@@ -1401,10 +1410,32 @@
                     class="w-full object-cover rounded-lg mb-4" alt="HR Services">
                   <img src="https://public.readdy.ai/ai/img_res/ef3f00a2423e068a030295d5b0be043c.jpg"
                     class="w-full object-cover rounded-lg" alt="HR Services">
+                  <!-- Duplicated set for seamless loop -->
+                  <img src="https://public.readdy.ai/ai/img_res/1156ab6f1e49b8bece3cfd3f22ff21a2.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/878ed40677031c9c30b7f866bc7440e5.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/aff249a4cfbed48deaa470031eb1dd15.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/0badd4786dd466c8adcb76bd34f9355f.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/ef3f00a2423e068a030295d5b0be043c.jpg"
+                    class="w-full object-cover rounded-lg" alt="HR Services">
                 </div>
               </div>
               <div class="slider-container">
                 <div class="slider-track slide-down mt-6">
+                  <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/286584fe8ff7309a398c839f4b09ebad.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/7663f3930407cedd04c3f5b6f44346c9.jpg"
+                    class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                  <img src="https://public.readdy.ai/ai/img_res/f46bec96688542c10d523f53b50383a9.jpg"
+                    class="w-full object-cover rounded-lg" alt="HR Services">
+                  <!-- Duplicated set for seamless loop -->
                   <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg"
                     class="w-full object-cover rounded-lg mb-4" alt="HR Services">
                   <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg"
@@ -1522,20 +1553,15 @@
             Partner with us to transform your vision into reality.
           </p>
           <div class="animate-scale-in animate-stagger-6 relative mt-10 hero-cta">
-            <button id="getStartedBtn" class="brutalist-button">
+            <a href="#elevating-business" class="brutalist-button scroll-link">
               <div class="button-text">
                 <span>Get Started</span>
               </div>
-            </button>
-            <div id="optionsMenu" class="hidden absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-10">
-              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">As Employer</a>
-              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary">As Job Seeker</a>
-            </div>
+            </a>
           </div>
         </div>
-        <!-- Hero Right Column - Image Slider -->
         <div
-          class="animate-slide-right animate-stagger-2 relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-50/50 h-[750px] -mt-20 pt-2 z-10 hero-slider-desktop">
+          class="animate-slide-right animate-stagger-2 relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-50/50 h-[850px] -mt-20 pt-2 z-10 hero-slider-desktop lg:block hidden">
           <!-- Two Column Image Grid with Sliding Animation -->
           <div class="grid grid-cols-2 gap-4 h-full hero-slider-grid">
             <div class="slider-container">
@@ -1550,10 +1576,32 @@
                   class="w-full object-cover rounded-lg mb-4" alt="HR Services">
                 <img src="https://public.readdy.ai/ai/img_res/ef3f00a2423e068a030295d5b0be043c.jpg"
                   class="w-full object-cover rounded-lg" alt="HR Services">
+                <!-- Duplicated set for seamless vertical loop -->
+                <img src="https://public.readdy.ai/ai/img_res/1156ab6f1e49b8bece3cfd3f22ff21a2.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/878ed40677031c9c30b7f866bc7440e5.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/aff249a4cfbed48deaa470031eb1dd15.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/0badd4786dd466c8adcb76bd34f9355f.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/ef3f00a2423e068a030295d5b0be043c.jpg"
+                  class="w-full object-cover rounded-lg" alt="HR Services">
               </div>
             </div>
             <div class="slider-container">
               <div class="slider-track slide-down mt-6">
+                <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/286584fe8ff7309a398c839f4b09ebad.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/7663f3930407cedd04c3f5b6f44346c9.jpg"
+                  class="w-full object-cover rounded-lg mb-4" alt="HR Services">
+                <img src="https://public.readdy.ai/ai/img_res/f46bec96688542c10d523f53b50383a9.jpg"
+                  class="w-full object-cover rounded-lg" alt="HR Services">
+                <!-- Duplicated set for seamless vertical loop -->
                 <img src="https://public.readdy.ai/ai/img_res/db74fca75bf4a3cd94ff181d5b6ac352.jpg"
                   class="w-full object-cover rounded-lg mb-4" alt="HR Services">
                 <img src="https://public.readdy.ai/ai/img_res/6bd211a95da3cc77e258a756bb7fda9d.jpg"
@@ -1621,30 +1669,22 @@
     </script>
 
     <script>
-      document.getElementById("getStartedBtn").addEventListener("click", function (e) {
-        // Mobile: open modal instead of desktop dropdown
-        if (window.innerWidth <= 768) {
+      // Smooth scroll for scroll-link class
+      document.querySelectorAll('.scroll-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
           e.preventDefault();
-          const modal = document.getElementById("getStartedModal");
-          if (modal) {
-            modal.classList.remove("hidden");
-            document.body.style.overflow = "hidden";
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
           }
-          return;
-        }
-        // Desktop: toggle existing small dropdown
-        const menu = document.getElementById("optionsMenu");
-        menu.classList.toggle("hidden");
-      });
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("optionsMenu");
-        const btn = document.getElementById("getStartedBtn");
-        if (!menu.contains(event.target) && !btn.contains(event.target)) {
-          menu.classList.add("hidden");
-        }
+        });
       });
     </script>
-    <section class="relative overflow-hidden py-20 pt-10 mt-[-80px] elevate-section">
+    <section id="elevating-business" class="relative overflow-hidden py-20 pt-10 mt-[-80px] elevate-section">
       <style>
         /* Size adjustments for "Elevating Business Potential" section */
         .elevate-section h2 {
@@ -2117,8 +2157,16 @@
     <style>
       /* Size adjustments for Services cards */
       /* Further reduce overall card footprint */
+      .service-content .grid>div.bg-white {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
       .service-content .p-8 {
         padding: 1.25rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-grow: 1 !important;
       }
 
       .service-content .w-16 {
@@ -2126,22 +2174,52 @@
         height: 3rem !important;
       }
 
-      .service-content h3 {
+      .service-content h3,
+      .service-content h4 {
         font-size: 1.25rem !important;
       }
 
       .service-content p {
         font-size: 1rem !important;
+        flex-grow: 1 !important;
+        margin-bottom: 0 !important;
       }
 
       .service-content a.inline-flex {
         padding: 0.55rem 1.25rem !important;
         font-size: 0.95rem !important;
+        margin-top: 1.5rem !important;
+        width: fit-content !important;
+        align-self: flex-start !important;
       }
 
       /* Reduce spacing between cards */
       .service-content .grid {
         gap: 1rem !important;
+      }
+
+      /* AI Tools card alignment for tablet/desktop */
+      @media (min-width: 768px) {
+        .tools-grid>div {
+          display: flex !important;
+          flex-direction: column !important;
+        }
+
+        .tools-grid .p-8 {
+          display: flex !important;
+          flex-direction: column !important;
+          flex-grow: 1 !important;
+        }
+
+        .tools-grid p {
+          flex-grow: 1 !important;
+          margin-bottom: 1.5rem !important;
+        }
+
+        .tools-grid a {
+          align-self: flex-start !important;
+          margin-top: auto !important;
+        }
       }
 
       /* --- Call Now button animations --- */
@@ -2910,7 +2988,7 @@
             <p class="animate-fade-in animate-stagger-3 mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Explore our
               collection of tools designed to help you in your career journey and HR management.</p>
           </div>
-          <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 tools-grid max-w-4xl mx-auto">
             <div
               class="animate-on-scroll animate-stagger-4 bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
               <div
@@ -2924,23 +3002,6 @@
               <p class="text-gray-600 mb-6">Create a professional resume in minutes with our easy-to-use builder. Free
                 to use!</p>
               <a href="https://dhanvarshsupremesolutions.com/tools/resume-maker"
-                class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium rounded-full group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
-                Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
-              </a>
-            </div>
-            <div
-              class="animate-on-scroll animate-stagger-5 bg-white rounded-xl p-8 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative hover:scale-105">
-              <div
-                class="absolute left-0 top-0 h-0 w-1 bg-gradient-to-b from-blue-500 to-blue-400 transition-all duration-300 group-hover:h-full">
-              </div>
-              <div
-                class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
-                <i class="ri-file-edit-line text-blue-500 text-3xl group-hover:scale-110 transition-transform"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-4">PDF Editor</h3>
-              <p class="text-gray-600 mb-6">Edit, annotate, and organize your PDF files with our comprehensive tool.
-                Free to use!</p>
-              <a href="https://dhanvarshsupremesolutions.com/tools/pdf-editor"
                 class="inline-flex items-center px-6 py-3 bg-white text-blue-500 border border-blue-500 font-medium rounded-full group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
                 Try Now <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>
               </a>
@@ -2994,18 +3055,16 @@
                   /* 160px */
                 }
 
-                /* Larger logo images */
                 .client-slider img {
+                  display: block !important;
+                  width: auto !important;
                   max-height: 140px;
                 }
 
-                /* Specific size for EOS Globe logo */
-                .logo-eos {
-                  max-height: 64px !important;
-                }
-
-                .logo-slide {
-                  flex-shrink: 0;
+                .client-slider>div {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: center !important;
                 }
 
                 /* Remove marquee animation */
@@ -3054,35 +3113,26 @@
                   width: 2rem !important;
                 }
 
-                /* Mobile-only: force horizontal sliding (no wrap) */
-                @media (max-width: 768px) {
+                /* Mobile & Tablet: force horizontal sliding (no wrap) */
+                @media (max-width: 1024px) {
 
                   /* override earlier mobile rules that wrapped the logos */
                   .client-slider {
                     flex-wrap: nowrap !important;
-                    gap: 1.25rem !important;
-                    /* tighter gap on mobile */
+                    gap: 2rem !important;
                   }
 
                   .client-slider>div {
-                    width: 120px !important;
-                    /* fixed width for consistent spacing */
-                    height: 72px !important;
-                    /* uniform container height */
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    flex: 0 0 120px !important;
-                    /* prevent shrinking/wrapping with fixed width */
+                    width: 140px !important;
+                    height: 80px !important;
+                    flex: 0 0 140px !important;
                   }
 
                   .client-slider img {
-                    height: 56px !important;
-                    /* same visible size for all logos */
+                    height: 60px !important;
                     width: auto !important;
                     max-height: none !important;
                     margin: 0 !important;
-                    /* neutralize per-logo margins */
                     object-fit: contain !important;
                   }
 
@@ -3121,10 +3171,11 @@
 
                   #logoCarousel {
                     animation: mobileLogoSlide 25s linear infinite !important;
+                    -webkit-animation: mobileLogoSlide 25s linear infinite !important;
                     will-change: transform;
                     width: max-content !important;
-                    /* Allow full width for all logos */
                     display: flex !important;
+                    background: transparent !important;
                   }
                 }
               </style>
@@ -3135,91 +3186,90 @@
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/245810001193fe3659cc5ded0c2b485a.png"
                       alt="Shaadi.com" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/c4c2bbf796e5cdfeeacdaaed5f40ec24.jpeg"
                       alt="Hexaware" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/282b5135af99b78908a1c22bc9b3b3b5.jpeg"
                       alt="EOS Globe" class="object-contain hover:scale-105 transition-transform logo-eos"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/63e74a55eb00bd3c0ad8d523987c9edd.png"
                       alt="Trident Group" class="max-h-28 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/gorxwe3zrxdl89scot31s/236092550_4349217158450164_5582884404527820614_n.png?rlkey=x1q1n7rxk6f8x5gt3wysbvabw&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/gorxwe3zrxdl89scot31s/236092550_4349217158450164_5582884404527820614_n.png?rlkey=x1q1n7rxk6f8x5gt3wysbvabw&raw=1"
                       alt="Turtlemint" class="max-h-28 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/da4l4z2ly9sok76y148br/Screenshot-2025-07-09-172134.png?rlkey=h1r1qrfc3ytust9jbyallipsn&raw=1"
-                      alt="New Client Logo"
-                      class="max-h-28 object-cover object-left hover:scale-105 transition-transform mt-2" loading="lazy"
-                      style="clip-path: inset(0 12% 0 0);">
+                      src="https://dl.dropboxusercontent.com/scl/fi/da4l4z2ly9sok76y148br/Screenshot-2025-07-09-172134.png?rlkey=h1r1qrfc3ytust9jbyallipsn&raw=1"
+                      alt="New Client Logo" class="max-h-28 object-contain hover:scale-105 transition-transform mt-2"
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/vfog2w3l6klc7bihj9a2a/download-4.png?rlkey=slmo35564gaue9jtry9mumakg&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/vfog2w3l6klc7bihj9a2a/download-4.png?rlkey=slmo35564gaue9jtry9mumakg&raw=1"
                       alt="New Client Logo 2" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/2k17chbcnqe0vc2ozeck7/1732258488212.jpeg?rlkey=1kthb54df644pdq5vfp2mmt87&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/2k17chbcnqe0vc2ozeck7/1732258488212.jpeg?rlkey=1kthb54df644pdq5vfp2mmt87&raw=1"
                       alt="Digitide" class="max-h-36 object-contain hover:scale-105 transition-transform mt-4"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/gfv3nu4pvplay893yunw2/download.jpeg?rlkey=hxd5ztnbu4db8i6cwy72co17f&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/gfv3nu4pvplay893yunw2/download.jpeg?rlkey=hxd5ztnbu4db8i6cwy72co17f&raw=1"
                       alt="New Client Logo 4" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/a23s4yobt7iipb0c5hz5o/images.png?rlkey=5xahnjc25p49wg0r5g7vz9dz6&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/a23s4yobt7iipb0c5hz5o/images.png?rlkey=5xahnjc25p49wg0r5g7vz9dz6&raw=1"
                       alt="New Client Logo 5" class="max-h-36 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/gwkfae7l9y41bra1xq57k/download-3.png?rlkey=jhjeecb2kpso81dyvfnftjjsa&raw=1"
-                      alt="Athena" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+                      src="https://dl.dropboxusercontent.com/scl/fi/gwkfae7l9y41bra1xq57k/download-3.png?rlkey=jhjeecb2kpso81dyvfnftjjsa&raw=1"
+                      alt="Athena" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/y9uuljwpcxbl9bxza46wf/download-2.png?rlkey=buqbsy57l610nxba7xjbuaidi&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/y9uuljwpcxbl9bxza46wf/download-2.png?rlkey=buqbsy57l610nxba7xjbuaidi&raw=1"
                       alt="New Client Logo 7" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/30jutke4gm3ybaidqhuyx/utrqxssuuwjrb5gcuyhu.webp?rlkey=idyiy7c8t172nztrycjoy9kys&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/30jutke4gm3ybaidqhuyx/utrqxssuuwjrb5gcuyhu.webp?rlkey=idyiy7c8t172nztrycjoy9kys&raw=1"
                       alt="New Client Logo 8" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/o8i72q2ox5zdc9y4rpym6/download-3.jpeg?rlkey=e24mrvhi2zaqm4u6ez7dunjir&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/o8i72q2ox5zdc9y4rpym6/download-3.jpeg?rlkey=e24mrvhi2zaqm4u6ez7dunjir&raw=1"
                       alt="New Client Logo 9" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/2sgxlc2118htmhxm6k14h/download-4.jpeg?rlkey=wdc6gn8fwcuesfpk3j6ru4coj&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/2sgxlc2118htmhxm6k14h/download-4.jpeg?rlkey=wdc6gn8fwcuesfpk3j6ru4coj&raw=1"
                       alt="New Client Logo 10" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
 
                   <!-- Slides will loop via JavaScript, duplicate set removed -->
@@ -3227,91 +3277,90 @@
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/245810001193fe3659cc5ded0c2b485a.png"
                       alt="Shaadi.com" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/c4c2bbf796e5cdfeeacdaaed5f40ec24.jpeg"
                       alt="Hexaware" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/282b5135af99b78908a1c22bc9b3b3b5.jpeg"
                       alt="EOS Globe" class="object-contain hover:scale-105 transition-transform logo-eos"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
                       src="https://static.readdy.ai/image/5a841f8b99975c715cb4c4b59d69f7af/63e74a55eb00bd3c0ad8d523987c9edd.png"
                       alt="Trident Group" class="max-h-28 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/gorxwe3zrxdl89scot31s/236092550_4349217158450164_5582884404527820614_n.png?rlkey=x1q1n7rxk6f8x5gt3wysbvabw&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/gorxwe3zrxdl89scot31s/236092550_4349217158450164_5582884404527820614_n.png?rlkey=x1q1n7rxk6f8x5gt3wysbvabw&raw=1"
                       alt="Turtlemint" class="max-h-28 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/da4l4z2ly9sok76y148br/Screenshot-2025-07-09-172134.png?rlkey=h1r1qrfc3ytust9jbyallipsn&raw=1"
-                      alt="New Client Logo"
-                      class="max-h-28 object-cover object-left hover:scale-105 transition-transform mt-2" loading="lazy"
-                      style="clip-path: inset(0 12% 0 0);">
+                      src="https://dl.dropboxusercontent.com/scl/fi/da4l4z2ly9sok76y148br/Screenshot-2025-07-09-172134.png?rlkey=h1r1qrfc3ytust9jbyallipsn&raw=1"
+                      alt="New Client Logo" class="max-h-28 object-contain hover:scale-105 transition-transform mt-2"
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/vfog2w3l6klc7bihj9a2a/download-4.png?rlkey=slmo35564gaue9jtry9mumakg&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/vfog2w3l6klc7bihj9a2a/download-4.png?rlkey=slmo35564gaue9jtry9mumakg&raw=1"
                       alt="New Client Logo 2" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/2k17chbcnqe0vc2ozeck7/1732258488212.jpeg?rlkey=1kthb54df644pdq5vfp2mmt87&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/2k17chbcnqe0vc2ozeck7/1732258488212.jpeg?rlkey=1kthb54df644pdq5vfp2mmt87&raw=1"
                       alt="Digitide" class="max-h-36 object-contain hover:scale-105 transition-transform mt-4"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/gfv3nu4pvplay893yunw2/download.jpeg?rlkey=hxd5ztnbu4db8i6cwy72co17f&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/gfv3nu4pvplay893yunw2/download.jpeg?rlkey=hxd5ztnbu4db8i6cwy72co17f&raw=1"
                       alt="New Client Logo 4" class="max-h-16 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/a23s4yobt7iipb0c5hz5o/images.png?rlkey=5xahnjc25p49wg0r5g7vz9dz6&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/a23s4yobt7iipb0c5hz5o/images.png?rlkey=5xahnjc25p49wg0r5g7vz9dz6&raw=1"
                       alt="New Client Logo 5" class="max-h-36 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/gwkfae7l9y41bra1xq57k/download-3.png?rlkey=jhjeecb2kpso81dyvfnftjjsa&raw=1"
-                      alt="Athena" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="lazy">
+                      src="https://dl.dropboxusercontent.com/scl/fi/gwkfae7l9y41bra1xq57k/download-3.png?rlkey=jhjeecb2kpso81dyvfnftjjsa&raw=1"
+                      alt="Athena" class="max-h-20 object-contain hover:scale-105 transition-transform" loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/y9uuljwpcxbl9bxza46wf/download-2.png?rlkey=buqbsy57l610nxba7xjbuaidi&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/y9uuljwpcxbl9bxza46wf/download-2.png?rlkey=buqbsy57l610nxba7xjbuaidi&raw=1"
                       alt="New Client Logo 7" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/30jutke4gm3ybaidqhuyx/utrqxssuuwjrb5gcuyhu.webp?rlkey=idyiy7c8t172nztrycjoy9kys&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/30jutke4gm3ybaidqhuyx/utrqxssuuwjrb5gcuyhu.webp?rlkey=idyiy7c8t172nztrycjoy9kys&raw=1"
                       alt="New Client Logo 8" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/o8i72q2ox5zdc9y4rpym6/download-3.jpeg?rlkey=e24mrvhi2zaqm4u6ez7dunjir&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/o8i72q2ox5zdc9y4rpym6/download-3.jpeg?rlkey=e24mrvhi2zaqm4u6ez7dunjir&raw=1"
                       alt="New Client Logo 9" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                   <div class="flex-shrink-0 w-60 h-32 flex items-center justify-center">
                     <img
-                      src="https://www.dropbox.com/scl/fi/2sgxlc2118htmhxm6k14h/download-4.jpeg?rlkey=wdc6gn8fwcuesfpk3j6ru4coj&raw=1"
+                      src="https://dl.dropboxusercontent.com/scl/fi/2sgxlc2118htmhxm6k14h/download-4.jpeg?rlkey=wdc6gn8fwcuesfpk3j6ru4coj&raw=1"
                       alt="New Client Logo 10" class="max-h-20 object-contain hover:scale-105 transition-transform"
-                      loading="lazy">
+                      loading="eager">
                   </div>
                 </div>
                 <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
@@ -3975,21 +4024,25 @@
               </div>
             </div>
           </div>
-          <section class="bg-white py-1 mt-48">
+          <section class="bg-white py-1 mt-20 lg:mt-48">
             <div class="container mx-auto px-6">
+              <!-- Centered Badge (Matching FAQ Section Style) -->
+              <div class="text-center">
+                <div
+                  class="inline-flex items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group relative z-10 overflow-visible">
+                  <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
+                    <span class="relative flex h-3 w-3 mr-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                    </span>
+                    <span class="text-sm font-medium text-white whitespace-nowrap">Get In Touch</span>
+                  </div>
+                </div>
+              </div>
+
               <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <div class="fade-in-up">
-                  <div
-                    class="flex w-fit items-center mb-6 px-1 py-1 bg-gradient-to-r from-primary via-blue-500 to-emerald-500 rounded-full shadow-lg group -mt-4 md:-mt-32 mx-auto md:mx-0 md:ml-[41rem] relative z-10 overflow-visible">
-                    <div class="flex items-center bg-black px-6 py-2 rounded-full border border-white/5">
-                      <span class="relative flex h-3 w-3 mr-2">
-                        <span
-                          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                      </span>
-                      <span class="text-sm font-medium text-white whitespace-nowrap">Get In Touch</span>
-                    </div>
-                  </div>
                   <p class="mt-4 text-xl text-gray-600">Have questions or need assistance? Our team is here to help.
                     Reach out to us and we'll respond as soon as possible.</p>
                   <div class="mt-12 space-y-8">
@@ -4010,9 +4063,9 @@
                       <div>
                         <h3 class="text-xl font-semibold text-gray-900">Email Us</h3>
                         <a href="mailto:Business@dhanvarshsupremesolutions.com"
-                          class="text-gray-600 mt-1 hover:text-primary transition-colors block">Business@dhanvarshsupremesolutions.com</a>
+                          class="text-gray-600 mt-1 hover:text-primary transition-colors block text-[13px] sm:text-base">Business@dhanvarshsupremesolutions.com</a>
                         <a href="mailto:Support@dhanvarshsupremesolutions.com"
-                          class="text-gray-600 mt-1 hover:text-primary transition-colors block">Support@dhanvarshsupremesolutions.com</a>
+                          class="text-gray-600 mt-1 hover:text-primary transition-colors block text-[13px] sm:text-base">Support@dhanvarshsupremesolutions.com</a>
                       </div>
                     </div>
                     <div class="flex items-start gap-4 group hover:-translate-y-1 transition-transform duration-300">
@@ -4030,13 +4083,13 @@
                   </div>
                 </div>
                 <div
-                  class="bg-white rounded-xl shadow-xl p-6 scale-in mt-8 md:mt-16 mb-12 md:mb-0 shine-border relative overflow-hidden w-full max-w-none md:max-w-lg mx-auto md:ml-auto">
+                  class="bg-white rounded-xl shadow-xl p-6 scale-in mt-8 md:mt-12 lg:mt-16 mb-12 md:mb-0 shine-border relative overflow-hidden w-full max-w-none md:max-w-lg mx-auto lg:ml-auto">
                   <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
                   <form id="contactForm" class="space-y-4 compact-form" method="POST"
                     action="https://formsubmit.co/Hr@dhanvarshsupremesolutions.com">
                     <input type="hidden" name="_next" value="https://dhanvarshsupremesolutions.com/thank-you.html">
                     <input type="hidden" name="_captcha" value="false">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                       <div>
                         <label class="block text-gray-700 mb-2">First Name</label>
                         <input type="text" name="first_name" required
@@ -4081,7 +4134,7 @@
           </section>
   </main>
   <footer
-    class="relative bg-white text-gray-900 pt-14 pb-8 md:pb-12 overflow-hidden -mt-24 md:-mt-32 z-20 border-t border-gray-300">
+    class="relative bg-white text-gray-900 pt-14 pb-8 lg:pb-12 overflow-hidden -mt-24 lg:-mt-32 z-20 border-t border-gray-300">
     <!-- Decorative top wave -->
     <div class="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
       <svg class="relative block w-[calc(100%+1.3px)] h-16" preserveAspectRatio="none" viewBox="0 0 1200 120">
@@ -4095,24 +4148,10 @@
 
 
     <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 mb-5 md:mb-20 footer-links-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 mb-5 lg:mb-20 footer-links-grid">
         <style>
-          @media (max-width: 768px) {
-            .col-span-4 {
-              grid-column: span 12;
-            }
-
-            .col-span-2 {
-              grid-column: span 6;
-            }
-
-            .col-span-3 {
-              grid-column: span 6;
-            }
-          }
-
-          /* Mobile layout: show Quick Links and Services side by side */
-          @media (max-width: 640px) {
+          /* Tablet & Mobile layout: show Quick Links and Services side by side */
+          @media (max-width: 1024px) {
             .footer-links-grid {
               grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -4121,22 +4160,20 @@
               grid-column: span 2 !important;
             }
 
-            /* Brand block full width */
+            /* Quick Links half width */
             .col-span-2 {
               grid-column: span 1 !important;
             }
 
-            /* Quick Links half width */
+            /* Services half width */
             .animate-on-scroll.col-span-3 {
               grid-column: span 1 !important;
             }
 
-            /* Services half width */
+            /* Contact Us full width */
             .animate-slide-right.col-span-3 {
               grid-column: span 2 !important;
             }
-
-            /* Contact Us full width */
           }
         </style>
         <div class="animate-slide-left animate-stagger-1 col-span-4 space-y-6">
@@ -4229,18 +4266,18 @@
         </div>
       </div>
       <div
-        class="border-t border-gray-300 pt-5 md:pt-8 flex flex-col md:flex md:flex-row md:justify-between md:items-center text-sm text-center space-y-4 md:space-y-0">
-        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 order-1 md:order-2 mb-3 md:mb-0">
+        class="border-t border-gray-300 pt-5 lg:pt-8 flex flex-col lg:flex lg:flex-row lg:justify-between lg:items-center text-sm text-center space-y-4 lg:space-y-0">
+        <div class="flex flex-wrap justify-center items-center gap-4 lg:gap-6 order-1 lg:order-2 mb-3 lg:mb-0">
           <a href="https://dhanvarshsupremesolutions.com/policies/Privacy-policy"
             class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
-          <span class="text-gray-400 select-none md:hidden">|</span>
+          <span class="text-gray-400 select-none lg:hidden">|</span>
           <a href="https://dhanvarshsupremesolutions.com/policies/service-policy"
             class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
           <a href="https://dhanvarshsupremesolutions.com/policies/refund-policy"
-            class="text-gray-600 hover:text-primary transition-colors w-full md:w-auto mt-1 md:mt-0">Refund Policy</a>
+            class="text-gray-600 hover:text-primary transition-colors w-full lg:w-auto mt-1 lg:mt-0">Refund Policy</a>
         </div>
-        <div class="h-px bg-gray-300 w-full md:hidden order-2"></div>
-        <p class="text-gray-600 order-3 md:order-1 whitespace-nowrap text-[13px] md:text-sm mt-3 md:mt-0">&copy; 2025
+        <div class="h-px bg-gray-300 w-full lg:hidden order-2"></div>
+        <p class="text-gray-600 order-3 lg:order-1 whitespace-nowrap text-[13px] lg:text-sm mt-3 lg:mt-0">&copy; 2026
           Dhanvarsh Supreme Solutions. All rights reserved.</p>
       </div>
     </div>
@@ -4357,8 +4394,8 @@
   <script>
     // Smooth continuous logo carousel
     document.addEventListener('DOMContentLoaded', () => {
-      // Run JS carousel only on desktop; mobile uses CSS animation
-      if (window.innerWidth <= 768) return;
+      // Run JS carousel only on desktop; mobile/tablet uses CSS animation
+      if (window.innerWidth <= 1024) return;
       const carousel = document.getElementById('logoCarousel');
       if (!carousel) return;
       const speed = 1.2; // px per frame (faster desktop speed)
@@ -4448,47 +4485,8 @@
     });
   </script>
 
-  <!-- Get Started Modal (Mobile Only) -->
-  <div id="getStartedModal" class="fixed inset-0 z-[60] hidden md:hidden">
-    <div class="absolute inset-0 bg-black/50" data-close="overlay"></div>
-    <div
-      class="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 shadow-2xl max-h-[80vh] md:max-h-none overflow-y-auto">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-xl font-semibold text-gray-900">Get Started</h3>
-        <button id="closeGetStartedModal" aria-label="Close"
-          class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600"><i
-            class="ri-close-line text-xl"></i></button>
-      </div>
-      <div class="space-y-3">
-        <a href="https://dhanvarshsupremesolutions.com/recruitment-services"
-          class="block px-4 py-3 rounded-lg border border-gray-200 text-gray-800 hover:bg-primary/10 hover:text-primary">Talent
-          Acquisition & HR Services</a>
-        <a href="https://dhanvarshsupremesolutions.com/digital-solutions"
-          class="block px-4 py-3 rounded-lg border border-gray-200 text-gray-800 hover:bg-primary/10 hover:text-primary">Web
-          & App Development</a>
-        <a href="https://dhanvarshsupremesolutions.com/investment-services"
-          class="block px-4 py-3 rounded-lg border border-gray-200 text-gray-800 hover:bg-primary/10 hover:text-primary">Investment
-          & Fund Management</a>
-      </div>
-    </div>
 
-  </div>
-  <script>
-    // Mobile modal close logic
-    (function () {
-      const modal = document.getElementById('getStartedModal');
-      const closeBtn = document.getElementById('closeGetStartedModal');
-      if (!modal) return;
-      function closeModal() {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
-      }
-      closeBtn && closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', function (e) { if (e.target.dataset.close === 'overlay') closeModal(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
-      window.addEventListener('resize', function () { if (window.innerWidth > 768 && modal && !modal.classList.contains('hidden')) closeModal(); });
-    })();
-  </script>
+
 
 </body>
 
